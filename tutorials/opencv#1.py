@@ -3,7 +3,8 @@ import cv2
 #i = "israel_national_water.png"
 i = "blistered_date.jpg"
 
-img = cv2.imread('assets/'+i, -1)
+img = cv2.imread('C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\'+i, -1)
+# img = cv2.imread('assets\\'+i, -1)
 
 # img = cv2.resize(img, (800,800))
 # img = cv2.resize(img, (0,0), fx=2, fy=2) 

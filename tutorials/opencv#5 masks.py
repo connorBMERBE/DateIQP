@@ -17,7 +17,7 @@ while True:
     mask = cv2.inRange(hsv_img, lower_blue, upper_blue) # true or false (white or black) if a pixel is within range
 
     result = cv2.bitwise_and(frame, frame, mask=mask) # comparing first 2 arguments (frame vs frame in this case) # where frame overlaps with itself having blue pixels 
-l
+
     cv2.imshow('myframe', result) 
     
     if cv2.waitKey(1) == ord('q'): # waits 1 millisecond, if "q" key pressed within that time, breaks look 

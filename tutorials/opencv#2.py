@@ -2,7 +2,7 @@ import cv2
 import numpy
 import random
 
-img = cv2.imread("assets/blistered_date.jpg")
+img = cv2.imread("C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\blistered_date.jpg")
 
 
 img = cv2.resize(img, (800,800))
