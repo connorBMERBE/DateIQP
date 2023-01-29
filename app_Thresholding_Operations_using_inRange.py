@@ -82,7 +82,7 @@ while True:
     frame = cv.imread("C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\blistered_date.jpg")
     frame = cv.resize(frame, (800,800))
     
-    if frame is None:
+    if frame is None: 
         break
     frame_HSV = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     frame_threshold = cv.inRange(frame_HSV, (low_H, low_S, low_V), (high_H, high_S, high_V))
