@@ -2,10 +2,12 @@ import cv2
 import numpy
 import random
 
+# img = cv2.imread("C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\blistered_date.jpg")
 img = cv2.imread("C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\blistered_date.jpg")
 
 img = cv2.resize(img, (800,800))
 print(img.shape)
+
 # (4032, 3024, 3)
 # height width channels 
 # channels are the color space, how many values are representing each pixel color  (BGR)
