@@ -22,11 +22,8 @@ while True:
     
     if cv2.waitKey(1) == ord('q'): # waits 1 millisecond, if "q" key pressed within that time, breaks look 
         break 
-    
+
 cap.release() 
 cv2.destroyAllWindows() 
 
 
-
-# def bgrtohsv(bgr):
-#     # [255, 0, 0]

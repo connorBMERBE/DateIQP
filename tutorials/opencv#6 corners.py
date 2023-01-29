@@ -14,7 +14,6 @@ for corner in corners:
     x,y = corner.ravel() 
     cv2.circle(img, (x,y), 5, (255, 0, 0), -1) 
 
-
 cv2.imshow("Frame", img) 
 cv2.waitKey(0) 
 cv2.destroyAllWindows() 

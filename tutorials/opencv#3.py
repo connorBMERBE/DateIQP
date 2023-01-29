@@ -3,7 +3,6 @@ import numpy as np
 
 cap = cv2.VideoCapture(0) # 0 for each webcam connected to this device 
 
-
 while True: 
     ret, frame = cap.read() # return is boolean that webcam is available to use, frame is video 
     
