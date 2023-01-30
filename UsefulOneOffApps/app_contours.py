@@ -8,7 +8,9 @@ frameHeight = 800
 
 totalImgArea = frameWidth * frameHeight
 
+
 image = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
+
 image = cv2.resize(image, (frameWidth,frameHeight))
 # image = image[300:500, 300:500] # crop to just the date
 
