@@ -1,7 +1,7 @@
 # https://www.youtube.com/watch?v=Fchzk1lDt7Q
 
 import cv2
-import numpy as np
+import numpy as np 
 
 frameWidth = 800
 frameHeight = 800
@@ -18,8 +18,8 @@ cv2.namedWindow("Result2", cv2.WINDOW_NORMAL)
 cv2.namedWindow("Result3", cv2.WINDOW_NORMAL)
 
 cv2.resizeWindow("Parameters",640,240)
-cv2.createTrackbar("threshold1","Parameters",120,255,lambda _:_)
-cv2.createTrackbar("threshold2","Parameters",130,255,lambda _:_) # initial value, max value
+cv2.createTrackbar("threshold1","Parameters",85,300,lambda _:_)
+cv2.createTrackbar("threshold2","Parameters",255,300,lambda _:_) # initial value, max value
 cv2.createTrackbar("MaxArea","Parameters",int(totalImgArea/16),totalImgArea, lambda _:_)
 cv2.createTrackbar("MinArea","Parameters",5000,totalImgArea, lambda _:_)
 
@@ -30,7 +30,7 @@ def getContours(img, imgContour): #first is input img to detect contours, second
     
     # - removing excess contours (12:00) 
     for cnt in contours: 
-        area = cv2.contourArea(cnt)
+        area = cv2.contourArea(cnt) 
         
         areaMax = cv2.getTrackbarPos("MaxArea","Parameters")
         areaMin = cv2.getTrackbarPos("MinArea","Parameters")
@@ -39,19 +39,17 @@ def getContours(img, imgContour): #first is input img to detect contours, second
             cv2.drawContours(imgContour, cnt, -1, (255, 0, 255), 7)
             
             # draw perimeter 
-            peri = cv2.arcLength(cnt, True) # True being that the contour is closed
+            peri = cv2.arcLength(cnt, True) # True being that the contour is closed 
             approx = cv2.approxPolyDP(cnt, 0.02 * peri, True) # True still closed contours  # using approx, we determine the shape of the object. (Square, triangle, etc) 
-            print(len(approx)) 
             
             # -  bounding box (15:30)
             x, y, w, h = cv2.boundingRect(approx)
             cv2.rectangle(imgContour, (x, y), (x+w,y+h), (0,255, 0), 5)
-
-            cv2.putText(imgContour, "Points: " + str(len(approx)), (x+w+20, y+20), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
-            cv2.putText(imgContour,   "Area: " + str(len(approx)), (x+w+20, y+45), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
             
-
-
+            cv2.putText(imgContour,  "Perimeter: " + str(peri), (x+w+20, y+20), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
+            cv2.putText(imgContour,       "Area: " + str(area), (x+w+20, y+45), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
+            cv2.putText(imgContour, "Approx Len: " + str(len(approx)), (x+w+20, y+70), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
+            
 
 
 def main ():
@@ -63,7 +61,7 @@ def main ():
     
     # - canny edge detector 
     threshold1 = cv2.getTrackbarPos("threshold1","Parameters")
-    threshold2 = cv2.getTrackbarPos("threshold2","Parameters")
+    threshold2 = cv2.getTrackbarPos("threshold2","Parameters") 
     imgCanny = cv2.Canny(imgGray, threshold1, threshold2)
     
     # - removing nouse from Canny edges (6:00 min) # use a dialation function, use a kernal 
@@ -75,7 +73,7 @@ def main ():
     getContours(imgDil, imgContour)
         
     
-    return cv2.hconcat([img,imgBlur]), imgDil, imgContour
+    return img, imgDil, imgContour
 
 
 # -- setup complete 
