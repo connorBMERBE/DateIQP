@@ -32,7 +32,7 @@ def click_event(event, x, y, flags, params):
 if __name__=="__main__":
 
     # while True: 
-    img = cv2.imread(".\\ImageAssets\\blistered_date.JPG")
+    img = cv2.imread("DateIQP\\ImageAssets\\blistered_date.JPG")
     img = cv2.resize(img, (800,800))
     cv2.imshow('image', img)
     cv2.setMouseCallback('image', click_event)
