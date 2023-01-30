@@ -8,7 +8,7 @@ frameHeight = 800
 
 totalImgArea = frameWidth * frameHeight
 
-image = cv2.imread("C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\blistered_date.jpg")
+image = cv2.imread(".\\ImageAssets\\blistered_date.JPG")
 image = cv2.resize(image, (frameWidth,frameHeight))
 # image = image[300:500, 300:500] # crop to just the date
 

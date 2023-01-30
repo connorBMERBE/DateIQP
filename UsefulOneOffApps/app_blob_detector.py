@@ -3,7 +3,7 @@ import cv2
 import numpy as np;
  
 # Read image
-im = cv2.imread("C:\\Workspace\\Projects\\DatesProject\\DateIQP\\tutorials\\assets\\normal_date.jpg") # cv2.IMREAD_GRAYSCALE
+im = cv2.imread(".\\ImageAssets\\normal_date.JPG") # cv2.IMREAD_GRAYSCALE
 im = cv2.resize(im, (800,800))
 
 
