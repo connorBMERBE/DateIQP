@@ -1,5 +1,4 @@
 # https://www.youtube.com/watch?v=Fchzk1lDt7Q
-
 import cv2
 import numpy as np 
 
@@ -8,9 +7,7 @@ frameHeight = 800
 
 totalImgArea = frameWidth * frameHeight
 
-
 image = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-
 image = cv2.resize(image, (frameWidth,frameHeight))
 # image = image[300:500, 300:500] # crop to just the date
 
@@ -52,7 +49,6 @@ def getContours(img, imgContour): #first is input img to detect contours, second
             cv2.putText(imgContour,       "Area: " + str(area), (x+w+20, y+45), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
             cv2.putText(imgContour, "Approx Len: " + str(len(approx)), (x+w+20, y+70), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2)
             
-
 
 def main ():
     img = image 
