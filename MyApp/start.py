@@ -1,9 +1,8 @@
 class IsolateDate: 
-    def __init__(self, image, display_huh):
-        self.image = image
+    def __init__(self, display_huh=True):
         self.display_huh = display_huh
         
-        self.all_interim_images = [image]
+        self.all_interim_images = []
     
         cv2.namedWindow("Parameters",cv2.WINDOW_NORMAL)
         cv2.resizeWindow("Parameters",640,240)
@@ -12,7 +11,9 @@ class IsolateDate:
         cv2.createTrackbar("threshold2","Parameters",255,300,lambda _:_) # initial value, max value        
         cv2.createTrackbar("MaxArea","Parameters",40_000,1_000_000, lambda _:_)
         cv2.createTrackbar("MinArea","Parameters",5000,1_000_000, lambda _:_) 
-
+    
+    def initialize_parameters(self):
+        # -- setup 
         # self.t1 = 85
         # self.t2 = 255
         self.t1 = cv2.getTrackbarPos("threshold1","Parameters")
@@ -22,9 +23,13 @@ class IsolateDate:
         # self.areaMin = 5_000 
         self.areaMax = cv2.getTrackbarPos("MaxArea","Parameters")
         self.areaMin = cv2.getTrackbarPos("MinArea","Parameters")
+             
         
-    def contour_method(self): 
-        img = self.image 
+    def contour_method(self, img): 
+
+        self.initialize_parameters()
+
+        self.image = img 
 
         # - here is blur and then convert to greyscale
         imgBlur = cv2.GaussianBlur(img, (7,7), 1)
@@ -56,6 +61,11 @@ class IsolateDate:
             area = cv2.contourArea(cnt)
             
             if self.areaMax > area > self.areaMin: # 100 pixels? 
+                
+                # --- isolateme! 
+                
+                
+                # --- drawme! 
                 cv2.drawContours(imgContour, cnt, -1, (255, 0, 255), 7) 
                 
                 # draw perimeter 
@@ -70,12 +80,32 @@ class IsolateDate:
                 cv2.putText(imgContour,       "Area: " + str(area), (x+w+20, y+45), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2) 
                 cv2.putText(imgContour, "Approx Len: " + str(len(approx)), (x+w+20, y+70), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2) 
         
-        print('returning me')
         return imgContour 
         # return just_the_date_image 
+        
+        
+        # check this out for image contouring heierachy help, can potentially determine the closed contours 
+        # https://docs.opencv.org/4.x/d9/d8b/tutorial_py_contours_hierarchy.html
     
-    def image_subtraction_method(): 
-        pass
+    def image_subtraction_method(self, img, blank_address): 
+        self.image = img
+        # Load in the images from the file:
+        control=cv2.imread(blank_address) #blank image of tray (control variable)
+        control = cv2.resize(control, self.image.shape[0:2]) # resize to shape of self.image
+           
+        sub=cv2.subtract(control,self.image) #Creating the mask # subtraction of empty tray from date on tray to isolate date
+        
+        sub = cv2.cvtColor(sub,cv2.COLOR_BGR2GRAY) #makes subtraction grayscale to create a mask
+        black = np.array([15]) #lower bound
+        white = np.array([255]) #upper bound (there is no upper bound)
+        mask = cv2.inRange(sub, black, white) # true or false (white or black) if a pixel is within range
+        result = cv2.bitwise_and(self.image, self.image, mask=mask) # only shows pixels within the mask range in test image for result
+
+        return result 
+    
+    def both(self, img, blank_address):
+        self.image = img
+        return self.contour_method(self.image_subtraction_method(img, blank_address))
 
 # --- 
 
@@ -83,15 +113,20 @@ import cv2
 import numpy as np
 
 # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
-img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-# img = cv2.imread(".\\..\\ImageAssets\\Juicy\\Juicy1.JPG")
+# img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
+img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
+
+blank_address = ".\\..\\ImageAssets\\blank.jpg"
 
 img = cv2.resize(img, (800,800)) 
-ID = IsolateDate(img, display_huh=True) 
+ID = IsolateDate() 
 
 # ---- call main and cleanup 
 while True: 
-    just_the_date_image = ID.contour_method() 
+    # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
+    # just_the_date_image = ID.contour_method(img) 
+    just_the_date_image = ID.both(img, blank_address)
+
     cv2.imshow("Results", just_the_date_image) 
     key = cv2.waitKey(30) 
     if key == ord('q') or key == 27:
