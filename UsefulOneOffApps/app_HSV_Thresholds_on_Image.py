@@ -79,7 +79,7 @@ cv.createTrackbar(high_V_name, window_controls_name , high_V, max_value, on_high
 while True:
     
     # ret, frame = cap.read()
-    frame = cv.imread(".\\..\\ImageAssets\\date.JPG")
+    frame = cv.imread(".\\..\\ImageAssets\\subtraction\\full.JPG")
     frame = cv.resize(frame, (800,800))
     
     if frame is None: 
