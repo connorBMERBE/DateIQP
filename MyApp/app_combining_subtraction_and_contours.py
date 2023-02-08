@@ -27,6 +27,7 @@ class IsolateDate:
         
     def contour_method(self, img): 
 
+        # ---------- preprocessing
         self.initialize_parameters()
 
         self.image = img 
@@ -42,46 +43,23 @@ class IsolateDate:
         kernel = np.ones((5,5)) 
         imgDil = cv2.dilate(imgCanny, kernel, iterations=1) # dialation 
         
-        # ---------------------------------
-        # - getContours(imgDil, imgContour)
+        # ---------- postprocessing
+        # - Get Contours 
         contours, hierarchy = cv2.findContours(imgDil, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
         
-        # - getting the actual contour 
-        imgContour = img.copy() # where to write with contours
-        
-        # - filtering countours - removing excess contours (12:00)
-        # def filterme(): 
-        #     within_area = self.areaMax > area > self.areaMin
-        #     return within_area
-        
-        # filter(filterme, contours)
-        
         # - removing excess contours (12:00) 
+        filtered_contours = []
         for cnt in contours: 
-            area = cv2.contourArea(cnt)
-            
-            if self.areaMax > area > self.areaMin: # 100 pixels? 
-                
-                # --- isolateme! 
-                
-                
-                # --- drawme! 
-                cv2.drawContours(imgContour, cnt, -1, (255, 0, 255), 7) 
-                
-                # draw perimeter 
-                peri = cv2.arcLength(cnt, True) # True being that the contour is closed 
-                approx = cv2.approxPolyDP(cnt, 0.02 * peri, True) # True still closed contours  # using approx, we determine the shape of the object. (Square, triangle, etc) 
-                
-                # -  bounding box (15:30) 
-                x, y, w, h = cv2.boundingRect(approx) 
-                cv2.rectangle(imgContour, (x, y), (x+w,y+h), (0,255, 0), 5) 
-                
-                cv2.putText(imgContour,  "Perimeter: " + str(peri), (x+w+20, y+20), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2) 
-                cv2.putText(imgContour,       "Area: " + str(area), (x+w+20, y+45), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2) 
-                cv2.putText(imgContour, "Approx Len: " + str(len(approx)), (x+w+20, y+70), cv2.FONT_HERSHEY_COMPLEX,0.7, (0,255,0), 2) 
+            if self.areaMax > cv2.contourArea(cnt) > self.areaMin: # 100 pixels? 
+                filtered_contours.append(cnt)
         
-        return imgContour 
-        # return just_the_date_image 
+        # - create mask from contours and isolate pixels     
+        mask = np.zeros(imgDil.shape, np.uint8)
+        cv2.drawContours(mask, filtered_contours, -1, (255,255,255), -1 )        
+        # return mask
+        
+        just_the_date_image = cv2.bitwise_and(img, img, mask=mask)
+        return just_the_date_image 
         
         
         # check this out for image contouring heierachy help, can potentially determine the closed contours 
@@ -113,22 +91,22 @@ import cv2
 import numpy as np
 
 # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
-# img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
+img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
 
 # img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
 # blank_address = ".\\..\\ImageAssets\\blank.jpg"
 
-img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
-blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
+# img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
+# blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
 
 img = cv2.resize(img, (800,800)) 
 ID = IsolateDate() 
 
 # ---- call main and cleanup 
 while True: 
-    # just_the_date_image = ID.contour_method(img) 
+    just_the_date_image = ID.contour_method(img) 
     # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
-    just_the_date_image = ID.both(img, blank_address)
+    # just_the_date_image = ID.both(img, blank_address)
 
     cv2.imshow("Results", just_the_date_image) 
     key = cv2.waitKey(30) 
