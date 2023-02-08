@@ -57,13 +57,13 @@ while True:
 
     try:
         contours, hierarchy = cv.findContours(frame, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
-        print(contours)
+        print(contours) 
         cv.drawContours(frame_threshold, contours, 0, (0,255,0), 3)
     except:
         pass
 
     cv.imshow(window_capture_name, frame)
-    cv.imshow(window_detection_name, frame_threshold)
+    # cv.imshow(window_detection_name, frame_threshold)
     
     key = cv.waitKey(30)
     if key == ord('q') or key == 27:
