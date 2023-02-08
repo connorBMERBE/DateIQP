@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Feb  8 12:05:43 2023
+
+@author: matth
+"""
+
+Image Simlification through binarization in OpenCV
+https://medium.com/analytics-vidhya/image-simplification-through-binarization-in-opencv-1292d91cae12
+
+
+Contours and Convex Hulls in OpenCV
+https://medium.com/analytics-vidhya/contours-and-convex-hull-in-opencv-python-d7503f6651bc
+
+
+
+
+
+# check this out for image contouring heierachy help, can potentially determine the closed contours 
+# https://docs.opencv.org/4.x/d9/d8b/tutorial_py_contours_hierarchy.html
+
+
