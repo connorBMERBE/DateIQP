@@ -114,17 +114,20 @@ import numpy as np
 
 # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
 # img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
 
-blank_address = ".\\..\\ImageAssets\\blank.jpg"
+# img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
+# blank_address = ".\\..\\ImageAssets\\blank.jpg"
+
+img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
+blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
 
 img = cv2.resize(img, (800,800)) 
 ID = IsolateDate() 
 
 # ---- call main and cleanup 
 while True: 
-    # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
     # just_the_date_image = ID.contour_method(img) 
+    # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
     just_the_date_image = ID.both(img, blank_address)
 
     cv2.imshow("Results", just_the_date_image) 

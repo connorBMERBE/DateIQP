@@ -34,15 +34,17 @@ cv.createTrackbar(high_S_name, window_controls_name , high_S, max_value, lambda 
 cv.createTrackbar(low_V_name, window_controls_name , low_V, max_value, lambda _:_)
 cv.createTrackbar(high_V_name, window_controls_name , high_V, max_value, lambda _:_)
 
+# slider for images 
+imagefilepaths = [".\\..\\ImageAssets\\subtraction\\full.JPG", ".\\..\\ImageAssets\\subtraction\\empty.JPG"]
+cv.createTrackbar("image_selector", window_controls_name, 0, len(imagefilepaths)-1, lambda _:_)
 
+
+# start running program 
 while True:
     
-    # ret, frame = cap.read()
-    frame = cv.imread(".\\..\\ImageAssets\\subtraction\\full.JPG")
+    frame = cv.imread(imagefilepaths[cv.getTrackbarPos("image_selector", window_controls_name)])
     frame = cv.resize(frame, (800,800))
-    
-    if frame is None: 
-        break
+
     frame_HSV = cv.cvtColor(frame, cv.COLOR_BGR2HSV)
     frame_threshold = cv.inRange(frame_HSV, 
                                  (cv.getTrackbarPos(low_H_name, window_controls_name), 
@@ -51,7 +53,15 @@ while True:
                                  (cv.getTrackbarPos(high_H_name, window_controls_name), 
                                   cv.getTrackbarPos(high_S_name, window_controls_name), 
                                   cv.getTrackbarPos(high_V_name, window_controls_name)))
-    
+
+
+    try:
+        contours, hierarchy = cv.findContours(frame, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_NONE)
+        print(contours)
+        cv.drawContours(frame_threshold, contours, 0, (0,255,0), 3)
+    except:
+        pass
+
     cv.imshow(window_capture_name, frame)
     cv.imshow(window_detection_name, frame_threshold)
     
