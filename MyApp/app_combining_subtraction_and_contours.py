@@ -1,17 +1,14 @@
+import cv2 
+import numpy as np
+import os 
+import sys
+
 class IsolateDate: 
     def __init__(self, display_huh=True):
         self.display_huh = display_huh
         
         self.all_interim_images = []
-    
-        cv2.namedWindow("Parameters",cv2.WINDOW_NORMAL)
-        cv2.resizeWindow("Parameters",640,240)
         
-        cv2.createTrackbar("threshold1","Parameters",85,300,lambda _:_)
-        cv2.createTrackbar("threshold2","Parameters",255,300,lambda _:_) # initial value, max value        
-        cv2.createTrackbar("MaxArea","Parameters",40_000,1_000_000, lambda _:_)
-        cv2.createTrackbar("MinArea","Parameters",5000,1_000_000, lambda _:_) 
-    
     def initialize_parameters(self):
         # -- setup 
         # self.t1 = 85
@@ -23,8 +20,7 @@ class IsolateDate:
         # self.areaMin = 5_000 
         self.areaMax = cv2.getTrackbarPos("MaxArea","Parameters")
         self.areaMin = cv2.getTrackbarPos("MinArea","Parameters")
-             
-        
+                 
     def contour_method(self, img): 
 
         # ---------- preprocessing
@@ -34,10 +30,10 @@ class IsolateDate:
 
         # - here is blur and then convert to greyscale
         imgBlur = cv2.GaussianBlur(img, (7,7), 1)
-        imgGray = cv2.cvtColor(imgBlur, cv2.COLOR_RGB2GRAY)
-        
+
         # - canny edge detector  
-        imgCanny = cv2.Canny(imgGray, self.t1, self.t2)
+        imgCanny = cv2.Canny(imgBlur, self.t1, self.t2)
+        # return imgCanny
         
         # - removing nouse from Canny edges (6:00 min) # use a dialation function, use a kernal 
         kernel = np.ones((5,5)) 
@@ -61,10 +57,6 @@ class IsolateDate:
         just_the_date_image = cv2.bitwise_and(img, img, mask=mask)
         return just_the_date_image 
         
-        
-        # check this out for image contouring heierachy help, can potentially determine the closed contours 
-        # https://docs.opencv.org/4.x/d9/d8b/tutorial_py_contours_hierarchy.html
-    
     def image_subtraction_method(self, img, blank_address): 
         self.image = img
         # Load in the images from the file:
@@ -85,32 +77,54 @@ class IsolateDate:
         self.image = img
         return self.contour_method(self.image_subtraction_method(img, blank_address))
 
-# --- 
+def main():
+    # - create window environment
+    cv2.namedWindow("Parameters",cv2.WINDOW_NORMAL)
+    cv2.resizeWindow("Parameters",640,240)
+    
+    cv2.createTrackbar("threshold1","Parameters",85,300,lambda _:_)
+    cv2.createTrackbar("threshold2","Parameters",255,300,lambda _:_) # initial value, max value        
+    cv2.createTrackbar("MaxArea","Parameters",40_000,1_000_000, lambda _:_)
+    cv2.createTrackbar("MinArea","Parameters",5000,1_000_000, lambda _:_)
+    
+    # - load images 
+    blank_address = ".\\..\\ImageAssets\\Empty\\Empty1.jpg"
+    
+    # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
+    # img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
+    
+    # img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
+    # blank_address = ".\\..\\ImageAssets\\blank.jpg"
+    
+    # img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
+    # blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
+    
+    imdir = '.\\..\\ImageAssets\\'
+    files = os.listdir(imdir)
+    image_paths = list(
+        map(lambda filename: imdir+filename, 
+            filter(
+                lambda filename: filename.endswith(('.jpg','.JPG')), files)
+            )
+        )
+    
+    cv2.createTrackbar("Image","Parameters",0,len(image_paths)-1, lambda _:_)
+    
+    # ---- do the program 
+    ID = IsolateDate() 
 
-import cv2 
-import numpy as np
+    while True: 
+        img = cv2.imread(image_paths[cv2.getTrackbarPos("Image","Parameters")])
+        img = cv2.resize(img, (800,800)) 
+        
+        # just_the_date_image = ID.contour_method(img) 
+        # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
+        just_the_date_image = ID.both(img, blank_address)
+    
+        cv2.imshow("Results", just_the_date_image) 
+        key = cv2.waitKey(30) 
+        if key == ord('q') or key == 27:
+            break
+    cv2.destroyAllWindows()
 
-# img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
-img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-
-# img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
-# blank_address = ".\\..\\ImageAssets\\blank.jpg"
-
-# img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
-# blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
-
-img = cv2.resize(img, (800,800)) 
-ID = IsolateDate() 
-
-# ---- call main and cleanup 
-while True: 
-    just_the_date_image = ID.contour_method(img) 
-    # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
-    # just_the_date_image = ID.both(img, blank_address)
-
-    cv2.imshow("Results", just_the_date_image) 
-    key = cv2.waitKey(30) 
-    if key == ord('q') or key == 27:
-        break
-cv2.destroyAllWindows()
-
+main()
