@@ -1,6 +1,7 @@
 import numpy as np
 import cv2
-import glob
+import os
+import random as rand
 
 
 ## takes in an HSV image and returns a numpy array [average_Hue, average_Saturation, average_Value] 
@@ -17,7 +18,7 @@ def averageHSV(img):
             hue = item[0]
             sat = item[1]
             val = item[2]
-            if not val:
+            if val:
                 count += 1
                 avg_hue += hue
                 avg_sat += sat
@@ -32,13 +33,31 @@ def averageHSV(img):
 ## where average_Hue is the average hue of every non-black pixel in the image, 
 ## average_Saturation is the average saturation of every non-black pixel in the image, 
 ## average_value is the average value of every non-black pixel in the image
-def file_AverageHSV(filepath, labelsArr):
+def file_AverageHSV(filepath, weightLabels, classLabels):
     labeled_avgs = []
     count = 0
-    imgs = glob.glob(filepath, *.jpg, recursive = False)
-    for img in filepath:
-        labeled_avgs = np.append(labeled_avgs, np.append(averageHSV(img), count), axis = 0)
-        count += 1
-    return labeled_avgs
+    files = os.listdir(filepath)
+    for file in files:
+        if file.endswith(('.jpg')):
+            theImg = cv2.imread(filepath + file)
+            theImg = cv2.cvtColor(theImg, cv2.COLOR_BGR2HSV)
+            curr_avg = averageHSV(theImg)
+            curr_avg.append(count)
+            curr_avg.append(weightLabels[count])
+            curr_avg.append(classLabels[count])
+            #print(curr_avg)
+            labeled_avgs.append(curr_avg)
+            count += 1
+    print(labeled_avgs)
+    #return labeled_avgs
 
+cLRand = []
+wLRand = []
+i = 0
+while i < 8:
+    cLRand.append(rand.randint(1,6))
+    wLRand.append(rand.randint(1,20))
+    i = i+1
 
+file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",wLRand,cLRand)
+    
