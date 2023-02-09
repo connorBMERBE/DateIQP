@@ -4,10 +4,8 @@ import os
 import sys
 
 class IsolateDate: 
-    def __init__(self, display_huh=True):
-        self.display_huh = display_huh
-        
-        self.all_interim_images = []
+    def __init__(self):       
+        pass
         
     def initialize_parameters(self):
         # -- setup 
@@ -77,6 +75,11 @@ class IsolateDate:
         self.image = img
         return self.contour_method(self.image_subtraction_method(img, blank_address))
 
+    def bounding_mask_pixels(self, img):
+        self.image = img 
+        
+        
+
 def main():
     # - create window environment
     cv2.namedWindow("Parameters",cv2.WINDOW_NORMAL)
@@ -89,15 +92,6 @@ def main():
     
     # - load images 
     blank_address = ".\\..\\ImageAssets\\Empty\\Empty1.jpg"
-    
-    # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
-    # img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-    
-    # img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
-    # blank_address = ".\\..\\ImageAssets\\blank.jpg"
-    
-    # img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
-    # blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
     
     imdir = '.\\..\\ImageAssets\\'
     files = os.listdir(imdir)
@@ -119,7 +113,8 @@ def main():
         
         # just_the_date_image = ID.contour_method(img) 
         # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
-        just_the_date_image = ID.both(img, blank_address)
+        # just_the_date_image = ID.both(img, blank_address)
+        just_the_date_image = ID.bounding_mask_pixels(img) 
     
         cv2.imshow("Results", just_the_date_image) 
         key = cv2.waitKey(30) 
