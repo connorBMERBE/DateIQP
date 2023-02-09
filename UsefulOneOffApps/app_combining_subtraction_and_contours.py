@@ -4,10 +4,8 @@ import os
 import sys
 
 class IsolateDate: 
-    def __init__(self, display_huh=True):
-        self.display_huh = display_huh
-        
-        self.all_interim_images = []
+    def __init__(self):       
+        pass
         
     def initialize_parameters(self):
         # -- setup 
@@ -21,7 +19,7 @@ class IsolateDate:
         self.areaMax = cv2.getTrackbarPos("MaxArea","Parameters")
         self.areaMin = cv2.getTrackbarPos("MinArea","Parameters")
                  
-    def contour_method(self, img): 
+    def contour_method(self, img, return_mask_huh=True): 
 
         # ---------- preprocessing
         self.initialize_parameters()
@@ -52,10 +50,12 @@ class IsolateDate:
         # - create mask from contours and isolate pixels     
         mask = np.zeros(imgDil.shape, np.uint8)
         cv2.drawContours(mask, filtered_contours, -1, (255,255,255), -1 )        
-        # return mask
         
-        just_the_date_image = cv2.bitwise_and(img, img, mask=mask)
-        return just_the_date_image 
+        if return_mask_huh:
+            return mask
+        else: 
+            just_the_date_image = cv2.bitwise_and(img, img, mask=mask)
+            return just_the_date_image 
         
     def image_subtraction_method(self, img, blank_address): 
         self.image = img
@@ -75,7 +75,8 @@ class IsolateDate:
     
     def both(self, img, blank_address):
         self.image = img
-        return self.contour_method(self.image_subtraction_method(img, blank_address))
+        return self.contour_method(self.image_subtraction_method(img, blank_address), return_mask_huh=False)
+        
 
 def main():
     # - create window environment
@@ -90,16 +91,7 @@ def main():
     # - load images 
     blank_address = ".\\..\\ImageAssets\\Empty\\Empty1.jpg"
     
-    # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
-    # img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-    
-    # img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
-    # blank_address = ".\\..\\ImageAssets\\blank.jpg"
-    
-    # img = cv2.imread(".\\..\\ImageAssets\\subtraction\\full.jpg")
-    # blank_address = ".\\..\\ImageAssets\\subtraction\\empty.jpg"
-    
-    imdir = '.\\..\\ImageAssets\\'
+    imdir = '.\\..\\ImageAssets\\Juicy\\'
     files = os.listdir(imdir)
     image_paths = list(
         map(lambda filename: imdir+filename, 
@@ -118,9 +110,12 @@ def main():
         img = cv2.resize(img, (800,800)) 
         
         # just_the_date_image = ID.contour_method(img) 
-        # just_the_date_image = ID.image_subtraction_method(img, blank_address) 
-        just_the_date_image = ID.both(img, blank_address)
-    
+        # just_the_date_image = ID.both(img, blank_address)
+
+        just_the_date_image = ID.image_subtraction_method(img, blank_address) 
+        mask = ID.contour_method(just_the_date_image)
+        just_the_date_image = cv2.bitwise_and(img, img, mask=mask)
+
         cv2.imshow("Results", just_the_date_image) 
         key = cv2.waitKey(30) 
         if key == ord('q') or key == 27:

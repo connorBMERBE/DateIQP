@@ -20,3 +20,8 @@ https://medium.com/analytics-vidhya/contours-and-convex-hull-in-opencv-python-d7
 # https://docs.opencv.org/4.x/d9/d8b/tutorial_py_contours_hierarchy.html
 
 
+
+
+
+VERY useful morphology function, ANY kind of processing on binary images can be done with this 
+https://docs.opencv.org/4.x/d9/d61/tutorial_py_morphological_ops.html
