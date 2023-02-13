@@ -15,16 +15,12 @@ import cv2
 import numpy as np 
 import helper_functions
 
-shape = (3840,2160)
-# shape = (800, 800)
+def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, size_of_ellipse = 50):
+    # lowHSV = (180-45, 60, 50)
+    lowHSV = (1, 1, 1)
+    highHSV = (180, 255, 255) # use app_morphology or app_HSV_Thresholds_on_Image
+    
 
-subtraction_parameter = 100 # mask on subtraction 
-size_of_ellipse = 50
-# lowHSV = (180-45, 60, 50)
-lowHSV = (1, 1, 1)
-highHSV = (180, 255, 255) # use app_morphology or app_HSV_Thresholds_on_Image
-
-def get_me_a_date(img, blank_img ,stops_huh=False):
     if stops_huh:
         cv2.imshow("Results", img); cv2.waitKey(0)
 
@@ -52,7 +48,6 @@ def get_me_a_date(img, blank_img ,stops_huh=False):
     segmented_binary_img = cv2.inRange(HSV_img, lowHSV, highHSV)
     
     if stops_huh:
-        print('segmented binary')
         cv2.imshow("Results", segmented_binary_img); cv2.waitKey(0)
 
     
@@ -83,12 +78,30 @@ def get_me_a_date(img, blank_img ,stops_huh=False):
     mask = cv2.inRange(sub, black, white) # true or false (white or black) if a pixel is within range
 
     final = cv2.bitwise_and(img, img, mask=mask)
-    if stops_huh or True:
+    if stops_huh:
         cv2.imshow("Results", final); cv2.waitKey(0)
     
     return final 
 
-def main(stops_huh=True): 
+
+def save_files_main(stops_huh = False):
+    shape = (3840,2160)
+
+    blank_img = cv2.resize(cv2.imread(".\\..\\ImageAssets\\Empty\\Empty1.jpg"), shape)
+    image_paths = helper_functions.myimages('.\\..\\ImageAssets\\MATURITY\\Smooth\\')
+    
+    for i in range(len(image_paths)): 
+        print(i)
+        img = cv2.imread(image_paths[i]) 
+        img = cv2.resize(img, shape) 
+        final = get_me_a_date(img, blank_img, stops_huh)
+        cv2.imwrite("isolated_image_"+str(i)+".jpg", final)
+
+
+def gui_main(stops_huh = True): 
+    
+    shape = (3840,2160)
+
     cv2.namedWindow("Results",cv2.WINDOW_NORMAL)
     cv2.namedWindow("Controls",cv2.WINDOW_NORMAL)
     cv2.resizeWindow("Controls",640,240) 
@@ -99,13 +112,11 @@ def main(stops_huh=True):
     # image_paths = helper_functions.myimages('.\\..\\ImageAssets\\Moist\\')
     cv2.createTrackbar("Image","Controls",0,len(image_paths)-1,lambda _:_)
     
-    
     while True: 
         img = cv2.imread(image_paths[cv2.getTrackbarPos("Image","Controls")])
         img = cv2.resize(img, shape) 
-                
+
         final = get_me_a_date(img, blank_img, stops_huh)
-        
         cv2.imshow("Results", final); cv2.waitKey(0)
 
         key = cv2.waitKey(500) # milliseconds, enough for it 
@@ -116,6 +127,7 @@ def main(stops_huh=True):
 
 if __name__ == "__main__":
     try: 
-        main(stops_huh=True) 
+        # gui_main() 
+        save_files_main()
     except Exception as e:
         print(e)
