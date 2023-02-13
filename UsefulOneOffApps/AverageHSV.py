@@ -33,7 +33,8 @@ def averageHSV(img):
 ## where average_Hue is the average hue of every non-black pixel in the image, 
 ## average_Saturation is the average saturation of every non-black pixel in the image, 
 ## average_value is the average value of every non-black pixel in the image
-def file_AverageHSV(filepath, weightLabels, classLabels):
+def file_AverageHSV(filepath, classLabels): 
+    #readd weight labels
     labeled_avgs = []
     count = 0
     files = os.listdir(filepath)
@@ -43,7 +44,7 @@ def file_AverageHSV(filepath, weightLabels, classLabels):
             theImg = cv2.cvtColor(theImg, cv2.COLOR_BGR2HSV)
             curr_avg = averageHSV(theImg)
             curr_avg.append(count)
-            curr_avg.append(weightLabels[count])
+            #curr_avg.append(weightLabels[count])
             curr_avg.append(classLabels[count])
             #print(curr_avg)
             labeled_avgs.append(curr_avg)
