@@ -20,7 +20,8 @@ shape = (3840,2160)
 
 subtraction_parameter = 100 # mask on subtraction 
 size_of_ellipse = 50
-lowHSV = (180-45, 60, 50)
+# lowHSV = (180-45, 60, 50)
+lowHSV = (1, 1, 1)
 highHSV = (180, 255, 255) # use app_morphology or app_HSV_Thresholds_on_Image
 
 def get_me_a_date(img, blank_img ,stops_huh=False):
@@ -51,6 +52,7 @@ def get_me_a_date(img, blank_img ,stops_huh=False):
     segmented_binary_img = cv2.inRange(HSV_img, lowHSV, highHSV)
     
     if stops_huh:
+        print('segmented binary')
         cv2.imshow("Results", segmented_binary_img); cv2.waitKey(0)
 
     
@@ -81,7 +83,7 @@ def get_me_a_date(img, blank_img ,stops_huh=False):
     mask = cv2.inRange(sub, black, white) # true or false (white or black) if a pixel is within range
 
     final = cv2.bitwise_and(img, img, mask=mask)
-    if stops_huh:
+    if stops_huh or True:
         cv2.imshow("Results", final); cv2.waitKey(0)
     
     return final 
@@ -89,10 +91,12 @@ def get_me_a_date(img, blank_img ,stops_huh=False):
 def main(stops_huh=True): 
     cv2.namedWindow("Results",cv2.WINDOW_NORMAL)
     cv2.namedWindow("Controls",cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("Controls",640,240)
+    cv2.resizeWindow("Controls",640,240) 
 
     blank_img = cv2.resize(cv2.imread(".\\..\\ImageAssets\\Empty\\Empty1.jpg"), shape)
-    image_paths = helper_functions.myimages('.\\..\\ImageAssets\\HighBlister\\')
+    image_paths = helper_functions.myimages('.\\..\\ImageAssets\\Juicy\\')
+    # image_paths = helper_functions.myimages('.\\..\\ImageAssets\\YaaraSorted\\')
+    # image_paths = helper_functions.myimages('.\\..\\ImageAssets\\Moist\\')
     cv2.createTrackbar("Image","Controls",0,len(image_paths)-1,lambda _:_)
     
     
@@ -100,7 +104,8 @@ def main(stops_huh=True):
         img = cv2.imread(image_paths[cv2.getTrackbarPos("Image","Controls")])
         img = cv2.resize(img, shape) 
                 
-        final = get_me_a_date(img, blank_img, True)
+        final = get_me_a_date(img, blank_img, stops_huh)
+        
         cv2.imshow("Results", final); cv2.waitKey(0)
 
         key = cv2.waitKey(500) # milliseconds, enough for it 
