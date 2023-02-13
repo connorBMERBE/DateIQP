@@ -114,7 +114,8 @@ def main(stops_huh=True):
     cv2.destroyAllWindows()
 
 
-# try: 
-main(stops_huh=True) 
-# except Exception as e:
-#     print(e)
+if __name__ == "__main__":
+    try: 
+        main(stops_huh=True) 
+    except Exception as e:
+        print(e)
