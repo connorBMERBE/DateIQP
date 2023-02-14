@@ -3,8 +3,8 @@ import numpy as np
 import cv2
 
 # Load in the images from the file:
-control=cv2.imread("DateIQP\\ImageAssets\\blank.jpg") #blank image of tray (control variable)
-test=cv2.imread("DateIQP\\ImageAssets\\date.jpg") #test image of date on tray
+control=cv2.imread(".\\..\\ImageAssets\\blank.jpg") #blank image of tray (control variable)
+test=cv2.imread(".\\..\\ImageAssets\\date.jpg") #test image of date on tray
 
 #Creating the mask:
 sub=cv2.subtract(control,test) #subtraction of empty tray from date on tray to isolate date
