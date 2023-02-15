@@ -23,6 +23,10 @@ def mode(lst):
 def knnclassify_bme(labels, reference, NewData, k):
     # % Inputs:
     # %   labels = y - A n-by-1 vector of class labels, corresponding to data points in X
+    #       0 = Dry
+    #       1 = Juicy
+    #       2 = Moist
+    #       3 = Smooth
     # %   reference = X - A n-by-p data matrix
     # %   NewData = T - A m-by-p matrix of reference points, without/needing class labels
     # %   k = k - A scalar (1-by-1) value indicating the number of nearest neighbors
@@ -75,4 +79,3 @@ def knnclassify_bme(labels, reference, NewData, k):
         z_hat[countdata] = mode(l)
     
     return z_hat
-

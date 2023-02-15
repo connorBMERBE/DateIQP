@@ -26,7 +26,7 @@ def averageHSV(img):
     avg_hue /= count
     avg_sat /= count
     avg_val /= count
-    return [avg_hue, avg_sat, avg_val]
+    return np.array([avg_hue, avg_sat, avg_val])
 
 ## takes in a file name and returns a 2D numpy array [[average_Hue, average_Saturation, average_Value, label],...]
 ## labels is the position of the order the images was found in the file given
@@ -34,8 +34,12 @@ def averageHSV(img):
 ## average_Saturation is the average saturation of every non-black pixel in the image, 
 ## average_value is the average value of every non-black pixel in the image
 def file_AverageHSV(filepath, classLabels): 
-    #readd weight labels
-    labeled_avgs = []
+    #readd class labels
+    #       0 = Dry
+    #       1 = Juicy
+    #       2 = Moist
+    #       3 = Smooth
+    labeled_avgs = np.array([])
     count = 0
     files = os.listdir(filepath)
     for file in files:
@@ -52,14 +56,17 @@ def file_AverageHSV(filepath, classLabels):
     print(labeled_avgs)
     #return labeled_avgs
 
-# cLRand = []
-# wLRand = []
-# i = 0
-# while i < 8:
-#     cLRand.append(rand.randint(1,6))
-#     wLRand.append(rand.randint(1,20))
-#     i = i+1
+cLRand = []
+wLRand = []
+i = 0
+while i < 8:
+    cLRand.append(rand.randint(1,6))
+    # wLRand.append(rand.randint(1,20))
+    i = i+1
 
-# file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",wLRand,cLRand)
+file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",cLRand)
+
+# TestClasses = np.array([0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3])
+
+# file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\MATURITY\\AllIsolated\\",TestClasses)
     
-
