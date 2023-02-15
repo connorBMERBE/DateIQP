@@ -52,13 +52,14 @@ def file_AverageHSV(filepath, classLabels):
     print(labeled_avgs)
     #return labeled_avgs
 
-cLRand = []
-wLRand = []
-i = 0
-while i < 8:
-    cLRand.append(rand.randint(1,6))
-    wLRand.append(rand.randint(1,20))
-    i = i+1
+# cLRand = []
+# wLRand = []
+# i = 0
+# while i < 8:
+#     cLRand.append(rand.randint(1,6))
+#     wLRand.append(rand.randint(1,20))
+#     i = i+1
 
-file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",wLRand,cLRand)
+# file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",wLRand,cLRand)
     
+
