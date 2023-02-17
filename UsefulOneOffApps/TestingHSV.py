@@ -48,7 +48,7 @@ def knnclassify_bme(labels, reference, NewData, k):
             #%distance(jtor) = ;
             #point = [h,s,v]
             #distance = sqqrt((h1-h2)^2 + (s1-s2)^2 + (v1-v2)^2)
-            distance[countref] = math.sqrt((point[0]-data[0])**2 + (point[1]-data[1])**2  + (point[2]-data[2])**2)
+            distance= np.append(distance, math.sqrt((point[0]-data[0])**2 + (point[1]-data[1])**2  + (point[2]-data[2])**2))
             countref += 1
         
         # % Get neighbor labels - i.e., sort distances, and find class labels of 
@@ -61,7 +61,7 @@ def knnclassify_bme(labels, reference, NewData, k):
             
         # % Determine the class label - i.e., find the most common class label
         # % from among the nearest neighbors
-        z_hat = np.append(z_hat, st.mode(l))
+        z_hat = np.append(z_hat, st.mode(l, keepdims=None).mode)
         countdata = countdata + 1
         print(z_hat)
     return z_hat
