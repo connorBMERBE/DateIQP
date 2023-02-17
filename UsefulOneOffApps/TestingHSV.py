@@ -3,22 +3,7 @@ import cv2
 import os
 import random as rand
 import math
-
-
-def mode(lst):
-    freq = []
-    for i in lst:
-        freq.setdefault(i,0)
-        freq[1] += 1
-
-    hf = max(freq.values())
-    hflst = []
-
-    for i,j in freq.items():
-        if j==hf:
-            hflst.append(i)
-
-    return hflst
+from scipy import stats as st
 
 def knnclassify_bme(labels, reference, NewData, k):
     # % Inputs:
@@ -44,10 +29,10 @@ def knnclassify_bme(labels, reference, NewData, k):
     # number of data points in T
     n = len(reference)
     # number of data points in X
-    z_hat = np.array([]*m)
+    z_hat = np.array([0]*m)
     # zeros(m,1)
     #% vector for storing class label predictions
-    distance = np.array([]*n)
+    distance = np.array([0]*n)
     distI = distance
     #% vector of distances
 
@@ -63,7 +48,7 @@ def knnclassify_bme(labels, reference, NewData, k):
             #%distance(jtor) = ;
             #point = [h,s,v]
             #distance = sqqrt((h1-h2)^2 + (s1-s2)^2 + (v1-v2)^2)
-            distance[countref] = math.sqrt((point[1]-data[1])^2 + (point[2]-data[2])^2  + (point[3]-data[3])^2 )
+            distance[countref] = math.sqrt((point[0]-data[0])**2 + (point[1]-data[1])**2  + (point[2]-data[2])**2)
             countref += 1
         
         # % Get neighbor labels - i.e., sort distances, and find class labels of 
@@ -76,6 +61,6 @@ def knnclassify_bme(labels, reference, NewData, k):
             
         # % Determine the class label - i.e., find the most common class label
         # % from among the nearest neighbors
-        z_hat[countdata] = mode(l)
+        z_hat[countdata] = st.mode(l)
     
     return z_hat

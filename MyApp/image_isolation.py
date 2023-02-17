@@ -86,16 +86,16 @@ def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, 
 
 def save_files_main(stops_huh = False):
     shape = (3840,2160)
-
-    blank_img = cv2.resize(cv2.imread(".\\..\\ImageAssets\\Empty\\Empty1.jpg"), shape)
-    image_paths = helper_functions.myimages('.\\..\\ImageAssets\\MATURITY\\Smooth\\')
+    blank_img = cv2.imread("DateIQP\\ImageAssets\\Empty\\Empty1.jpg")
+    blank_img = cv2.resize(blank_img, shape)
+    image_paths = helper_functions.myimages("DateIQP\\ImageAssets\\YaaraTest\\")
     
     for i in range(len(image_paths)): 
         print(i)
         img = cv2.imread(image_paths[i]) 
         img = cv2.resize(img, shape) 
         final = get_me_a_date(img, blank_img, stops_huh)
-        cv2.imwrite("isolated_image_"+str(i)+".jpg", final)
+        cv2.imwrite("Test_isolated_image_"+str(i)+".jpg", final)
 
 
 def gui_main(stops_huh = True): 
@@ -129,5 +129,6 @@ if __name__ == "__main__":
     try: 
         # gui_main() 
         save_files_main()
+        print("ran function")
     except Exception as e:
         print(e)
