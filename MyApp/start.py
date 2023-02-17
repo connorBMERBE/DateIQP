@@ -99,6 +99,10 @@ class IsolateDate:
         black = np.array([15]) #lower bound
         white = np.array([255]) #upper bound (there is no upper bound)
         mask = cv2.inRange(sub, black, white) # true or false (white or black) if a pixel is within range
+        kernelmatrix = np.ones((5, 5), np.uint8)
+        mask = cv2.dilate(mask, kernelmatrix)
+        kernelmatrix2 = np.ones((10, 10), np.uint8)
+        mask = cv2.erode(mask, kernelmatrix2)
         result = cv2.bitwise_and(self.image, self.image, mask=mask) # only shows pixels within the mask range in test image for result
 
         return result 
@@ -114,9 +118,9 @@ import numpy as np
 
 # img = cv2.imread(".\\..\\ImageAssets\\normal_date.JPG")
 # img = cv2.imread(".\\..\\ImageAssets\\blistered_date.JPG")
-img = cv2.imread(".\\..\\ImageAssets\\date.JPG")
+img = cv2.imread("DateIQP\\ImageAssets\\date.jpg")
 
-blank_address = ".\\..\\ImageAssets\\blank.jpg"
+blank_address = "DateIQP\\ImageAssets\\blank.jpg"
 
 img = cv2.resize(img, (800,800)) 
 ID = IsolateDate() 
