@@ -25,14 +25,14 @@ def knnclassify_bme(labels, reference, NewData, k):
     # % Description: Determine estimated class labels for a matrix of 
     # %               reference points T, given data points X and labels y
     #% Setup
-    m = len(NewData)
+    #m = len(NewData)
     # number of data points in T
-    n = len(reference)
+    #n = len(reference)
     # number of data points in X
-    z_hat = np.array([0]*m)
+    z_hat = np.array([])
     # zeros(m,1)
     #% vector for storing class label predictions
-    distance = np.array([0]*n)
+    distance = np.array([])
     distI = distance
     #% vector of distances
 
@@ -61,6 +61,7 @@ def knnclassify_bme(labels, reference, NewData, k):
             
         # % Determine the class label - i.e., find the most common class label
         # % from among the nearest neighbors
-        z_hat[countdata] = st.mode(l)
-    
+        z_hat = np.append(z_hat, st.mode(l))
+        countdata = countdata + 1
+        print(z_hat)
     return z_hat
