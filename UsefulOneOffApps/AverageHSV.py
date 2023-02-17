@@ -47,28 +47,30 @@ def file_AverageHSV(filepath, classLabels):
             theImg = cv2.imread(filepath + file)
             theImg = cv2.cvtColor(theImg, cv2.COLOR_BGR2HSV)
             curr_avg = averageHSV(theImg)
-            curr_avg.append(count)
+            # curr_avg.append(count)
+            curr_avg = np.append(curr_avg, count)
             #curr_avg.append(weightLabels[count])
-            curr_avg.append(classLabels[count])
+            curr_avg = np.append(curr_avg, classLabels[count])
             #print(curr_avg)
-            labeled_avgs.append(curr_avg)
+            # labeled_avgs.append(curr_avg)
+            labeled_avgs = np.append(labeled_avgs, curr_avg)
             count += 1
             print(count)
     print(labeled_avgs)
     #return labeled_avgs
 
 print("begin run")
-cLRand = []
-wLRand = []
-i = 0
-while i < 8:
-    cLRand.append(rand.randint(1,6))
-    # wLRand.append(rand.randint(1,20))
-    i = i+1
+# cLRand = []
+# wLRand = []
+# i = 0
+# while i < 8:
+#     cLRand.append(rand.randint(1,6))
+#     # wLRand.append(rand.randint(1,20))
+#     i = i+1
 
-file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",cLRand)
+# file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\Juicy\\",cLRand)
 
-# TestClasses = np.array([0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3])
+TestClasses = np.array([0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3])
 
-# file_AverageHSV("C:\\Users\\conno\\OneDrive\\Desktop\\IQP\\IQP\\DateIQP-1\\ImageAssets\\MATURITY\\AllIsolated\\",TestClasses)
+file_AverageHSV("DateIQP\\ImageAssets\\MATURITY\\AllIsolated\\",TestClasses)
     
