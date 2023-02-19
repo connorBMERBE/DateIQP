@@ -180,7 +180,7 @@ if __name__ == "__main__":
         TestClasses = np.array([0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3])
         reference = file_AverageHSV(".\\ImageAssets\\MATURITY\\AllIsolated\\")
         #training images are stored at the file location above
-        NewData = file_AverageHSV(".\\ImageAssets\\TestKNNImages\\")
+        NewData = file_AverageHSV(".\\ImageAssets\\YaaraTest\\")
         #testing images are stored at the file location above
         k = 7
         #reccomend that the k value be kept just (75-90%) below the number of training images PER A CLASS
