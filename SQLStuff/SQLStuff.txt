@@ -1,0 +1,42 @@
+root
+D@t3MACHINE
+Master
+D@t3MACHINE
+
+open the "MySQL Workbench" application
+left-click "Schemas" in left bar under "Navigator", next to "Administration", and above "Information"
+if there is not an object named "datesdb", right-click the empty space under the other objects and left-click "Create Schema..."
+	in the middle of the screen, there should be a box labeled "Name:"
+	replace the text in the box with "datesdb" and left-click the box that says "Apply"
+	there should now be a pop-up that says "Apply SQL Script to Database"
+	left-click the box that says "Apply", then left-click the boz that says "Finish"
+double-click the object in the left bar under "SCHEMAS" named "datesdb"
+run the script to create a table named "Dates"
+	CREATE TABLE Dates (
+    		imageAddress VARCHAR(255) NOT NULL, #image location
+  		harvestDay DATE NOT NULL, #day of tree harvest, format YYYY-MM-DD
+    		measureDay DATE NOT NULL, #day of date classification, format YYYY-MM-DD
+    		barCode INT(6) UNSIGNED NOT NULL, #tree identifier
+    		weight DOUBLE(3,1) NOT NULL,
+    		readyOrJuicy BOOLEAN,
+    		moist BOOLEAN,
+    		yellow BOOLEAN,
+    		halfFirm BOOLEAN,
+    		firm BOOLEAN,
+    		/*
+   		blisterPercent DOUBLE,
+    		*/
+    		/*
+    		blisterAmount VARCHAR(4),
+    		*/
+    		blistered BOOLEAN,
+  		skippedAStage BOOLEAN,
+  		dry BOOLEAN,
+    		/*
+    		CONSTRAINT blisterPercent_CHECK CHECK (blisterPercent<=0 AND blisterPercent>=100),
+    		*/
+    		/*
+    		CONSTRAINT blisterAmount_CHECK CHECK (blisterAmount='none' OR blisterAmount='low' OR blisterAmount='mid' OR blisterAmount='high'),
+    		*/
+  		CONSTRAINT Dates_PK PRIMARY KEY (imageAddress)
+	);
