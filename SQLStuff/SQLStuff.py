@@ -4,7 +4,7 @@ import numpy as np
 # Connect to server
 mydb = sql.connect(
     host = "localhost",
-    user = "Master",
+    user = "root",
     password = "D@t3MACHINE",
     database = "datesdb"
 )
@@ -19,10 +19,12 @@ cursor = mydb.cursor()
 # is used to compile a SQL statement
 # below statement is used to create
 # the 'geeksforgeeks' database
-cursor.execute("insert into Dates values('proxy\\address','2023-02-18','2023-02-19',000000,12.6,1,0,0,0,0,1,0,0);") 
-
+cursor.execute("insert into testing values(9);") 
+cursor.execute("insert into testing values(6);")
 # Show database
-cursor.execute("select * from Dates")
- 
-# for x in cursor:
-#   print(x)
+print(cursor)
+mydb.commit()
+cursor.execute("select * from testing;")
+for x in cursor:
+  print(x)
+cursor.execute("drop table testing;")
