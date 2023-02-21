@@ -60,7 +60,7 @@ def main():
     # -- start watching for dates --
     index = 1
     while True: 
-#        print('looped')
+        # print('looped')
 
         status = plcInterface.wait_until_changed(plcInterface.Status)     
 
@@ -78,8 +78,8 @@ def main():
                 weight = plcInterface.get_var(plcInterface.Weight)
 
                 # store image 
-                folder_name = harvestDay+"_"+barCode
-                
+                folder_name = harvestDay.strftime('%Y-%m-%d')+"_"+barCode
+                cv2.imwrite(folder_name+'/date_'+index+'.jpg', img)
 
                 print('Weight and image recorded and stored.')              
 
