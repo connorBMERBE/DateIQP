@@ -1,3 +1,6 @@
+Structured Query Language (SQL)
+	scripting language for databases
+
 Username and Password for the MySQL Database:
 	root
 	D@t3MACHINE
@@ -68,7 +71,6 @@ creating the necessary tables:
             #		4 = yellow
             #		5 = halfFirm
             #		6 = skippedAStage
-            #		7 = blistered
     		classification INT NOT NULL,
             CONSTRAINT classification_CHECK CHECK (classification>=0 AND classification <=7),
     		CONSTRAINT averageHue_CHECK CHECK (averageHue>=0 AND averageHue<=180),
