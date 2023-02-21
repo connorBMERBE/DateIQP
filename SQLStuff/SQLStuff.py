@@ -1,5 +1,6 @@
 import mysql.connector as sql
 import numpy as np
+import dbInterface as dbi
 
 # Connect to server
 mydb = sql.connect(
@@ -35,13 +36,6 @@ cursor = mydb.cursor()
 # Show database
 # print(cursor)
 # mydb.commit()
-trainingArray = np.array([])
-cursor.execute("select * from trainingData;")
-counter = 0
-for x in cursor:
-    if counter == 0:
-        trainingArray = np.array([x])
-    else:
-        trainingArray = np.vstack((trainingArray, np.array([x])))
-    counter = counter + 1
-print(trainingArray)
+# array = np.array([])
+array = dbi.getTrainingData()
+print(array)

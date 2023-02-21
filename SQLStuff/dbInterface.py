@@ -45,14 +45,21 @@ def dbDateEdit( imageAddress, classification):
     cursor.execute(f'update dates set {columnName} = 1 where imageAddress = {imageAddress};')
     mydb.commit()
 
-def getTrainingData():
-    trainingArray = np.array([])
-    cursor.execute("select * from trainingData;")
+def getData(statement):
+    tableArray = np.array([])
+    cursor.execute(statement)
     counter = 0
     for x in cursor:
         if counter == 0:
-            trainingArray = np.array([x])
+            tableArray = np.array([x])
         else:
-            trainingArray = np.vstack((trainingArray, np.array([x])))
-    counter = counter + 1
-    return trainingArray
+            tableArray = np.vstack((tableArray, np.array([x])))
+        counter = counter + 1
+    return tableArray
+
+
+def getTrainingData():
+    return getData("select * from trainingData;")
+
+def getFilteredDatesData(harvestDay, barCode):
+    return getData(f"select * from dates where harvestDay = {harvestDay} AND barCode = {barCode};")
