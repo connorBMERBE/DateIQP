@@ -1,0 +1,20 @@
+
+# --- preprocessing - before binarized 
+# Gaussian Blurring 
+
+# --- preprocessing - binarization methods 
+
+# Canny Edge Detection # - useful for edges, not super reliable in this context where color is the defining factor. It keeps getting the texture crap of the date 
+# Subtraction 
+# Thresholding/Segmentation
+
+# --- preprocessing - already binarized 
+# MORPH_CLOSE closes gaps between pixels 
+# morphologyEx processing on binary images (dialation and erosion) 
+
+# create a boundary around all pixels - separate library 
+
+# contouring 
+
+# --- process
+# use binary image as a mask on the original image 

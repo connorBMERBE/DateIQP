@@ -1,0 +1,2487 @@
+[Global Variables],,,,,
+BYPASS_ZERO_COUNT_SET, GLOBAL, INT,2,20,
+CELL_DOOR_CLOSE_T_PT, GLOBAL, TIME,4, T#150ms,
+CELL_DOOR_OPEN_T_PT, GLOBAL, TIME,4, T#200ms,
+CLR_DATA, GLOBAL, BOOL,1,0,
+CLR_DB, GLOBAL, BOOL,1,0,
+ERR_FUB_BUSY, GLOBAL, UINT,2,65535,
+Error, GLOBAL, UINT,2,0,
+Handling, GLOBAL, STRUCT: FileHandling_typ,33504,,
+Handling.Command, GLOBAL, STRUCT: FileHandling_Command_typ,7,,
+Handling.Command.bCreateFile, GLOBAL, BOOL,1,0,
+Handling.Command.bWriteFile, GLOBAL, BOOL,1,0,
+Handling.Command.bReadFile, GLOBAL, BOOL,1,0,
+Handling.Command.bReadExFile, GLOBAL, BOOL,1,0,
+Handling.Command.bRenameFile, GLOBAL, BOOL,1,0,
+Handling.Command.bCopyFile, GLOBAL, BOOL,1,0,
+Handling.Command.bDeleteFile, GLOBAL, BOOL,1,0,
+Handling.Data, GLOBAL, STRUCT: FileHandling_Data_typ,33205,,
+Handling.Data.FileName, GLOBAL, STRING,33," ""LogFile.csv""",
+Handling.Data.NewFileName, GLOBAL, STRING,33," ""CopyTestFile.txt""",
+Handling.Data.Device, GLOBAL, STRING,33," ""LOCAL_DEVICE""",
+Handling.Data.Parameter, GLOBAL, STRING,81," """"/DEVICE=C:\DataBase\""",
+Handling.Data.WriteData, GLOBAL, STRING,256," ""15/2/2023	18:3:	0.4259	0	0.081	0.2748	72.7754	0	0	",
+"
+Handling.Data.ReadData, GLOBAL, STRING, 32768, ""
+Handling.Data.Step, GLOBAL, USINT, 1, 1
+Handling.Functionblock, GLOBAL, STRUCT: FileHandling_Functionblock_typ, 292
+Handling.Functionblock.DevLink_0, GLOBAL, STRUCT: DevLink, 28
+Handling.Functionblock.DevLink_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.DevLink_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.DevLink_0.pParam, GLOBAL, UDINT, 4, 59327830
+Handling.Functionblock.DevLink_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.handle, GLOBAL, UDINT, 4, 16073536
+Handling.Functionblock.DevLink_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCreate_0, GLOBAL, STRUCT: FileCreate, 28
+Handling.Functionblock.FileCreate_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileCreate_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.FileCreate_0.pFile, GLOBAL, UDINT, 4, 59327731
+Handling.Functionblock.FileCreate_0.status, GLOBAL, UINT, 2, 20705
+Handling.Functionblock.FileCreate_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCreate_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCreate_0.i_result, GLOBAL, UINT, 2, 20705
+Handling.Functionblock.FileCreate_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileClose_0, GLOBAL, STRUCT: FileClose, 20
+Handling.Functionblock.FileClose_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileClose_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileClose_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileOpen_0, GLOBAL, STRUCT: FileOpen, 32
+Handling.Functionblock.FileOpen_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileOpen_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.FileOpen_0.pFile, GLOBAL, UDINT, 4, 59327731
+Handling.Functionblock.FileOpen_0.mode, GLOBAL, USINT, 1, 1
+Handling.Functionblock.FileOpen_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileOpen_0.filelen, GLOBAL, UDINT, 4, 2859
+Handling.Functionblock.FileOpen_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileWrite_0, GLOBAL, STRUCT: FileWrite, 32
+Handling.Functionblock.FileWrite_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileWrite_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileWrite_0.offset, GLOBAL, UDINT, 4, 2859
+Handling.Functionblock.FileWrite_0.pSrc, GLOBAL, UDINT, 4, 59327911
+Handling.Functionblock.FileWrite_0.len, GLOBAL, UDINT, 4, 52
+Handling.Functionblock.FileWrite_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0, GLOBAL, STRUCT: FileRead, 32
+Handling.Functionblock.FileRead_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileRead_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.offset, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.len, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0, GLOBAL, STRUCT: FileReadEx, 36
+Handling.Functionblock.FileReadEx_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileReadEx_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.offset, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.len, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.bytesread, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0, GLOBAL, STRUCT: FileCopy, 32
+Handling.Functionblock.FileCopy_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileCopy_0.pSrcDev, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pSrc, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pDestDev, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.option, GLOBAL, USINT, 1, 0
+Handling.Functionblock.FileCopy_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0, GLOBAL, STRUCT: FileRename, 28
+Handling.Functionblock.FileRename_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileRename_0.pDevice, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.pName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.pNewName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0, GLOBAL, STRUCT: FileDelete, 24
+Handling.Functionblock.FileDelete_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileDelete_0.pDevice, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0.pName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_tmp, GLOBAL, UDINT, 4, 0
+Homing_Done, GLOBAL, BOOL[10], 1
+Homing_Done[0], GLOBAL, BOOL, 1, 1
+Homing_Done[1], GLOBAL, BOOL, 1, 0
+Homing_Done[2], GLOBAL, BOOL, 1, 0
+Homing_Done[3], GLOBAL, BOOL, 1, 0
+Homing_Done[4], GLOBAL, BOOL, 1, 0
+Homing_Done[5], GLOBAL, BOOL, 1, 0
+Homing_Done[6], GLOBAL, BOOL, 1, 0
+Homing_Done[7], GLOBAL, BOOL, 1, 0
+Homing_Done[8], GLOBAL, BOOL, 1, 0
+Homing_Done[9], GLOBAL, BOOL, 1, 0
+LOAD_READY_T_PT, GLOBAL, TIME, 4, T#100ms
+MAIN_START, GLOBAL, BOOL, 1, 1
+OUT_LOAD_DOOR_T_PT, GLOBAL, TIME, 4, T#0ms
+R_POSITION_TOLR, GLOBAL, REAL, 4, 360.000000
+SIZE_FOR_LANE, GLOBAL, USINT[7], 1
+SIZE_FOR_LANE[0], GLOBAL, USINT, 1, 0
+SIZE_FOR_LANE[1], GLOBAL, USINT, 1, 1
+SIZE_FOR_LANE[2], GLOBAL, USINT, 1, 2
+SIZE_FOR_LANE[3], GLOBAL, USINT, 1, 3
+SIZE_FOR_LANE[4], GLOBAL, USINT, 1, 4
+SIZE_FOR_LANE[5], GLOBAL, USINT, 1, 5
+SIZE_FOR_LANE[6], GLOBAL, USINT, 1, 6
+Select, GLOBAL, USINT, 1, 0
+TOTAL_WEIGHT, GLOBAL, REAL, 4, 0.000000
+TotalSum, GLOBAL, STRUCT: TotalSum_Typ, 384
+TotalSum.Cell1, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell1.Size1, GLOBAL, REAL, 4, 0.425900
+TotalSum.Cell1.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell1.Size3, GLOBAL, REAL, 4, 0.081000
+TotalSum.Cell1.Size4, GLOBAL, REAL, 4, 0.274800
+TotalSum.Cell1.Size5, GLOBAL, REAL, 4, 72.775436
+TotalSum.Cell1.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell2, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell2.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell2.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell2.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell2.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell2.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell2.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell3, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell3.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell3.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell3.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell3.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell3.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell3.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell4, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell4.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell4.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell4.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell4.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell4.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell4.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell5, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell5.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell5.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell5.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell5.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell5.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell5.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell6, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell6.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell6.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell6.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell6.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell6.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell6.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell7, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell7.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell7.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell7.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell7.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell7.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell7.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell8, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell8.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell8.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell8.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell8.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell8.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell8.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell9, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell9.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell9.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell9.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell9.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell9.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell9.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell10, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell10.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell10.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell10.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell10.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell10.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell10.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell11, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell11.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell11.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell11.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell11.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell11.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell11.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell12, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell12.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell12.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell12.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell12.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell12.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell12.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell13, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell13.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell13.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell13.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell13.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell13.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell13.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell14, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell14.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell14.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell14.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell14.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell14.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell14.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell15, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell15.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell15.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell15.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell15.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell15.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell15.Size6, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell16, GLOBAL, STRUCT: Size_Typ, 24
+TotalSum.Cell16.Size1, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell16.Size2, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell16.Size3, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell16.Size4, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell16.Size5, GLOBAL, REAL, 4, 0.000000
+TotalSum.Cell16.Size6, GLOBAL, REAL, 4, 0.000000
+Total_Size_1, GLOBAL, REAL, 4, 0.425900
+Total_Size_2, GLOBAL, REAL, 4, 0.000000
+Total_Size_3, GLOBAL, REAL, 4, 0.081000
+Total_Size_4, GLOBAL, REAL, 4, 0.274800
+Total_Size_5, GLOBAL, REAL, 4, 72.775436
+Total_Size_6, GLOBAL, REAL, 4, 0.000000
+WEIGHT_SIZE, GLOBAL, REAL[7], 4
+WEIGHT_SIZE[0], GLOBAL, REAL, 4, 0.000000
+WEIGHT_SIZE[1], GLOBAL, REAL, 4, 0.000000
+WEIGHT_SIZE[2], GLOBAL, REAL, 4, 39.000000
+WEIGHT_SIZE[3], GLOBAL, REAL, 4, 40.000000
+WEIGHT_SIZE[4], GLOBAL, REAL, 4, 41.000000
+WEIGHT_SIZE[5], GLOBAL, REAL, 4, 56.000000
+WEIGHT_SIZE[6], GLOBAL, REAL, 4, 500.000000
+WEIGHT_SIZE_LAST_LANE, GLOBAL, INT[7], 2
+WEIGHT_SIZE_LAST_LANE[0], GLOBAL, INT, 2, 0
+WEIGHT_SIZE_LAST_LANE[1], GLOBAL, INT, 2, 1
+WEIGHT_SIZE_LAST_LANE[2], GLOBAL, INT, 2, 2
+WEIGHT_SIZE_LAST_LANE[3], GLOBAL, INT, 2, 3
+WEIGHT_SIZE_LAST_LANE[4], GLOBAL, INT, 2, 4
+WEIGHT_SIZE_LAST_LANE[5], GLOBAL, INT, 2, 5
+WEIGHT_SIZE_LAST_LANE[6], GLOBAL, INT, 2, 6
+WEIGHT_VAL_MIN, GLOBAL, REAL, 4, 4.000000
+WGHscalePara01, GLOBAL, STRUCT: WGHscalePara_typ, 20
+WGHscalePara01.tare_std, GLOBAL, DINT, 4, -69
+WGHscalePara01.ref1_raw, GLOBAL, DINT, 4, 2373572
+WGHscalePara01.ref1_std, GLOBAL, DINT, 4, 0
+WGHscalePara01.ref2_raw, GLOBAL, DINT, 4, 2606187
+WGHscalePara01.ref2_std, GLOBAL, DINT, 4, 2000
+W_IN_FILTER_HMI_Threshold, GLOBAL, REAL, 4, 1.000000
+W_IN_Filter_DIFF_RANGE, GLOBAL, REAL, 4, 0.500000
+W_IN_Filter_Diff_Tara_min, GLOBAL, REAL, 4, 3.000000
+W_IN_Filter_Diff_max, GLOBAL, REAL, 4, 5.000000
+W_IN_Filter_Diff_min, GLOBAL, REAL, 4, 0.500000
+W_IN_Filter_NoiseThreshold_LockN, GLOBAL, INT, 2, 6
+W_IN_Filter_READING_IN_RANGE, GLOBAL, INT, 2, 10
+W_IN_Filter_Stage1_FilterSize, GLOBAL, INT, 2, 100
+W_IN_Filter_Stage1_NoiseThreshol, GLOBAL, DINT, 4, 1000000
+W_IN_Filter_Stage2_FilterSize, GLOBAL, INT, 2, 100
+W_IN_Filter_Tara_Count_T_PT, GLOBAL, DINT, 4, 10000
+W_IN_Filter_Weighting_T_PT, GLOBAL, DINT, 4, 20
+fiERR_EXIST, GLOBAL, UINT, 2, 20705
+fiERR_FILE_NOT_FOUND, GLOBAL, UINT, 2, 20708
+fiERR_SYSTEM, GLOBAL, UINT, 2, 20799
+fiOVERWRITE, GLOBAL, USINT, 1, 2
+fiREAD_ONLY, GLOBAL, USINT, 1, 0
+fiWRITE_ONLY, GLOBAL, USINT, 1, 1
+gCell_01_XSM_AcyclicRead_0, GLOBAL, STRUCT: XSM_AcyclicRead, 252
+gCell_01_XSM_AcyclicRead_0.Enable, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.Read, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.Mode, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.Reset, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.pIO_Mapping, GLOBAL, UDINT, 4, 59326804
+gCell_01_XSM_AcyclicRead_0.ReadData, GLOBAL, STRUCT: XSM_AcyclicReadDataType, 16
+gCell_01_XSM_AcyclicRead_0.ReadData.DC_BusVoltage, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.PowerStage_Temperature, GLOBAL, SINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Module_Temperature, GLOBAL, SINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Encoder_RefPosCyclicCounter, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Encoder_ActualValue, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Encoder_RefPosAcyclicCounter, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.Status, GLOBAL, UINT, 2, 65534
+gCell_01_XSM_AcyclicRead_0.intern, GLOBAL, STRUCT: XSM_AcyclicRead_internType, 140
+gCell_01_XSM_AcyclicRead_0.intern.StateMan, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.ChannelName, GLOBAL, STRING, 31, ""
+gCell_01_XSM_AcyclicRead_0.intern.ReadOK, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.Retries, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType, 104
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.DeviceName, GLOBAL, STRING, 81, ""
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.Channel, GLOBAL, INT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.ModuleOK, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.ModuleID, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.AbsPos, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.MpGenControl, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.MpGenMode, GLOBAL, SINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.AbsPosActVal, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.MpGenStatus, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.InputStatus, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0, GLOBAL, STRUCT: AsIOAccRead, 56
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.enable, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.pDeviceName, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.pChannelName, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.status, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.value, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE, 36
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.StateMan, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.ErrMan, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Init, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Taskhandle, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Semaphore, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Requestsize, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Answersize, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.pAccessObj, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Offset, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.flags, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0, GLOBAL, STRUCT: AsIOAccReadReg, 24
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.enable, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.nodeNr, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.registerNr, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.size, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.status, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.value, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.i_state, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.i_result, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.i_tmp, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_Ctrl_0, GLOBAL, STRUCT: XSM_Ctrl, 364
+gCell_01_XSM_Ctrl_0.Power, GLOBAL, BOOL, 1, 1
+gCell_01_XSM_Ctrl_0.Cmd, GLOBAL, STRUCT: XSM_Ctrl_CmdType, 40
+gCell_01_XSM_Ctrl_0.Cmd.Move_Absolute, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Position, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Move_Additive, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Distance, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Move_Velocity, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Velocity, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Stop, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Home, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Reset, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced, GLOBAL, STRUCT: XSM_Ctrl_AdvancedType, 12
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Target_Mode, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Target_Position, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Two_Position_Mode, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Move_FixedPos_a, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Move_FixedPos_b, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType, 104
+gCell_01_XSM_Ctrl_0.IO_Mapping.DeviceName, GLOBAL, STRING, 81, IF6.ST16""",,,,,
+gCell_01_XSM_Ctrl_0.IO_Mapping.Channel, GLOBAL, INT,2,1,
+gCell_01_XSM_Ctrl_0.IO_Mapping.ModuleOK, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.IO_Mapping.ModuleID, GLOBAL, UINT,2,9858,
+gCell_01_XSM_Ctrl_0.IO_Mapping.AbsPos, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenControl, GLOBAL, UINT,2,15,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenMode, GLOBAL, SINT,1,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.AbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenStatus, GLOBAL, UINT,2,567,
+gCell_01_XSM_Ctrl_0.IO_Mapping.InputStatus, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.Parameters, GLOBAL, STRUCT: XSM_Ctrl_ParametersType,24,,
+gCell_01_XSM_Ctrl_0.Parameters.Units_rev, GLOBAL, UINT,2,3600,
+gCell_01_XSM_Ctrl_0.Parameters.PosSWLimit, GLOBAL, DINT,4,10000,
+gCell_01_XSM_Ctrl_0.Parameters.NegSWLimit, GLOBAL, DINT,4,-3600,
+gCell_01_XSM_Ctrl_0.Parameters.HomePosition, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Parameters.HomeMode, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.Ignore_SWLimits, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Parameters.Ignore_HWLimits, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Parameters.HWLimits_Active_Low, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.StallDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.UnderCurrentDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.PowerOn, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Error, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.Monitor, GLOBAL, STRUCT: XSM_Ctrl_MonitorType,16,,
+gCell_01_XSM_Ctrl_0.Monitor.Actual_Position, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Monitor.Actual_Velocity, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Monitor.StandStill, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Monitor.Target_Reached, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Home_OK, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Monitor.Input_1, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_2, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_3, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_4, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern, GLOBAL, STRUCT: XSM_Ctrl_internType,80,,
+gCell_01_XSM_Ctrl_0.intern.StateMan, GLOBAL, UINT,2,100,
+gCell_01_XSM_Ctrl_0.intern.TaskCyclicTime, GLOBAL, REAL,4,0.002,
+gCell_01_XSM_Ctrl_0.intern.CyclicCounter, GLOBAL, REAL,4,0.012,
+gCell_01_XSM_Ctrl_0.intern.OldAbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.intern.Target, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.intern.AbsPos, GLOBAL, REAL,4,0,
+gCell_01_XSM_Ctrl_0.intern.CmdHome, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdReset, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Absolute, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Additive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Velocity, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_Two_Position_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_FixedPos_a, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_FixedPos_b, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_Target_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.OverflowWarning, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.intern.ErrorCode, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.intern.ChannelName, GLOBAL, STRING,31," """"",
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine, GLOBAL, STRUCT: XSM_Ctrl_StateMachineType,8,,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.NotReadyToSwitchOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.SwitchOnDisabled, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.ReadyToSwitchOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.SwitchedOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.OperationEnabled, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.QuickStopActive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.FaultReactionActive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.Fault, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.RTInfo_0, GLOBAL, STRUCT: RTInfo,12,,
+gCell_01_XSM_Ctrl_0.RTInfo_0.enable, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.RTInfo_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.RTInfo_0.cycle_time, GLOBAL, UDINT,4,2000,
+gCell_01_XSM_Ctrl_0.RTInfo_0.init_reason, GLOBAL, SINT,1,1,
+gCell_01_XSM_Ctrl_0.RTInfo_0.task_class, GLOBAL, SINT,1,2,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0, GLOBAL, STRUCT: AsIOAccRead,56,,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.pDeviceName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.pChannelName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE,36,,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.ErrMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Init, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Taskhandle, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Semaphore, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Requestsize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Answersize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.pAccessObj, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Offset, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.flags, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0, GLOBAL, STRUCT: AsIOAccReadReg,24,,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.nodeNr, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.registerNr, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.size, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_state, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_result, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_tmp, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.zzEdge00000, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0, GLOBAL, STRUCT: XSM_IO_Cfg,324,,
+gCell_01_XSM_IO_Cfg_0.Enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.Config, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.Mode, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.Reset, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg, GLOBAL, STRUCT: XSM_IO_ConfigurationType,48,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MixedDecayCfg, GLOBAL, USINT,1,15,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current, GLOBAL, STRUCT: XSM_IOCfg_CurrentType,12,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current.Holding, GLOBAL, REAL,4,0.3,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current.Rated, GLOBAL, REAL,4,0.65,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current.Maximum, GLOBAL, REAL,4,1,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.FullStepThreshold, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.StallCfg, GLOBAL, STRUCT: XSM_IOCfg_StallType,2,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.StallCfg.StallDetection, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.StallCfg.DisplayMotorLoadValues, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.RefCfg, GLOBAL, STRUCT: XSM_IOCfg_ReferencingType,2,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.RefCfg.ReferencingConfiguration, GLOBAL, SINT,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.RefCfg.StallRecongnitionDelay, GLOBAL, USINT,1,8,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen, GLOBAL, STRUCT: XSM_IOCfg_MPGenType,24,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.MaxSpeed, GLOBAL, UINT,2,10000,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.MaxAcc, GLOBAL, UINT,2,5000,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.MaxDec, GLOBAL, UINT,2,5000,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.RevLoop, GLOBAL, INT,2,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.FixedPos_a, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.FixedPos_b, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.RefSpeed, GLOBAL, DINT,4,100,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.JoltTimeLimitation, GLOBAL, SINT,1,0,
+gCell_01_XSM_IO_Cfg_0.pIO_Mapping, GLOBAL, UDINT,4,59326804,
+gCell_01_XSM_IO_Cfg_0.pParameters, GLOBAL, UDINT,4,59326908,
+gCell_01_XSM_IO_Cfg_0.Done, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.Status, GLOBAL, UINT,2,65534,
+gCell_01_XSM_IO_Cfg_0.intern, GLOBAL, STRUCT: XSM_IO_Cfg_internType,172,,
+gCell_01_XSM_IO_Cfg_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.Cfg_State, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.OverflowWarning, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.AsIOAccWriteValue, GLOBAL, REAL,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.ChannelName, GLOBAL, STRING,31," """"",
+gCell_01_XSM_IO_Cfg_0.intern.Retries, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType,104,,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.DeviceName, GLOBAL, STRING,81," """"",
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.Channel, GLOBAL, INT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.ModuleOK, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.ModuleID, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.AbsPos, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.MpGenControl, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.MpGenMode, GLOBAL, SINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.AbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.MpGenStatus, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.InputStatus, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters, GLOBAL, STRUCT: XSM_Ctrl_ParametersType,24,,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.Units_rev, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.PosSWLimit, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.NegSWLimit, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.HomePosition, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.HomeMode, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.Ignore_SWLimits, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.Ignore_HWLimits, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.HWLimits_Active_Low, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.StallDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.UnderCurrentDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0, GLOBAL, STRUCT: AsIOAccWrite,56,,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.pDeviceName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.pChannelName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE,36,,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.ErrMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Init, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Taskhandle, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Semaphore, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Requestsize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Answersize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.pAccessObj, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Offset, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.flags, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0, GLOBAL, STRUCT: AsIOAccWriteReg,28,,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.nodeNr, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.registerNr, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.size, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.i_state, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.i_result, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.i_tmp, GLOBAL, UDINT,4,0,
+gNoActiveAxis, GLOBAL, INT[9],2,,
+gNoActiveAxis[0], GLOBAL, INT,2,0,
+gNoActiveAxis[1], GLOBAL, INT,2,0,
+gNoActiveAxis[2], GLOBAL, INT,2,0,
+gNoActiveAxis[3], GLOBAL, INT,2,0,
+gNoActiveAxis[4], GLOBAL, INT,2,0,
+gNoActiveAxis[5], GLOBAL, INT,2,0,
+gNoActiveAxis[6], GLOBAL, INT,2,0,
+gNoActiveAxis[7], GLOBAL, INT,2,0,
+gNoActiveAxis[8], GLOBAL, INT,2,0,
+gNoActiveAxis_MAX, GLOBAL, INT,2,3,
+length, GLOBAL, UDINT,4,2859,
+[FileHandli],,,,,
+CLR_DB, GLOBAL, BOOL,1,0,
+ERR_FUB_BUSY, GLOBAL, UINT,2,65535,
+Error, GLOBAL, UINT,2,0,
+Handling, GLOBAL, STRUCT: FileHandling_typ,33504,,
+Handling.Command, GLOBAL, STRUCT: FileHandling_Command_typ,7,,
+Handling.Command.bCreateFile, GLOBAL, BOOL,1,0,
+Handling.Command.bWriteFile, GLOBAL, BOOL,1,0,
+Handling.Command.bReadFile, GLOBAL, BOOL,1,0,
+Handling.Command.bReadExFile, GLOBAL, BOOL,1,0,
+Handling.Command.bRenameFile, GLOBAL, BOOL,1,0,
+Handling.Command.bCopyFile, GLOBAL, BOOL,1,0,
+Handling.Command.bDeleteFile, GLOBAL, BOOL,1,0,
+Handling.Data, GLOBAL, STRUCT: FileHandling_Data_typ,33205,,
+Handling.Data.FileName, GLOBAL, STRING,33," ""LogFile.csv""",
+Handling.Data.NewFileName, GLOBAL, STRING,33," ""CopyTestFile.txt""",
+Handling.Data.Device, GLOBAL, STRING,33," ""LOCAL_DEVICE""",
+Handling.Data.Parameter, GLOBAL, STRING,81," """"/DEVICE=C:\DataBase\""",
+Handling.Data.WriteData, GLOBAL, STRING,256," ""15/2/2023	18:3:	0.4259	0	0.081	0.2748	72.7754	0	0	",
+"
+Handling.Data.ReadData, GLOBAL, STRING, 32768, ""
+Handling.Data.Step, GLOBAL, USINT, 1, 1
+Handling.Functionblock, GLOBAL, STRUCT: FileHandling_Functionblock_typ, 292
+Handling.Functionblock.DevLink_0, GLOBAL, STRUCT: DevLink, 28
+Handling.Functionblock.DevLink_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.DevLink_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.DevLink_0.pParam, GLOBAL, UDINT, 4, 59327830
+Handling.Functionblock.DevLink_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.handle, GLOBAL, UDINT, 4, 16073536
+Handling.Functionblock.DevLink_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCreate_0, GLOBAL, STRUCT: FileCreate, 28
+Handling.Functionblock.FileCreate_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileCreate_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.FileCreate_0.pFile, GLOBAL, UDINT, 4, 59327731
+Handling.Functionblock.FileCreate_0.status, GLOBAL, UINT, 2, 20705
+Handling.Functionblock.FileCreate_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCreate_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCreate_0.i_result, GLOBAL, UINT, 2, 20705
+Handling.Functionblock.FileCreate_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileClose_0, GLOBAL, STRUCT: FileClose, 20
+Handling.Functionblock.FileClose_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileClose_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileClose_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileOpen_0, GLOBAL, STRUCT: FileOpen, 32
+Handling.Functionblock.FileOpen_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileOpen_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.FileOpen_0.pFile, GLOBAL, UDINT, 4, 59327731
+Handling.Functionblock.FileOpen_0.mode, GLOBAL, USINT, 1, 1
+Handling.Functionblock.FileOpen_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileOpen_0.filelen, GLOBAL, UDINT, 4, 2859
+Handling.Functionblock.FileOpen_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileWrite_0, GLOBAL, STRUCT: FileWrite, 32
+Handling.Functionblock.FileWrite_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileWrite_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileWrite_0.offset, GLOBAL, UDINT, 4, 2859
+Handling.Functionblock.FileWrite_0.pSrc, GLOBAL, UDINT, 4, 59327911
+Handling.Functionblock.FileWrite_0.len, GLOBAL, UDINT, 4, 52
+Handling.Functionblock.FileWrite_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0, GLOBAL, STRUCT: FileRead, 32
+Handling.Functionblock.FileRead_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileRead_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.offset, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.len, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0, GLOBAL, STRUCT: FileReadEx, 36
+Handling.Functionblock.FileReadEx_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileReadEx_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.offset, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.len, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.bytesread, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0, GLOBAL, STRUCT: FileCopy, 32
+Handling.Functionblock.FileCopy_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileCopy_0.pSrcDev, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pSrc, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pDestDev, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.option, GLOBAL, USINT, 1, 0
+Handling.Functionblock.FileCopy_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0, GLOBAL, STRUCT: FileRename, 28
+Handling.Functionblock.FileRename_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileRename_0.pDevice, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.pName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.pNewName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0, GLOBAL, STRUCT: FileDelete, 24
+Handling.Functionblock.FileDelete_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileDelete_0.pDevice, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0.pName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_tmp, GLOBAL, UDINT, 4, 0
+Select, GLOBAL, USINT, 1, 0
+fiERR_EXIST, GLOBAL, UINT, 2, 20705
+fiERR_FILE_NOT_FOUND, GLOBAL, UINT, 2, 20708
+fiERR_SYSTEM, GLOBAL, UINT, 2, 20799
+fiOVERWRITE, GLOBAL, USINT, 1, 2
+fiREAD_ONLY, GLOBAL, USINT, 1, 0
+fiWRITE_ONLY, GLOBAL, USINT, 1, 1
+length, GLOBAL, UDINT, 4, 2859
+[Axis_Ramp_]
+gCell_01_XSM_AcyclicRead_0, GLOBAL, STRUCT: XSM_AcyclicRead, 252
+gCell_01_XSM_AcyclicRead_0.Enable, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.Read, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.Mode, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.Reset, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.pIO_Mapping, GLOBAL, UDINT, 4, 59326804
+gCell_01_XSM_AcyclicRead_0.ReadData, GLOBAL, STRUCT: XSM_AcyclicReadDataType, 16
+gCell_01_XSM_AcyclicRead_0.ReadData.DC_BusVoltage, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.PowerStage_Temperature, GLOBAL, SINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Module_Temperature, GLOBAL, SINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Encoder_RefPosCyclicCounter, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Encoder_ActualValue, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.ReadData.Encoder_RefPosAcyclicCounter, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.Status, GLOBAL, UINT, 2, 65534
+gCell_01_XSM_AcyclicRead_0.intern, GLOBAL, STRUCT: XSM_AcyclicRead_internType, 140
+gCell_01_XSM_AcyclicRead_0.intern.StateMan, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.ChannelName, GLOBAL, STRING, 31, ""
+gCell_01_XSM_AcyclicRead_0.intern.ReadOK, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.Retries, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType, 104
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.DeviceName, GLOBAL, STRING, 81, ""
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.Channel, GLOBAL, INT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.ModuleOK, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.ModuleID, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.AbsPos, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.MpGenControl, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.MpGenMode, GLOBAL, SINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.AbsPosActVal, GLOBAL, DINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.MpGenStatus, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.intern.IO_Mapping.InputStatus, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0, GLOBAL, STRUCT: AsIOAccRead, 56
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.enable, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.pDeviceName, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.pChannelName, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.status, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.value, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE, 36
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.StateMan, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.ErrMan, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Init, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Taskhandle, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Semaphore, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Requestsize, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Answersize, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.pAccessObj, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.Offset, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccRead_0.intern.flags, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0, GLOBAL, STRUCT: AsIOAccReadReg, 24
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.enable, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.nodeNr, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.registerNr, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.size, GLOBAL, USINT, 1, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.status, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.value, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.i_state, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.i_result, GLOBAL, UINT, 2, 0
+gCell_01_XSM_AcyclicRead_0.AsIOAccReadReg_0.i_tmp, GLOBAL, UDINT, 4, 0
+gCell_01_XSM_Ctrl_0, GLOBAL, STRUCT: XSM_Ctrl, 364
+gCell_01_XSM_Ctrl_0.Power, GLOBAL, BOOL, 1, 1
+gCell_01_XSM_Ctrl_0.Cmd, GLOBAL, STRUCT: XSM_Ctrl_CmdType, 40
+gCell_01_XSM_Ctrl_0.Cmd.Move_Absolute, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Position, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Move_Additive, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Distance, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Move_Velocity, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Velocity, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Stop, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Home, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Reset, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced, GLOBAL, STRUCT: XSM_Ctrl_AdvancedType, 12
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Target_Mode, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Target_Position, GLOBAL, DINT, 4, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Two_Position_Mode, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Move_FixedPos_a, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Move_FixedPos_b, GLOBAL, BOOL, 1, 0
+gCell_01_XSM_Ctrl_0.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType, 104
+gCell_01_XSM_Ctrl_0.IO_Mapping.DeviceName, GLOBAL, STRING, 81, IF6.ST16""",,,,,
+gCell_01_XSM_Ctrl_0.IO_Mapping.Channel, GLOBAL, INT,2,1,
+gCell_01_XSM_Ctrl_0.IO_Mapping.ModuleOK, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.IO_Mapping.ModuleID, GLOBAL, UINT,2,9858,
+gCell_01_XSM_Ctrl_0.IO_Mapping.AbsPos, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenControl, GLOBAL, UINT,2,15,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenMode, GLOBAL, SINT,1,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.AbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenStatus, GLOBAL, UINT,2,567,
+gCell_01_XSM_Ctrl_0.IO_Mapping.InputStatus, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.Parameters, GLOBAL, STRUCT: XSM_Ctrl_ParametersType,24,,
+gCell_01_XSM_Ctrl_0.Parameters.Units_rev, GLOBAL, UINT,2,3600,
+gCell_01_XSM_Ctrl_0.Parameters.PosSWLimit, GLOBAL, DINT,4,10000,
+gCell_01_XSM_Ctrl_0.Parameters.NegSWLimit, GLOBAL, DINT,4,-3600,
+gCell_01_XSM_Ctrl_0.Parameters.HomePosition, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Parameters.HomeMode, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.Ignore_SWLimits, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Parameters.Ignore_HWLimits, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Parameters.HWLimits_Active_Low, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.StallDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.UnderCurrentDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.PowerOn, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Error, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.Monitor, GLOBAL, STRUCT: XSM_Ctrl_MonitorType,16,,
+gCell_01_XSM_Ctrl_0.Monitor.Actual_Position, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Monitor.Actual_Velocity, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Monitor.StandStill, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Monitor.Target_Reached, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Home_OK, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Monitor.Input_1, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_2, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_3, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_4, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern, GLOBAL, STRUCT: XSM_Ctrl_internType,80,,
+gCell_01_XSM_Ctrl_0.intern.StateMan, GLOBAL, UINT,2,100,
+gCell_01_XSM_Ctrl_0.intern.TaskCyclicTime, GLOBAL, REAL,4,0.002,
+gCell_01_XSM_Ctrl_0.intern.CyclicCounter, GLOBAL, REAL,4,0.008,
+gCell_01_XSM_Ctrl_0.intern.OldAbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.intern.Target, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.intern.AbsPos, GLOBAL, REAL,4,0,
+gCell_01_XSM_Ctrl_0.intern.CmdHome, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdReset, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Absolute, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Additive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Velocity, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_Two_Position_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_FixedPos_a, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_FixedPos_b, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_Target_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.OverflowWarning, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.intern.ErrorCode, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.intern.ChannelName, GLOBAL, STRING,31," """"",
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine, GLOBAL, STRUCT: XSM_Ctrl_StateMachineType,8,,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.NotReadyToSwitchOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.SwitchOnDisabled, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.ReadyToSwitchOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.SwitchedOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.OperationEnabled, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.QuickStopActive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.FaultReactionActive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.Fault, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.RTInfo_0, GLOBAL, STRUCT: RTInfo,12,,
+gCell_01_XSM_Ctrl_0.RTInfo_0.enable, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.RTInfo_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.RTInfo_0.cycle_time, GLOBAL, UDINT,4,2000,
+gCell_01_XSM_Ctrl_0.RTInfo_0.init_reason, GLOBAL, SINT,1,1,
+gCell_01_XSM_Ctrl_0.RTInfo_0.task_class, GLOBAL, SINT,1,2,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0, GLOBAL, STRUCT: AsIOAccRead,56,,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.pDeviceName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.pChannelName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE,36,,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.ErrMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Init, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Taskhandle, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Semaphore, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Requestsize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Answersize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.pAccessObj, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Offset, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.flags, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0, GLOBAL, STRUCT: AsIOAccReadReg,24,,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.nodeNr, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.registerNr, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.size, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_state, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_result, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_tmp, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.zzEdge00000, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0, GLOBAL, STRUCT: XSM_IO_Cfg,324,,
+gCell_01_XSM_IO_Cfg_0.Enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.Config, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.Mode, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.Reset, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg, GLOBAL, STRUCT: XSM_IO_ConfigurationType,48,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MixedDecayCfg, GLOBAL, USINT,1,15,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current, GLOBAL, STRUCT: XSM_IOCfg_CurrentType,12,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current.Holding, GLOBAL, REAL,4,0.3,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current.Rated, GLOBAL, REAL,4,0.65,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.Current.Maximum, GLOBAL, REAL,4,1,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.FullStepThreshold, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.StallCfg, GLOBAL, STRUCT: XSM_IOCfg_StallType,2,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.StallCfg.StallDetection, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.StallCfg.DisplayMotorLoadValues, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.RefCfg, GLOBAL, STRUCT: XSM_IOCfg_ReferencingType,2,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.RefCfg.ReferencingConfiguration, GLOBAL, SINT,1,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.RefCfg.StallRecongnitionDelay, GLOBAL, USINT,1,8,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen, GLOBAL, STRUCT: XSM_IOCfg_MPGenType,24,,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.MaxSpeed, GLOBAL, UINT,2,10000,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.MaxAcc, GLOBAL, UINT,2,5000,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.MaxDec, GLOBAL, UINT,2,5000,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.RevLoop, GLOBAL, INT,2,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.FixedPos_a, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.FixedPos_b, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.RefSpeed, GLOBAL, DINT,4,100,
+gCell_01_XSM_IO_Cfg_0.IO_Cfg.MPGen.JoltTimeLimitation, GLOBAL, SINT,1,0,
+gCell_01_XSM_IO_Cfg_0.pIO_Mapping, GLOBAL, UDINT,4,59326804,
+gCell_01_XSM_IO_Cfg_0.pParameters, GLOBAL, UDINT,4,59326908,
+gCell_01_XSM_IO_Cfg_0.Done, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.Status, GLOBAL, UINT,2,65534,
+gCell_01_XSM_IO_Cfg_0.intern, GLOBAL, STRUCT: XSM_IO_Cfg_internType,172,,
+gCell_01_XSM_IO_Cfg_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.Cfg_State, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.OverflowWarning, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.AsIOAccWriteValue, GLOBAL, REAL,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.ChannelName, GLOBAL, STRING,31," """"",
+gCell_01_XSM_IO_Cfg_0.intern.Retries, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType,104,,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.DeviceName, GLOBAL, STRING,81," """"",
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.Channel, GLOBAL, INT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.ModuleOK, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.ModuleID, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.AbsPos, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.MpGenControl, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.MpGenMode, GLOBAL, SINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.AbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.MpGenStatus, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.IO_Mapping.InputStatus, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters, GLOBAL, STRUCT: XSM_Ctrl_ParametersType,24,,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.Units_rev, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.PosSWLimit, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.NegSWLimit, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.HomePosition, GLOBAL, DINT,4,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.HomeMode, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.Ignore_SWLimits, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.Ignore_HWLimits, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.HWLimits_Active_Low, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.StallDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.intern.Parameters.UnderCurrentDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0, GLOBAL, STRUCT: AsIOAccWrite,56,,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.pDeviceName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.pChannelName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE,36,,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.ErrMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Init, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Taskhandle, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Semaphore, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Requestsize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Answersize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.pAccessObj, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.Offset, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWrite_0.intern.flags, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0, GLOBAL, STRUCT: AsIOAccWriteReg,28,,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.nodeNr, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.registerNr, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.size, GLOBAL, USINT,1,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.i_state, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.i_result, GLOBAL, UINT,2,0,
+gCell_01_XSM_IO_Cfg_0.AsIOAccWriteReg_0.i_tmp, GLOBAL, UDINT,4,0,
+[DataMange],,,,,
+TotalSum, GLOBAL, STRUCT: TotalSum_Typ,384,,
+TotalSum.Cell1, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell1.Size1, GLOBAL, REAL,4,0.4259,
+TotalSum.Cell1.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell1.Size3, GLOBAL, REAL,4,0.081,
+TotalSum.Cell1.Size4, GLOBAL, REAL,4,0.2748,
+TotalSum.Cell1.Size5, GLOBAL, REAL,4,72.775436,
+TotalSum.Cell1.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell2, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell2.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell3, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell3.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell4, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell4.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell5, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell5.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell6, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell6.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell7, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell7.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell8, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell8.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell9, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell9.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell10, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell10.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell11, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell11.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell12, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell12.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell13, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell13.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell14, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell14.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell15, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell15.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell16, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell16.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size6, GLOBAL, REAL,4,0,
+Total_Size_1, GLOBAL, REAL,4,0.4259,
+Total_Size_2, GLOBAL, REAL,4,0,
+Total_Size_3, GLOBAL, REAL,4,0.081,
+Total_Size_4, GLOBAL, REAL,4,0.2748,
+Total_Size_5, GLOBAL, REAL,4,72.775436,
+Total_Size_6, GLOBAL, REAL,4,0,
+[LogFile_Pr],,,,,
+CLR_DB, GLOBAL, BOOL,1,0,
+DT1, LOCAL, DATE_AND_TIME,4, DT#2023-02-15-18:03:45,
+DTGetTime_1, LOCAL, STRUCT: DTGetTime,12,,
+DTGetTime_1.enable, LOCAL, BOOL,1,1,
+DTGetTime_1.status, LOCAL, UINT,2,0,
+DTGetTime_1.DT1, LOCAL, DATE_AND_TIME,4, DT#2023-02-15-18:03:45,
+Handling, GLOBAL, STRUCT: FileHandling_typ,33504,,
+Handling.Command, GLOBAL, STRUCT: FileHandling_Command_typ,7,,
+Handling.Command.bCreateFile, GLOBAL, BOOL,1,0,
+Handling.Command.bWriteFile, GLOBAL, BOOL,1,0,
+Handling.Command.bReadFile, GLOBAL, BOOL,1,0,
+Handling.Command.bReadExFile, GLOBAL, BOOL,1,0,
+Handling.Command.bRenameFile, GLOBAL, BOOL,1,0,
+Handling.Command.bCopyFile, GLOBAL, BOOL,1,0,
+Handling.Command.bDeleteFile, GLOBAL, BOOL,1,0,
+Handling.Data, GLOBAL, STRUCT: FileHandling_Data_typ,33205,,
+Handling.Data.FileName, GLOBAL, STRING,33," ""LogFile.csv""",
+Handling.Data.NewFileName, GLOBAL, STRING,33," ""CopyTestFile.txt""",
+Handling.Data.Device, GLOBAL, STRING,33," ""LOCAL_DEVICE""",
+Handling.Data.Parameter, GLOBAL, STRING,81," """"/DEVICE=C:\DataBase\""",
+Handling.Data.WriteData, GLOBAL, STRING,256," ""15/2/2023	18:3:	0.4259	0	0.081	0.2748	72.7754	0	0	",
+"
+Handling.Data.ReadData, GLOBAL, STRING, 32768, ""
+Handling.Data.Step, GLOBAL, USINT, 1, 1
+Handling.Functionblock, GLOBAL, STRUCT: FileHandling_Functionblock_typ, 292
+Handling.Functionblock.DevLink_0, GLOBAL, STRUCT: DevLink, 28
+Handling.Functionblock.DevLink_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.DevLink_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.DevLink_0.pParam, GLOBAL, UDINT, 4, 59327830
+Handling.Functionblock.DevLink_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.handle, GLOBAL, UDINT, 4, 16073536
+Handling.Functionblock.DevLink_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.DevLink_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCreate_0, GLOBAL, STRUCT: FileCreate, 28
+Handling.Functionblock.FileCreate_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileCreate_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.FileCreate_0.pFile, GLOBAL, UDINT, 4, 59327731
+Handling.Functionblock.FileCreate_0.status, GLOBAL, UINT, 2, 20705
+Handling.Functionblock.FileCreate_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCreate_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCreate_0.i_result, GLOBAL, UINT, 2, 20705
+Handling.Functionblock.FileCreate_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileClose_0, GLOBAL, STRUCT: FileClose, 20
+Handling.Functionblock.FileClose_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileClose_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileClose_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileClose_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileOpen_0, GLOBAL, STRUCT: FileOpen, 32
+Handling.Functionblock.FileOpen_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileOpen_0.pDevice, GLOBAL, UDINT, 4, 59327797
+Handling.Functionblock.FileOpen_0.pFile, GLOBAL, UDINT, 4, 59327731
+Handling.Functionblock.FileOpen_0.mode, GLOBAL, USINT, 1, 1
+Handling.Functionblock.FileOpen_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileOpen_0.filelen, GLOBAL, UDINT, 4, 2859
+Handling.Functionblock.FileOpen_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileOpen_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileWrite_0, GLOBAL, STRUCT: FileWrite, 32
+Handling.Functionblock.FileWrite_0.enable, GLOBAL, BOOL, 1, 1
+Handling.Functionblock.FileWrite_0.ident, GLOBAL, UDINT, 4, 805319986
+Handling.Functionblock.FileWrite_0.offset, GLOBAL, UDINT, 4, 2859
+Handling.Functionblock.FileWrite_0.pSrc, GLOBAL, UDINT, 4, 59327911
+Handling.Functionblock.FileWrite_0.len, GLOBAL, UDINT, 4, 52
+Handling.Functionblock.FileWrite_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileWrite_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0, GLOBAL, STRUCT: FileRead, 32
+Handling.Functionblock.FileRead_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileRead_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.offset, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.len, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRead_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRead_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0, GLOBAL, STRUCT: FileReadEx, 36
+Handling.Functionblock.FileReadEx_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileReadEx_0.ident, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.offset, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.len, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.bytesread, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileReadEx_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileReadEx_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0, GLOBAL, STRUCT: FileCopy, 32
+Handling.Functionblock.FileCopy_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileCopy_0.pSrcDev, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pSrc, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pDestDev, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.pDest, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileCopy_0.option, GLOBAL, USINT, 1, 0
+Handling.Functionblock.FileCopy_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileCopy_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0, GLOBAL, STRUCT: FileRename, 28
+Handling.Functionblock.FileRename_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileRename_0.pDevice, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.pName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.pNewName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileRename_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileRename_0.i_tmp, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0, GLOBAL, STRUCT: FileDelete, 24
+Handling.Functionblock.FileDelete_0.enable, GLOBAL, BOOL, 1, 0
+Handling.Functionblock.FileDelete_0.pDevice, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0.pName, GLOBAL, UDINT, 4, 0
+Handling.Functionblock.FileDelete_0.status, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_state, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_result, GLOBAL, UINT, 2, 0
+Handling.Functionblock.FileDelete_0.i_tmp, GLOBAL, UDINT, 4, 0
+MAIN_START, GLOBAL, BOOL, 1, 1
+TOTAL_WEIGHT, GLOBAL, REAL, 4, 0.000000
+Temp_WriteData, LOCAL, STRING, 256, 15/2/2023	18:3:	0.4259	0	0.081	0.2748	72.7754	0	0	",,,,,
+"
+Temp_length, LOCAL, UDINT, 4, 53
+Time_To_Write, LOCAL, STRUCT: TON, 20
+Time_To_Write.IN, LOCAL, BOOL, 1, 1
+Time_To_Write.PT, LOCAL, TIME, 4, T#10m
+Time_To_Write.Q, LOCAL, BOOL, 1, 0
+Time_To_Write.ET, LOCAL, TIME, 4, T#9m_01s_300ms
+Time_To_Write.StartTime, LOCAL, TIME, 4, T#3h_06m_46s_340ms
+Time_To_Write.M, LOCAL, BOOL, 1, 1
+Time_To_Write.Restart, LOCAL, UDINT, 4, 0
+Total_Size_1, GLOBAL, REAL, 4, 0.425900
+Total_Size_2, GLOBAL, REAL, 4, 0.000000
+Total_Size_3, GLOBAL, REAL, 4, 0.081000
+Total_Size_4, GLOBAL, REAL, 4, 0.274800
+Total_Size_5, GLOBAL, REAL, 4, 72.775436
+Total_Size_6, GLOBAL, REAL, 4, 0.000000
+dtStruct, LOCAL, STRUCT: DTStructure, 12
+dtStruct.year, LOCAL, UINT, 2, 2023
+dtStruct.month, LOCAL, USINT, 1, 2
+dtStruct.day, LOCAL, USINT, 1, 15
+dtStruct.wday, LOCAL, USINT, 1, 3
+dtStruct.hour, LOCAL, USINT, 1, 18
+dtStruct.minute, LOCAL, USINT, 1, 3
+dtStruct.second, LOCAL, USINT, 1, 45
+dtStruct.millisec, LOCAL, UINT, 2, 0
+dtStruct.microsec, LOCAL, UINT, 2, 0
+length, GLOBAL, UDINT, 4, 2859
+temp_str, LOCAL, STRING, 81, 0""",,,,,
+time_stamp_str, LOCAL, STRING,81," ""15/2/2023	18:3:""",
+[CELL_01],,,,,
+AI_W, LOCAL, DINT,4,2330479,
+AI_W_Config, LOCAL, USINT,1,59,
+AI_W_STATUS, LOCAL, USINT,1,0,
+AUTO_ZERO_Delay_T, LOCAL, STRUCT: TON,20,,
+AUTO_ZERO_Delay_T.IN, LOCAL, BOOL,1,0,
+AUTO_ZERO_Delay_T.PT, LOCAL, TIME,4, T#2s,
+AUTO_ZERO_Delay_T.Q, LOCAL, BOOL,1,0,
+AUTO_ZERO_Delay_T.ET, LOCAL, TIME,4, T#0ms,
+AUTO_ZERO_Delay_T.StartTime, LOCAL, TIME,4, T#1h_06m_45s_350ms,
+AUTO_ZERO_Delay_T.M, LOCAL, BOOL,1,0,
+AUTO_ZERO_Delay_T.Restart, LOCAL, UDINT,4,0,
+AUTO_ZERO_T, LOCAL, STRUCT: TON,20,,
+AUTO_ZERO_T.IN, LOCAL, BOOL,1,1,
+AUTO_ZERO_T.PT, LOCAL, TIME,4, T#1h,
+AUTO_ZERO_T.Q, LOCAL, BOOL,1,1,
+AUTO_ZERO_T.ET, LOCAL, TIME,4, T#1h,
+AUTO_ZERO_T.StartTime, LOCAL, TIME,4, T#1h_06m_39s_990ms,
+AUTO_ZERO_T.M, LOCAL, BOOL,1,1,
+AUTO_ZERO_T.Restart, LOCAL, UDINT,4,0,
+AXIS_ERROR_STATE, LOCAL, INT,2,0,
+Alarm_Axis, LOCAL, USINT,1,0,
+Alarm_Scale, LOCAL, USINT,1,0,
+Alarm_Scale_T, LOCAL, STRUCT: TON,20,,
+Alarm_Scale_T.IN, LOCAL, BOOL,1,0,
+Alarm_Scale_T.PT, LOCAL, TIME,4, T#4s,
+Alarm_Scale_T.Q, LOCAL, BOOL,1,0,
+Alarm_Scale_T.ET, LOCAL, TIME,4, T#0ms,
+Alarm_Scale_T.StartTime, LOCAL, TIME,4, T#0ms,
+Alarm_Scale_T.M, LOCAL, BOOL,1,0,
+Alarm_Scale_T.Restart, LOCAL, UDINT,4,0,
+Auto_Tara_Counter, LOCAL, INT,2,0,
+AxisModulID, LOCAL, INT,2,1,
+BYPASS_ZERO, LOCAL, BOOL,1,1,
+BYPASS_ZERO_COUNT_ACT, LOCAL, INT,2,0,
+BYPASS_ZERO_COUNT_SET, GLOBAL, INT,2,20,
+CAL_KEY_DONE, LOCAL, BOOL,1,0,
+CAL_KEY_LOAD, LOCAL, BOOL,1,0,
+CAL_KEY_READY, LOCAL, BOOL,1,0,
+CAL_KEY_START, LOCAL, BOOL,1,0,
+CAL_STATE_DONE, LOCAL, UINT,2,1,
+CAL_STATE_LOAD, LOCAL, UINT,2,1,
+CAL_STATE_READY, LOCAL, UINT,2,1,
+CAL_state, LOCAL, INT,2,0,
+CELL_DOOR_CLOSE_T, LOCAL, STRUCT: TON,20,,
+CELL_DOOR_CLOSE_T.IN, LOCAL, BOOL,1,0,
+CELL_DOOR_CLOSE_T.PT, LOCAL, TIME,4, T#150ms,
+CELL_DOOR_CLOSE_T.Q, LOCAL, BOOL,1,0,
+CELL_DOOR_CLOSE_T.ET, LOCAL, TIME,4, T#0ms,
+CELL_DOOR_CLOSE_T.StartTime, LOCAL, TIME,4, T#0ms,
+CELL_DOOR_CLOSE_T.M, LOCAL, BOOL,1,0,
+CELL_DOOR_CLOSE_T.Restart, LOCAL, UDINT,4,0,
+CELL_DOOR_CLOSE_T_PT, GLOBAL, TIME,4, T#150ms,
+CELL_DOOR_OPEN_T, LOCAL, STRUCT: TON,20,,
+CELL_DOOR_OPEN_T.IN, LOCAL, BOOL,1,0,
+CELL_DOOR_OPEN_T.PT, LOCAL, TIME,4, T#200ms,
+CELL_DOOR_OPEN_T.Q, LOCAL, BOOL,1,0,
+CELL_DOOR_OPEN_T.ET, LOCAL, TIME,4, T#0ms,
+CELL_DOOR_OPEN_T.StartTime, LOCAL, TIME,4, T#0ms,
+CELL_DOOR_OPEN_T.M, LOCAL, BOOL,1,0,
+CELL_DOOR_OPEN_T.Restart, LOCAL, UDINT,4,0,
+CELL_DOOR_OPEN_T_PT, GLOBAL, TIME,4, T#200ms,
+CLR_DATA, GLOBAL, BOOL,1,0,
+ChangeConfig, LOCAL, BOOL,1,0,
+DataCFG, LOCAL, STRUCT: MpDataRecorderConfigType,128,,
+DataCFG.MaxNumberOfFiles, LOCAL, UINT,2,4,
+DataCFG.MaxFileSize, LOCAL, UDINT,4,4000,
+DataCFG.DecimalDigits, LOCAL, UINT,2,2,
+DataCFG.SaveInterval, LOCAL, TIME,4, T#4s,
+DataCFG.BufferSize, LOCAL, UINT,2,200,
+DataCFG.PowerFailSafe, LOCAL, BOOL,1,1,
+DataCFG.FileNamePattern, LOCAL, STRING,51," ""LogCell.csv""",
+DataCFG.TimeStampPattern, LOCAL, STRING,51," ""%Y %m %d %H:%M:%S:%L""",
+DataCFG.ColumnSeparator, LOCAL, STRING,2," ""","
+DataCFG.DecimalMark, LOCAL, STRING, 2, ."""
+Date_Fall, LOCAL, INT,2,0,
+Edge0000100000, LOCAL, BOOL,1,1,
+Edge0000100001, LOCAL, BOOL,1,0,
+Edge0000100002, LOCAL, BOOL,1,0,
+Edge0000100003, LOCAL, BOOL,1,0,
+Error_Reset_Count, LOCAL, INT,2,0,
+Error_Reset_TimeOut, LOCAL, INT,2,0,
+Fall_Val, LOCAL, INT,2,2,
+Feed_Conveyor_OFF_Timer, LOCAL, STRUCT: TON,20,,
+Feed_Conveyor_OFF_Timer.IN, LOCAL, BOOL,1,0,
+Feed_Conveyor_OFF_Timer.PT, LOCAL, TIME,4, T#2s,
+Feed_Conveyor_OFF_Timer.Q, LOCAL, BOOL,1,0,
+Feed_Conveyor_OFF_Timer.ET, LOCAL, TIME,4, T#0ms,
+Feed_Conveyor_OFF_Timer.StartTime, LOCAL, TIME,4, T#0ms,
+Feed_Conveyor_OFF_Timer.M, LOCAL, BOOL,1,0,
+Feed_Conveyor_OFF_Timer.Restart, LOCAL, UDINT,4,0,
+Feed_Conveyor_ON_Timer, LOCAL, STRUCT: TON,20,,
+Feed_Conveyor_ON_Timer.IN, LOCAL, BOOL,1,0,
+Feed_Conveyor_ON_Timer.PT, LOCAL, TIME,4, T#2s,
+Feed_Conveyor_ON_Timer.Q, LOCAL, BOOL,1,0,
+Feed_Conveyor_ON_Timer.ET, LOCAL, TIME,4, T#0ms,
+Feed_Conveyor_ON_Timer.StartTime, LOCAL, TIME,4, T#0ms,
+Feed_Conveyor_ON_Timer.M, LOCAL, BOOL,1,0,
+Feed_Conveyor_ON_Timer.Restart, LOCAL, UDINT,4,0,
+Feed_OFF_Val, LOCAL, INT,2,2,
+Feed_ON_Val, LOCAL, INT,2,2,
+Feed_State, LOCAL, INT,2,10,
+Fix_Timer, LOCAL, STRUCT: TON,20,,
+Fix_Timer.IN, LOCAL, BOOL,1,0,
+Fix_Timer.PT, LOCAL, TIME,4, T#250ms,
+Fix_Timer.Q, LOCAL, BOOL,1,0,
+Fix_Timer.ET, LOCAL, TIME,4, T#0ms,
+Fix_Timer.StartTime, LOCAL, TIME,4, T#0ms,
+Fix_Timer.M, LOCAL, BOOL,1,0,
+Fix_Timer.Restart, LOCAL, UDINT,4,0,
+Flash_Timer, LOCAL, STRUCT: TON,20,,
+Flash_Timer.IN, LOCAL, BOOL,1,0,
+Flash_Timer.PT, LOCAL, TIME,4, T#3s,
+Flash_Timer.Q, LOCAL, BOOL,1,0,
+Flash_Timer.ET, LOCAL, TIME,4, T#0ms,
+Flash_Timer.StartTime, LOCAL, TIME,4, T#0ms,
+Flash_Timer.M, LOCAL, BOOL,1,0,
+Flash_Timer.Restart, LOCAL, UDINT,4,0,
+HomeTime, LOCAL, INT,2,0,
+Homing_Done, GLOBAL, BOOL[10],1,,
+Homing_Done[0], GLOBAL, BOOL,1,1,
+Homing_Done[1], GLOBAL, BOOL,1,0,
+Homing_Done[2], GLOBAL, BOOL,1,0,
+Homing_Done[3], GLOBAL, BOOL,1,0,
+Homing_Done[4], GLOBAL, BOOL,1,0,
+Homing_Done[5], GLOBAL, BOOL,1,0,
+Homing_Done[6], GLOBAL, BOOL,1,0,
+Homing_Done[7], GLOBAL, BOOL,1,0,
+Homing_Done[8], GLOBAL, BOOL,1,0,
+Homing_Done[9], GLOBAL, BOOL,1,0,
+IN_Cell_Sensor, LOCAL, BOOL,1,0,
+IN_Feed_Sensor_1, LOCAL, BOOL,1,0,
+IN_Feed_Sensor_2, LOCAL, BOOL,1,0,
+IN_Lift_Sensor, LOCAL, BOOL,1,0,
+IN_MAN_START, LOCAL, BOOL,1,1,
+JET_State_Reset_T, LOCAL, STRUCT: TON,20,,
+JET_State_Reset_T.IN, LOCAL, BOOL,1,0,
+JET_State_Reset_T.PT, LOCAL, TIME,4, T#10s,
+JET_State_Reset_T.Q, LOCAL, BOOL,1,0,
+JET_State_Reset_T.ET, LOCAL, TIME,4, T#0ms,
+JET_State_Reset_T.StartTime, LOCAL, TIME,4, T#0ms,
+JET_State_Reset_T.M, LOCAL, BOOL,1,0,
+JET_State_Reset_T.Restart, LOCAL, UDINT,4,0,
+LANE_NUMBER, LOCAL, INT,2,0,
+LAST_WEIGHT, LOCAL, REAL,4,0,
+LOAD_READY, LOCAL, BOOL,1,0,
+LOAD_READY_T, LOCAL, STRUCT: TON,20,,
+LOAD_READY_T.IN, LOCAL, BOOL,1,0,
+LOAD_READY_T.PT, LOCAL, TIME,4, T#100ms,
+LOAD_READY_T.Q, LOCAL, BOOL,1,0,
+LOAD_READY_T.ET, LOCAL, TIME,4, T#0ms,
+LOAD_READY_T.StartTime, LOCAL, TIME,4, T#0ms,
+LOAD_READY_T.M, LOCAL, BOOL,1,0,
+LOAD_READY_T.Restart, LOCAL, UDINT,4,0,
+LOAD_READY_T_PT, GLOBAL, TIME,4, T#100ms,
+Lift_OFF_Timer, LOCAL, STRUCT: TON,20,,
+Lift_OFF_Timer.IN, LOCAL, BOOL,1,0,
+Lift_OFF_Timer.PT, LOCAL, TIME,4, T#2s,
+Lift_OFF_Timer.Q, LOCAL, BOOL,1,0,
+Lift_OFF_Timer.ET, LOCAL, TIME,4, T#0ms,
+Lift_OFF_Timer.StartTime, LOCAL, TIME,4, T#3h_14m_31s_650ms,
+Lift_OFF_Timer.M, LOCAL, BOOL,1,0,
+Lift_OFF_Timer.Restart, LOCAL, UDINT,4,0,
+Lift_OFF_Val, LOCAL, INT,2,2,
+Lift_ON_Timer, LOCAL, STRUCT: TON,20,,
+Lift_ON_Timer.IN, LOCAL, BOOL,1,0,
+Lift_ON_Timer.PT, LOCAL, TIME,4, T#0ms,
+Lift_ON_Timer.Q, LOCAL, BOOL,1,0,
+Lift_ON_Timer.ET, LOCAL, TIME,4, T#0ms,
+Lift_ON_Timer.StartTime, LOCAL, TIME,4, T#0ms,
+Lift_ON_Timer.M, LOCAL, BOOL,1,0,
+Lift_ON_Timer.Restart, LOCAL, UDINT,4,0,
+Lift_State, LOCAL, INT,2,10,
+MAIN_START, GLOBAL, BOOL,1,1,
+Massege_Feed, LOCAL, STRING,81," ""Feed conveyor RUN""",
+Massege_Lift, LOCAL, STRING,81," ""Lift RUN""",
+Massege_Weight, LOCAL, STRING,81," ""Run""",
+MpDataRecorderConfig_0, LOCAL, STRUCT: MpDataRecorderConfig,40,,
+MpDataRecorderConfig_0.MpLink, LOCAL, UDINT,4,63588348,
+MpDataRecorderConfig_0.Enable, LOCAL, BOOL,1,1,
+MpDataRecorderConfig_0.ErrorReset, LOCAL, BOOL,1,0,
+MpDataRecorderConfig_0.Configuration, LOCAL, UDINT,4,63591468,
+MpDataRecorderConfig_0.Load, LOCAL, BOOL,1,0,
+MpDataRecorderConfig_0.Save, LOCAL, BOOL,1,1,
+MpDataRecorderConfig_0.Active, LOCAL, BOOL,1,1,
+MpDataRecorderConfig_0.Error, LOCAL, BOOL,1,0,
+MpDataRecorderConfig_0.StatusID, LOCAL, DINT,4,0,
+MpDataRecorderConfig_0.CommandBusy, LOCAL, BOOL,1,0,
+MpDataRecorderConfig_0.CommandDone, LOCAL, BOOL,1,1,
+MpDataRecorderConfig_0.Info, LOCAL, STRUCT: MpDataInfoType,12,,
+MpDataRecorderConfig_0.Info.Diag, LOCAL, STRUCT: MpDataDiagType,12,,
+MpDataRecorderConfig_0.Info.Diag.StatusID, LOCAL, STRUCT: MpDataStatusIDType,12,,
+MpDataRecorderConfig_0.Info.Diag.StatusID.ID, LOCAL, DINT,4,0,
+MpDataRecorderConfig_0.Info.Diag.StatusID.Severity, LOCAL, DINT,4,0,
+MpDataRecorderConfig_0.Info.Diag.StatusID.Code, LOCAL, UINT,2,0,
+MpDataRecorderConfig_0.Internal, LOCAL, STRUCT: MpComInternalDataType,8,,
+MpDataRecorderConfig_0.Internal.pObject, LOCAL, UDINT,4,50818464,
+MpDataRecorderConfig_0.Internal.State, LOCAL, UDINT,4,2,
+MpDataRecorder_0, LOCAL, STRUCT: MpDataRecorder,124,,
+MpDataRecorder_0.MpLink, LOCAL, UDINT,4,63588348,
+MpDataRecorder_0.Enable, LOCAL, BOOL,1,1,
+MpDataRecorder_0.ErrorReset, LOCAL, BOOL,1,0,
+MpDataRecorder_0.Header, LOCAL, UDINT,4,0,
+MpDataRecorder_0.DeviceName, LOCAL, UDINT,4,48211072,
+MpDataRecorder_0.SamplingTime, LOCAL, TIME,4, T#1s,
+MpDataRecorder_0.RecordMode, LOCAL, DINT,4,1,
+MpDataRecorder_0.Record, LOCAL, BOOL,1,1,
+MpDataRecorder_0.Trigger, LOCAL, BOOL,1,0,
+MpDataRecorder_0.SnapShot, LOCAL, BOOL,1,0,
+MpDataRecorder_0.Active, LOCAL, BOOL,1,1,
+MpDataRecorder_0.Error, LOCAL, BOOL,1,0,
+MpDataRecorder_0.StatusID, LOCAL, DINT,4,0,
+MpDataRecorder_0.CommandBusy, LOCAL, BOOL,1,0,
+MpDataRecorder_0.Recording, LOCAL, BOOL,1,1,
+MpDataRecorder_0.RecordDone, LOCAL, BOOL,1,0,
+MpDataRecorder_0.SnapShotDone, LOCAL, BOOL,1,0,
+MpDataRecorder_0.Info, LOCAL, STRUCT: MpDataRecorderInfoType,80,,
+MpDataRecorder_0.Info.FileCount, LOCAL, UINT,2,0,
+MpDataRecorder_0.Info.CurrentFileName, LOCAL, STRING,51," """"",
+MpDataRecorder_0.Info.CurrentFileSize, LOCAL, UDINT,4,0,
+MpDataRecorder_0.Info.CurrentBufferSize, LOCAL, UINT,2,0,
+MpDataRecorder_0.Info.RegisteredPVCount, LOCAL, UINT,2,1,
+MpDataRecorder_0.Info.TotalSamples, LOCAL, UDINT,4,0,
+MpDataRecorder_0.Info.Diag, LOCAL, STRUCT: MpDataDiagType,12,,
+MpDataRecorder_0.Info.Diag.StatusID, LOCAL, STRUCT: MpDataStatusIDType,12,,
+MpDataRecorder_0.Info.Diag.StatusID.ID, LOCAL, DINT,4,0,
+MpDataRecorder_0.Info.Diag.StatusID.Severity, LOCAL, DINT,4,0,
+MpDataRecorder_0.Info.Diag.StatusID.Code, LOCAL, UINT,2,0,
+MpDataRecorder_0.Internal, LOCAL, STRUCT: MpComInternalDataType,8,,
+MpDataRecorder_0.Internal.pObject, LOCAL, UDINT,4,50611216,
+MpDataRecorder_0.Internal.State, LOCAL, UDINT,4,3,
+MpDataRegPar_0, LOCAL, STRUCT: MpDataRegPar,48,,
+MpDataRegPar_0.MpLink, LOCAL, UDINT,4,63588348,
+MpDataRegPar_0.Enable, LOCAL, BOOL,1,1,
+MpDataRegPar_0.ErrorReset, LOCAL, BOOL,1,0,
+MpDataRegPar_0.PVName, LOCAL, UDINT,4,48211320,
+MpDataRegPar_0.Unit, LOCAL, UDINT,4,48211354,
+MpDataRegPar_0.Description, LOCAL, UDINT,4,48211372,
+MpDataRegPar_0.ScaleFactor, LOCAL, REAL,4,1,
+MpDataRegPar_0.Active, LOCAL, BOOL,1,1,
+MpDataRegPar_0.Error, LOCAL, BOOL,1,0,
+MpDataRegPar_0.StatusID, LOCAL, DINT,4,0,
+MpDataRegPar_0.Info, LOCAL, STRUCT: MpDataInfoType,12,,
+MpDataRegPar_0.Info.Diag, LOCAL, STRUCT: MpDataDiagType,12,,
+MpDataRegPar_0.Info.Diag.StatusID, LOCAL, STRUCT: MpDataStatusIDType,12,,
+MpDataRegPar_0.Info.Diag.StatusID.ID, LOCAL, DINT,4,0,
+MpDataRegPar_0.Info.Diag.StatusID.Severity, LOCAL, DINT,4,0,
+MpDataRegPar_0.Info.Diag.StatusID.Code, LOCAL, UINT,2,0,
+MpDataRegPar_0.Internal, LOCAL, STRUCT: MpComInternalDataType,8,,
+MpDataRegPar_0.Internal.pObject, LOCAL, UDINT,4,50612072,
+MpDataRegPar_0.Internal.State, LOCAL, UDINT,4,3,
+Nav_Timer, LOCAL, STRUCT: TON,20,,
+Nav_Timer.IN, LOCAL, BOOL,1,0,
+Nav_Timer.PT, LOCAL, TIME,4, T#0ms,
+Nav_Timer.Q, LOCAL, BOOL,1,0,
+Nav_Timer.ET, LOCAL, TIME,4, T#0ms,
+Nav_Timer.StartTime, LOCAL, TIME,4, T#0ms,
+Nav_Timer.M, LOCAL, BOOL,1,0,
+Nav_Timer.Restart, LOCAL, UDINT,4,0,
+New_Log, LOCAL, BOOL,1,0,
+New_Log_Done, LOCAL, BOOL,1,0,
+New_Log_Message, LOCAL, STRING,41," """"",
+OUT_Cell, LOCAL, BOOL,1,0,
+OUT_Feed_Conveyor, LOCAL, BOOL,1,1,
+OUT_Feeder, LOCAL, BOOL,1,1,
+OUT_LOAD_DOOR_T, LOCAL, STRUCT: TON,20,,
+OUT_LOAD_DOOR_T.IN, LOCAL, BOOL,1,0,
+OUT_LOAD_DOOR_T.PT, LOCAL, TIME,4, T#0ms,
+OUT_LOAD_DOOR_T.Q, LOCAL, BOOL,1,0,
+OUT_LOAD_DOOR_T.ET, LOCAL, TIME,4, T#0ms,
+OUT_LOAD_DOOR_T.StartTime, LOCAL, TIME,4, T#0ms,
+OUT_LOAD_DOOR_T.M, LOCAL, BOOL,1,0,
+OUT_LOAD_DOOR_T.Restart, LOCAL, UDINT,4,0,
+OUT_LOAD_DOOR_T_PT, GLOBAL, TIME,4, T#0ms,
+OUT_Lift_Conveyor, LOCAL, BOOL,1,1,
+READY_T, LOCAL, STRUCT: TON,20,,
+READY_T.IN, LOCAL, BOOL,1,0,
+READY_T.PT, LOCAL, TIME,4, T#0ms,
+READY_T.Q, LOCAL, BOOL,1,0,
+READY_T.ET, LOCAL, TIME,4, T#0ms,
+READY_T.StartTime, LOCAL, TIME,4, T#0ms,
+READY_T.M, LOCAL, BOOL,1,0,
+READY_T.Restart, LOCAL, UDINT,4,0,
+R_POSITION, LOCAL, REAL,4,0,
+R_POSITION_TOLR, GLOBAL, REAL,4,360,
+RecordEnable, LOCAL, BOOL,1,1,
+Record_CFG_state, LOCAL, USINT,1,0,
+Refill_Timer, LOCAL, STRUCT: TON,20,,
+Refill_Timer.IN, LOCAL, BOOL,1,0,
+Refill_Timer.PT, LOCAL, TIME,4, T#10s,
+Refill_Timer.Q, LOCAL, BOOL,1,1,
+Refill_Timer.ET, LOCAL, TIME,4, T#10s,
+Refill_Timer.StartTime, LOCAL, TIME,4, T#3h_14m_33s_650ms,
+Refill_Timer.M, LOCAL, BOOL,1,1,
+Refill_Timer.Restart, LOCAL, UDINT,4,0,
+Reset, LOCAL, BOOL,1,0,
+SIZE_FOR_LANE, GLOBAL, USINT[7],1,,
+SIZE_FOR_LANE[0], GLOBAL, USINT,1,0,
+SIZE_FOR_LANE[1], GLOBAL, USINT,1,1,
+SIZE_FOR_LANE[2], GLOBAL, USINT,1,2,
+SIZE_FOR_LANE[3], GLOBAL, USINT,1,3,
+SIZE_FOR_LANE[4], GLOBAL, USINT,1,4,
+SIZE_FOR_LANE[5], GLOBAL, USINT,1,5,
+SIZE_FOR_LANE[6], GLOBAL, USINT,1,6,
+SIZE_GROUP, LOCAL, USINT,1,0,
+SORT_Velocity, LOCAL, REAL,4,300000,
+SampleTime, LOCAL, TIME,4, T#1s,
+TotalSum, GLOBAL, STRUCT: TotalSum_Typ,384,,
+TotalSum.Cell1, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell1.Size1, GLOBAL, REAL,4,0.4259,
+TotalSum.Cell1.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell1.Size3, GLOBAL, REAL,4,0.081,
+TotalSum.Cell1.Size4, GLOBAL, REAL,4,0.2748,
+TotalSum.Cell1.Size5, GLOBAL, REAL,4,72.775436,
+TotalSum.Cell1.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell2, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell2.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell2.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell3, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell3.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell3.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell4, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell4.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell4.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell5, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell5.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell5.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell6, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell6.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell6.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell7, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell7.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell7.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell8, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell8.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell8.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell9, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell9.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell9.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell10, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell10.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell10.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell11, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell11.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell11.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell12, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell12.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell12.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell13, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell13.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell13.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell14, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell14.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell14.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell15, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell15.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell15.Size6, GLOBAL, REAL,4,0,
+TotalSum.Cell16, GLOBAL, STRUCT: Size_Typ,24,,
+TotalSum.Cell16.Size1, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size2, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size3, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size4, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size5, GLOBAL, REAL,4,0,
+TotalSum.Cell16.Size6, GLOBAL, REAL,4,0,
+TriggerRecordData, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_Count_MAX, LOCAL, DINT,4,4,
+WEIGHT_DELAY_FLASH_T, LOCAL, STRUCT: TON,20,,
+WEIGHT_DELAY_FLASH_T.IN, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_FLASH_T.PT, LOCAL, TIME,4, T#3s,
+WEIGHT_DELAY_FLASH_T.Q, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_FLASH_T.ET, LOCAL, TIME,4, T#0ms,
+WEIGHT_DELAY_FLASH_T.StartTime, LOCAL, TIME,4, T#0ms,
+WEIGHT_DELAY_FLASH_T.M, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_FLASH_T.Restart, LOCAL, UDINT,4,0,
+WEIGHT_DELAY_T, LOCAL, STRUCT: TON,20,,
+WEIGHT_DELAY_T.IN, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_T.PT, LOCAL, TIME,4, T#0ms,
+WEIGHT_DELAY_T.Q, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_T.ET, LOCAL, TIME,4, T#0ms,
+WEIGHT_DELAY_T.StartTime, LOCAL, TIME,4, T#0ms,
+WEIGHT_DELAY_T.M, LOCAL, BOOL,1,0,
+WEIGHT_DELAY_T.Restart, LOCAL, UDINT,4,0,
+WEIGHT_REC, LOCAL, REAL,4,0,
+WEIGHT_SIZE, GLOBAL, REAL[7],4,,
+WEIGHT_SIZE[0], GLOBAL, REAL,4,0,
+WEIGHT_SIZE[1], GLOBAL, REAL,4,0,
+WEIGHT_SIZE[2], GLOBAL, REAL,4,39,
+WEIGHT_SIZE[3], GLOBAL, REAL,4,40,
+WEIGHT_SIZE[4], GLOBAL, REAL,4,41,
+WEIGHT_SIZE[5], GLOBAL, REAL,4,56,
+WEIGHT_SIZE[6], GLOBAL, REAL,4,500,
+WEIGHT_SIZE_LAST_LANE, GLOBAL, INT[7],2,,
+WEIGHT_SIZE_LAST_LANE[0], GLOBAL, INT,2,0,
+WEIGHT_SIZE_LAST_LANE[1], GLOBAL, INT,2,1,
+WEIGHT_SIZE_LAST_LANE[2], GLOBAL, INT,2,2,
+WEIGHT_SIZE_LAST_LANE[3], GLOBAL, INT,2,3,
+WEIGHT_SIZE_LAST_LANE[4], GLOBAL, INT,2,4,
+WEIGHT_SIZE_LAST_LANE[5], GLOBAL, INT,2,5,
+WEIGHT_SIZE_LAST_LANE[6], GLOBAL, INT,2,6,
+WEIGHT_VAL, LOCAL, REAL,4,25.200001,
+WEIGHT_VAL_HMI, LOCAL, REAL,4,0,
+WEIGHT_VAL_MIN, GLOBAL, REAL,4,4,
+WGHscalePara, d, STRUCT: WGHscalePara_typ,20,,
+WGHscalePara.tare_std, d, DINT,4,-69,
+WGHscalePara.ref1_raw, d, DINT,4,2373572,
+WGHscalePara.ref1_std, d, DINT,4,0,
+WGHscalePara.ref2_raw, d, DINT,4,2606187,
+WGHscalePara.ref2_std, d, DINT,4,2000,
+WGHscalePara01, GLOBAL, STRUCT: WGHscalePara_typ,20,,
+WGHscalePara01.tare_std, GLOBAL, DINT,4,-69,
+WGHscalePara01.ref1_raw, GLOBAL, DINT,4,2373572,
+WGHscalePara01.ref1_std, GLOBAL, DINT,4,0,
+WGHscalePara01.ref2_raw, GLOBAL, DINT,4,2606187,
+WGHscalePara01.ref2_std, GLOBAL, DINT,4,2000,
+WGHscalePara_ref2_std, LOCAL, DINT,4,200,
+WGHscale_0, LOCAL, STRUCT: WGHscale,64,,
+WGHscale_0.enable, LOCAL, BOOL,1,1,
+WGHscale_0.doTare, LOCAL, BOOL,1,0,
+WGHscale_0.doStandardize1, LOCAL, BOOL,1,0,
+WGHscale_0.doStandardize2, LOCAL, BOOL,1,0,
+WGHscale_0.raw_value, LOCAL, DINT,4,2656905,
+WGHscale_0.t_measure, LOCAL, TIME,4, T#1s,
+WGHscale_0.pWGHscalePara, LOCAL, UDINT,4,59325592,
+WGHscale_0.std_value, LOCAL, DINT,4,439,
+WGHscale_0.doneTare, LOCAL, BOOL,1,0,
+WGHscale_0.doneStandardize1, LOCAL, BOOL,1,0,
+WGHscale_0.doneStandardize2, LOCAL, BOOL,1,0,
+WGHscale_0.status, LOCAL, UINT,2,0,
+WGHscale_0.TON_measure, LOCAL, STRUCT: TON,20,,
+WGHscale_0.TON_measure.IN, LOCAL, BOOL,1,0,
+WGHscale_0.TON_measure.PT, LOCAL, TIME,4, T#1s,
+WGHscale_0.TON_measure.Q, LOCAL, BOOL,1,0,
+WGHscale_0.TON_measure.ET, LOCAL, TIME,4, T#0ms,
+WGHscale_0.TON_measure.StartTime, LOCAL, TIME,4, T#1h_06m_47s_350ms,
+WGHscale_0.TON_measure.M, LOCAL, BOOL,1,0,
+WGHscale_0.TON_measure.Restart, LOCAL, UDINT,4,0,
+WGHscale_0.cntMeasure, LOCAL, UDINT,4,998,
+WGHscale_0.step, LOCAL, UINT,2,0,
+WGHscale_0.errCnt, LOCAL, UINT,2,0,
+WGHscale_0.sumDat, LOCAL, DINT[2],4,,
+WGHscale_0.sumDat[0], LOCAL, DINT,4,-69147,
+WGHscale_0.sumDat[1], LOCAL, DINT,4,-1,
+W_IN_Filter_DIFF_RANGE, GLOBAL, REAL,4,0.5,
+W_IN_Filter_Diff_Tara_min, GLOBAL, REAL,4,3,
+W_IN_Filter_Diff_max, GLOBAL, REAL,4,5,
+W_IN_Filter_Diff_min, GLOBAL, REAL,4,0.5,
+W_IN_Filter_NoiseThreshold_LockN, GLOBAL, INT,2,6,
+W_IN_Filter_READING_IN_RANGE, GLOBAL, INT,2,10,
+W_IN_Filter_Stage1_FilterSize, GLOBAL, INT,2,100,
+W_IN_Filter_Stage1_NoiseThreshol, GLOBAL, DINT,4,1000000,
+W_IN_Filter_Stage2_FilterSize, GLOBAL, INT,2,100,
+W_IN_Filter_Tara_Count_T_PT, GLOBAL, DINT,4,10000,
+W_IN_Filter_Weighting_T_PT, GLOBAL, DINT,4,20,
+Weight_0, LOCAL, STRUCT: Weight,2168,,
+Weight_0.AI_W, LOCAL, DINT,4,1884370,
+Weight_0.Filter_Stage1_FilterSize, LOCAL, INT,2,100,
+Weight_0.Filter_Stage2_FilterSize, LOCAL, INT,2,100,
+Weight_0.Filter_READING_IN_RANGE, LOCAL, INT,2,10,
+Weight_0.Filter_DIFF_RANGE, LOCAL, REAL,4,0.5,
+Weight_0.Filter_Weighting_T_PT, LOCAL, DINT,4,20,
+Weight_0.Filter_Tara_Count_T_PT, LOCAL, DINT,4,10000,
+Weight_0.Filter_Stage1_NoiseThreshol, LOCAL, DINT,4,1000000,
+Weight_0.Filter_NoiseThreshold_LockN, LOCAL, INT,2,6,
+Weight_0.Filter_Diff_min, LOCAL, REAL,4,0.5,
+Weight_0.Filter_Diff_max, LOCAL, REAL,4,5,
+Weight_0.Filter_Diff_Tara_min, LOCAL, REAL,4,3,
+Weight_0.WGHscale_0, LOCAL, UDINT,4,63590528,
+Weight_0.AutoTara_Enable, LOCAL, BOOL,1,0,
+Weight_0.W_sample, LOCAL, REAL,4,25.200001,
+Weight_0.Weight_Done, LOCAL, BOOL,1,0,
+Weight_0.W_SUN_arr, LOCAL, REAL[101],4,,
+Weight_0.W_SUN_arr[0], LOCAL, REAL,4,24.859188,
+Weight_0.W_SUN_arr[1], LOCAL, REAL,4,24.237755,
+Weight_0.W_SUN_arr[2], LOCAL, REAL,4,24.237755,
+Weight_0.W_SUN_arr[3], LOCAL, REAL,4,23.620411,
+Weight_0.W_SUN_arr[4], LOCAL, REAL,4,23.620411,
+Weight_0.W_SUN_arr[5], LOCAL, REAL,4,23.620411,
+Weight_0.W_SUN_arr[6], LOCAL, REAL,4,23.356125,
+Weight_0.W_SUN_arr[7], LOCAL, REAL,4,23.356125,
+Weight_0.W_SUN_arr[8], LOCAL, REAL,4,23.564276,
+Weight_0.W_SUN_arr[9], LOCAL, REAL,4,23.564276,
+Weight_0.W_SUN_arr[10], LOCAL, REAL,4,23.564276,
+Weight_0.W_SUN_arr[11], LOCAL, REAL,4,23.313274,
+Weight_0.W_SUN_arr[12], LOCAL, REAL,4,23.313274,
+Weight_0.W_SUN_arr[13], LOCAL, REAL,4,23.313274,
+Weight_0.W_SUN_arr[14], LOCAL, REAL,4,23.065302,
+Weight_0.W_SUN_arr[15], LOCAL, REAL,4,23.065302,
+Weight_0.W_SUN_arr[16], LOCAL, REAL,4,22.884695,
+Weight_0.W_SUN_arr[17], LOCAL, REAL,4,22.884695,
+Weight_0.W_SUN_arr[18], LOCAL, REAL,4,22.884695,
+Weight_0.W_SUN_arr[19], LOCAL, REAL,4,22.736725,
+Weight_0.W_SUN_arr[20], LOCAL, REAL,4,22.736725,
+Weight_0.W_SUN_arr[21], LOCAL, REAL,4,22.321426,
+Weight_0.W_SUN_arr[22], LOCAL, REAL,4,22.321426,
+Weight_0.W_SUN_arr[23], LOCAL, REAL,4,22.321426,
+Weight_0.W_SUN_arr[24], LOCAL, REAL,4,22.742863,
+Weight_0.W_SUN_arr[25], LOCAL, REAL,4,22.742863,
+Weight_0.W_SUN_arr[26], LOCAL, REAL,4,23.178583,
+Weight_0.W_SUN_arr[27], LOCAL, REAL,4,23.178583,
+Weight_0.W_SUN_arr[28], LOCAL, REAL,4,23.178583,
+Weight_0.W_SUN_arr[29], LOCAL, REAL,4,23.934687,
+Weight_0.W_SUN_arr[30], LOCAL, REAL,4,23.934687,
+Weight_0.W_SUN_arr[31], LOCAL, REAL,4,23.934687,
+Weight_0.W_SUN_arr[32], LOCAL, REAL,4,24.732649,
+Weight_0.W_SUN_arr[33], LOCAL, REAL,4,24.732649,
+Weight_0.W_SUN_arr[34], LOCAL, REAL,4,25.568369,
+Weight_0.W_SUN_arr[35], LOCAL, REAL,4,25.568369,
+Weight_0.W_SUN_arr[36], LOCAL, REAL,4,25.568369,
+Weight_0.W_SUN_arr[37], LOCAL, REAL,4,25.930618,
+Weight_0.W_SUN_arr[38], LOCAL, REAL,4,25.930618,
+Weight_0.W_SUN_arr[39], LOCAL, REAL,4,25.930618,
+Weight_0.W_SUN_arr[40], LOCAL, REAL,4,26.262255,
+Weight_0.W_SUN_arr[41], LOCAL, REAL,4,26.262255,
+Weight_0.W_SUN_arr[42], LOCAL, REAL,4,26.262255,
+Weight_0.W_SUN_arr[43], LOCAL, REAL,4,26.008154,
+Weight_0.W_SUN_arr[44], LOCAL, REAL,4,26.008154,
+Weight_0.W_SUN_arr[45], LOCAL, REAL,4,26.008154,
+Weight_0.W_SUN_arr[46], LOCAL, REAL,4,26.198965,
+Weight_0.W_SUN_arr[47], LOCAL, REAL,4,26.198965,
+Weight_0.W_SUN_arr[48], LOCAL, REAL,4,26.198965,
+Weight_0.W_SUN_arr[49], LOCAL, REAL,4,26.434694,
+Weight_0.W_SUN_arr[50], LOCAL, REAL,4,26.434694,
+Weight_0.W_SUN_arr[51], LOCAL, REAL,4,26.434694,
+Weight_0.W_SUN_arr[52], LOCAL, REAL,4,26.733673,
+Weight_0.W_SUN_arr[53], LOCAL, REAL,4,26.733673,
+Weight_0.W_SUN_arr[54], LOCAL, REAL,4,27.005108,
+Weight_0.W_SUN_arr[55], LOCAL, REAL,4,27.005108,
+Weight_0.W_SUN_arr[56], LOCAL, REAL,4,27.005108,
+Weight_0.W_SUN_arr[57], LOCAL, REAL,4,27.455101,
+Weight_0.W_SUN_arr[58], LOCAL, REAL,4,27.455101,
+Weight_0.W_SUN_arr[59], LOCAL, REAL,4,26.927542,
+Weight_0.W_SUN_arr[60], LOCAL, REAL,4,26.927542,
+Weight_0.W_SUN_arr[61], LOCAL, REAL,4,26.927542,
+Weight_0.W_SUN_arr[62], LOCAL, REAL,4,26.106125,
+Weight_0.W_SUN_arr[63], LOCAL, REAL,4,26.106125,
+Weight_0.W_SUN_arr[64], LOCAL, REAL,4,25.303061,
+Weight_0.W_SUN_arr[65], LOCAL, REAL,4,25.303061,
+Weight_0.W_SUN_arr[66], LOCAL, REAL,4,25.303061,
+Weight_0.W_SUN_arr[67], LOCAL, REAL,4,24.586735,
+Weight_0.W_SUN_arr[68], LOCAL, REAL,4,24.586735,
+Weight_0.W_SUN_arr[69], LOCAL, REAL,4,23.962248,
+Weight_0.W_SUN_arr[70], LOCAL, REAL,4,23.962248,
+Weight_0.W_SUN_arr[71], LOCAL, REAL,4,23.962248,
+Weight_0.W_SUN_arr[72], LOCAL, REAL,4,23.852037,
+Weight_0.W_SUN_arr[73], LOCAL, REAL,4,23.852037,
+Weight_0.W_SUN_arr[74], LOCAL, REAL,4,23.852037,
+Weight_0.W_SUN_arr[75], LOCAL, REAL,4,24.037745,
+Weight_0.W_SUN_arr[76], LOCAL, REAL,4,24.037745,
+Weight_0.W_SUN_arr[77], LOCAL, REAL,4,23.705095,
+Weight_0.W_SUN_arr[78], LOCAL, REAL,4,23.705095,
+Weight_0.W_SUN_arr[79], LOCAL, REAL,4,23.705095,
+Weight_0.W_SUN_arr[80], LOCAL, REAL,4,23.296955,
+Weight_0.W_SUN_arr[81], LOCAL, REAL,4,23.296955,
+Weight_0.W_SUN_arr[82], LOCAL, REAL,4,22.93878,
+Weight_0.W_SUN_arr[83], LOCAL, REAL,4,22.93878,
+Weight_0.W_SUN_arr[84], LOCAL, REAL,4,22.93878,
+Weight_0.W_SUN_arr[85], LOCAL, REAL,4,22.93878,
+Weight_0.W_SUN_arr[86], LOCAL, REAL,4,22.93878,
+Weight_0.W_SUN_arr[87], LOCAL, REAL,4,22.627548,
+Weight_0.W_SUN_arr[88], LOCAL, REAL,4,22.627548,
+Weight_0.W_SUN_arr[89], LOCAL, REAL,4,22.155102,
+Weight_0.W_SUN_arr[90], LOCAL, REAL,4,22.155102,
+Weight_0.W_SUN_arr[91], LOCAL, REAL,4,22.155102,
+Weight_0.W_SUN_arr[92], LOCAL, REAL,4,22.512245,
+Weight_0.W_SUN_arr[93], LOCAL, REAL,4,22.512245,
+Weight_0.W_SUN_arr[94], LOCAL, REAL,4,22.862249,
+Weight_0.W_SUN_arr[95], LOCAL, REAL,4,22.862249,
+Weight_0.W_SUN_arr[96], LOCAL, REAL,4,22.862249,
+Weight_0.W_SUN_arr[97], LOCAL, REAL,4,23.492853,
+Weight_0.W_SUN_arr[98], LOCAL, REAL,4,23.492853,
+Weight_0.W_SUN_arr[99], LOCAL, REAL,4,24.203058,
+Weight_0.W_SUN_arr[100], LOCAL, REAL,4,24.203058,
+Weight_0.Filter_Weighting_T, LOCAL, STRUCT: TON,20,,
+Weight_0.Filter_Weighting_T.IN, LOCAL, BOOL,1,1,
+Weight_0.Filter_Weighting_T.PT, LOCAL, TIME,4, T#20ms,
+Weight_0.Filter_Weighting_T.Q, LOCAL, BOOL,1,1,
+Weight_0.Filter_Weighting_T.ET, LOCAL, TIME,4, T#10ms,
+Weight_0.Filter_Weighting_T.StartTime, LOCAL, TIME,4, T#3h_15m_55s_680ms,
+Weight_0.Filter_Weighting_T.M, LOCAL, BOOL,1,1,
+Weight_0.Filter_Weighting_T.Restart, LOCAL, UDINT,4,0,
+Weight_0.Arr_1, LOCAL, DINT[201],4,,
+Weight_0.Arr_1[0], LOCAL, DINT,4,-1328,
+Weight_0.Arr_1[1], LOCAL, DINT,4,-1617,
+Weight_0.Arr_1[2], LOCAL, DINT,4,3521,
+Weight_0.Arr_1[3], LOCAL, DINT,4,-4081,
+Weight_0.Arr_1[4], LOCAL, DINT,4,5419,
+Weight_0.Arr_1[5], LOCAL, DINT,4,-5088,
+Weight_0.Arr_1[6], LOCAL, DINT,4,5423,
+Weight_0.Arr_1[7], LOCAL, DINT,4,5308,
+Weight_0.Arr_1[8], LOCAL, DINT,4,-1308,
+Weight_0.Arr_1[9], LOCAL, DINT,4,-3,
+Weight_0.Arr_1[10], LOCAL, DINT,4,3526,
+Weight_0.Arr_1[11], LOCAL, DINT,4,-4069,
+Weight_0.Arr_1[12], LOCAL, DINT,4,4634,
+Weight_0.Arr_1[13], LOCAL, DINT,4,-3135,
+Weight_0.Arr_1[14], LOCAL, DINT,4,515,
+Weight_0.Arr_1[15], LOCAL, DINT,4,-349,
+Weight_0.Arr_1[16], LOCAL, DINT,4,-2504,
+Weight_0.Arr_1[17], LOCAL, DINT,4,2896,
+Weight_0.Arr_1[18], LOCAL, DINT,4,-3641,
+Weight_0.Arr_1[19], LOCAL, DINT,4,5665,
+Weight_0.Arr_1[20], LOCAL, DINT,4,-3972,
+Weight_0.Arr_1[21], LOCAL, DINT,4,3552,
+Weight_0.Arr_1[22], LOCAL, DINT,4,-198,
+Weight_0.Arr_1[23], LOCAL, DINT,4,-1153,
+Weight_0.Arr_1[24], LOCAL, DINT,4,3034,
+Weight_0.Arr_1[25], LOCAL, DINT,4,-3761,
+Weight_0.Arr_1[26], LOCAL, DINT,4,5246,
+Weight_0.Arr_1[27], LOCAL, DINT,4,-4570,
+Weight_0.Arr_1[28], LOCAL, DINT,4,5550,
+Weight_0.Arr_1[29], LOCAL, DINT,4,-4402,
+Weight_0.Arr_1[30], LOCAL, DINT,4,3543,
+Weight_0.Arr_1[31], LOCAL, DINT,4,-1820,
+Weight_0.Arr_1[32], LOCAL, DINT,4,-2575,
+Weight_0.Arr_1[33], LOCAL, DINT,4,4407,
+Weight_0.Arr_1[34], LOCAL, DINT,4,-5061,
+Weight_0.Arr_1[35], LOCAL, DINT,4,5504,
+Weight_0.Arr_1[36], LOCAL, DINT,4,-2341,
+Weight_0.Arr_1[37], LOCAL, DINT,4,1083,
+Weight_0.Arr_1[38], LOCAL, DINT,4,828,
+Weight_0.Arr_1[39], LOCAL, DINT,4,-3400,
+Weight_0.Arr_1[40], LOCAL, DINT,4,3951,
+Weight_0.Arr_1[41], LOCAL, DINT,4,-4692,
+Weight_0.Arr_1[42], LOCAL, DINT,4,5674,
+Weight_0.Arr_1[43], LOCAL, DINT,4,-4888,
+Weight_0.Arr_1[44], LOCAL, DINT,4,5539,
+Weight_0.Arr_1[45], LOCAL, DINT,4,-4959,
+Weight_0.Arr_1[46], LOCAL, DINT,4,4066,
+Weight_0.Arr_1[47], LOCAL, DINT,4,-3620,
+Weight_0.Arr_1[48], LOCAL, DINT,4,4173,
+Weight_0.Arr_1[49], LOCAL, DINT,4,-2589,
+Weight_0.Arr_1[50], LOCAL, DINT,4,1453,
+Weight_0.Arr_1[51], LOCAL, DINT,4,459,
+Weight_0.Arr_1[52], LOCAL, DINT,4,-2419,
+Weight_0.Arr_1[53], LOCAL, DINT,4,2830,
+Weight_0.Arr_1[54], LOCAL, DINT,4,-3594,
+Weight_0.Arr_1[55], LOCAL, DINT,4,5141,
+Weight_0.Arr_1[56], LOCAL, DINT,4,-5050,
+Weight_0.Arr_1[57], LOCAL, DINT,4,5600,
+Weight_0.Arr_1[58], LOCAL, DINT,4,-5021,
+Weight_0.Arr_1[59], LOCAL, DINT,4,5147,
+Weight_0.Arr_1[60], LOCAL, DINT,4,-2688,
+Weight_0.Arr_1[61], LOCAL, DINT,4,1609,
+Weight_0.Arr_1[62], LOCAL, DINT,4,3619,
+Weight_0.Arr_1[63], LOCAL, DINT,4,-4082,
+Weight_0.Arr_1[64], LOCAL, DINT,4,5529,
+Weight_0.Arr_1[65], LOCAL, DINT,4,-4949,
+Weight_0.Arr_1[66], LOCAL, DINT,4,5099,
+Weight_0.Arr_1[67], LOCAL, DINT,4,-4497,
+Weight_0.Arr_1[68], LOCAL, DINT,4,-213,
+Weight_0.Arr_1[69], LOCAL, DINT,4,2138,
+Weight_0.Arr_1[70], LOCAL, DINT,4,-3091,
+Weight_0.Arr_1[71], LOCAL, DINT,4,4779,
+Weight_0.Arr_1[72], LOCAL, DINT,4,-4855,
+Weight_0.Arr_1[73], LOCAL, DINT,4,5654,
+Weight_0.Arr_1[74], LOCAL, DINT,4,-4691,
+Weight_0.Arr_1[75], LOCAL, DINT,4,2922,
+Weight_0.Arr_1[76], LOCAL, DINT,4,-1136,
+Weight_0.Arr_1[77], LOCAL, DINT,4,-190,
+Weight_0.Arr_1[78], LOCAL, DINT,4,2057,
+Weight_0.Arr_1[79], LOCAL, DINT,4,-3034,
+Weight_0.Arr_1[80], LOCAL, DINT,4,5436,
+Weight_0.Arr_1[81], LOCAL, DINT,4,-5049,
+Weight_0.Arr_1[82], LOCAL, DINT,4,5378,
+Weight_0.Arr_1[83], LOCAL, DINT,4,-4065,
+Weight_0.Arr_1[84], LOCAL, DINT,4,3651,
+Weight_0.Arr_1[85], LOCAL, DINT,4,-1925,
+Weight_0.Arr_1[86], LOCAL, DINT,4,-159,
+Weight_0.Arr_1[87], LOCAL, DINT,4,2067,
+Weight_0.Arr_1[88], LOCAL, DINT,4,-4144,
+Weight_0.Arr_1[89], LOCAL, DINT,4,4691,
+Weight_0.Arr_1[90], LOCAL, DINT,4,-4829,
+Weight_0.Arr_1[91], LOCAL, DINT,4,5670,
+Weight_0.Arr_1[92], LOCAL, DINT,4,-5050,
+Weight_0.Arr_1[93], LOCAL, DINT,4,5410,
+Weight_0.Arr_1[94], LOCAL, DINT,4,-1965,
+Weight_0.Arr_1[95], LOCAL, DINT,4,2380,
+Weight_0.Arr_1[96], LOCAL, DINT,4,-513,
+Weight_0.Arr_1[97], LOCAL, DINT,4,874,
+Weight_0.Arr_1[98], LOCAL, DINT,4,-4019,
+Weight_0.Arr_1[99], LOCAL, DINT,4,5612,
+Weight_0.Arr_1[100], LOCAL, DINT,4,0,
+Weight_0.Arr_1[101], LOCAL, DINT,4,0,
+Weight_0.Arr_1[102], LOCAL, DINT,4,0,
+Weight_0.Arr_1[103], LOCAL, DINT,4,0,
+Weight_0.Arr_1[104], LOCAL, DINT,4,0,
+Weight_0.Arr_1[105], LOCAL, DINT,4,0,
+Weight_0.Arr_1[106], LOCAL, DINT,4,0,
+Weight_0.Arr_1[107], LOCAL, DINT,4,0,
+Weight_0.Arr_1[108], LOCAL, DINT,4,0,
+Weight_0.Arr_1[109], LOCAL, DINT,4,0,
+Weight_0.Arr_1[110], LOCAL, DINT,4,0,
+Weight_0.Arr_1[111], LOCAL, DINT,4,0,
+Weight_0.Arr_1[112], LOCAL, DINT,4,0,
+Weight_0.Arr_1[113], LOCAL, DINT,4,0,
+Weight_0.Arr_1[114], LOCAL, DINT,4,0,
+Weight_0.Arr_1[115], LOCAL, DINT,4,0,
+Weight_0.Arr_1[116], LOCAL, DINT,4,0,
+Weight_0.Arr_1[117], LOCAL, DINT,4,0,
+Weight_0.Arr_1[118], LOCAL, DINT,4,0,
+Weight_0.Arr_1[119], LOCAL, DINT,4,0,
+Weight_0.Arr_1[120], LOCAL, DINT,4,0,
+Weight_0.Arr_1[121], LOCAL, DINT,4,0,
+Weight_0.Arr_1[122], LOCAL, DINT,4,0,
+Weight_0.Arr_1[123], LOCAL, DINT,4,0,
+Weight_0.Arr_1[124], LOCAL, DINT,4,0,
+Weight_0.Arr_1[125], LOCAL, DINT,4,0,
+Weight_0.Arr_1[126], LOCAL, DINT,4,0,
+Weight_0.Arr_1[127], LOCAL, DINT,4,0,
+Weight_0.Arr_1[128], LOCAL, DINT,4,0,
+Weight_0.Arr_1[129], LOCAL, DINT,4,0,
+Weight_0.Arr_1[130], LOCAL, DINT,4,0,
+Weight_0.Arr_1[131], LOCAL, DINT,4,0,
+Weight_0.Arr_1[132], LOCAL, DINT,4,0,
+Weight_0.Arr_1[133], LOCAL, DINT,4,0,
+Weight_0.Arr_1[134], LOCAL, DINT,4,0,
+Weight_0.Arr_1[135], LOCAL, DINT,4,0,
+Weight_0.Arr_1[136], LOCAL, DINT,4,0,
+Weight_0.Arr_1[137], LOCAL, DINT,4,0,
+Weight_0.Arr_1[138], LOCAL, DINT,4,0,
+Weight_0.Arr_1[139], LOCAL, DINT,4,0,
+Weight_0.Arr_1[140], LOCAL, DINT,4,0,
+Weight_0.Arr_1[141], LOCAL, DINT,4,0,
+Weight_0.Arr_1[142], LOCAL, DINT,4,0,
+Weight_0.Arr_1[143], LOCAL, DINT,4,0,
+Weight_0.Arr_1[144], LOCAL, DINT,4,0,
+Weight_0.Arr_1[145], LOCAL, DINT,4,0,
+Weight_0.Arr_1[146], LOCAL, DINT,4,0,
+Weight_0.Arr_1[147], LOCAL, DINT,4,0,
+Weight_0.Arr_1[148], LOCAL, DINT,4,0,
+Weight_0.Arr_1[149], LOCAL, DINT,4,0,
+Weight_0.Arr_1[150], LOCAL, DINT,4,0,
+Weight_0.Arr_1[151], LOCAL, DINT,4,0,
+Weight_0.Arr_1[152], LOCAL, DINT,4,0,
+Weight_0.Arr_1[153], LOCAL, DINT,4,0,
+Weight_0.Arr_1[154], LOCAL, DINT,4,0,
+Weight_0.Arr_1[155], LOCAL, DINT,4,0,
+Weight_0.Arr_1[156], LOCAL, DINT,4,0,
+Weight_0.Arr_1[157], LOCAL, DINT,4,0,
+Weight_0.Arr_1[158], LOCAL, DINT,4,0,
+Weight_0.Arr_1[159], LOCAL, DINT,4,0,
+Weight_0.Arr_1[160], LOCAL, DINT,4,0,
+Weight_0.Arr_1[161], LOCAL, DINT,4,0,
+Weight_0.Arr_1[162], LOCAL, DINT,4,0,
+Weight_0.Arr_1[163], LOCAL, DINT,4,0,
+Weight_0.Arr_1[164], LOCAL, DINT,4,0,
+Weight_0.Arr_1[165], LOCAL, DINT,4,0,
+Weight_0.Arr_1[166], LOCAL, DINT,4,0,
+Weight_0.Arr_1[167], LOCAL, DINT,4,0,
+Weight_0.Arr_1[168], LOCAL, DINT,4,0,
+Weight_0.Arr_1[169], LOCAL, DINT,4,0,
+Weight_0.Arr_1[170], LOCAL, DINT,4,0,
+Weight_0.Arr_1[171], LOCAL, DINT,4,0,
+Weight_0.Arr_1[172], LOCAL, DINT,4,0,
+Weight_0.Arr_1[173], LOCAL, DINT,4,0,
+Weight_0.Arr_1[174], LOCAL, DINT,4,0,
+Weight_0.Arr_1[175], LOCAL, DINT,4,0,
+Weight_0.Arr_1[176], LOCAL, DINT,4,0,
+Weight_0.Arr_1[177], LOCAL, DINT,4,0,
+Weight_0.Arr_1[178], LOCAL, DINT,4,0,
+Weight_0.Arr_1[179], LOCAL, DINT,4,0,
+Weight_0.Arr_1[180], LOCAL, DINT,4,0,
+Weight_0.Arr_1[181], LOCAL, DINT,4,0,
+Weight_0.Arr_1[182], LOCAL, DINT,4,0,
+Weight_0.Arr_1[183], LOCAL, DINT,4,0,
+Weight_0.Arr_1[184], LOCAL, DINT,4,0,
+Weight_0.Arr_1[185], LOCAL, DINT,4,0,
+Weight_0.Arr_1[186], LOCAL, DINT,4,0,
+Weight_0.Arr_1[187], LOCAL, DINT,4,0,
+Weight_0.Arr_1[188], LOCAL, DINT,4,0,
+Weight_0.Arr_1[189], LOCAL, DINT,4,0,
+Weight_0.Arr_1[190], LOCAL, DINT,4,0,
+Weight_0.Arr_1[191], LOCAL, DINT,4,0,
+Weight_0.Arr_1[192], LOCAL, DINT,4,0,
+Weight_0.Arr_1[193], LOCAL, DINT,4,0,
+Weight_0.Arr_1[194], LOCAL, DINT,4,0,
+Weight_0.Arr_1[195], LOCAL, DINT,4,0,
+Weight_0.Arr_1[196], LOCAL, DINT,4,0,
+Weight_0.Arr_1[197], LOCAL, DINT,4,0,
+Weight_0.Arr_1[198], LOCAL, DINT,4,0,
+Weight_0.Arr_1[199], LOCAL, DINT,4,0,
+Weight_0.Arr_1[200], LOCAL, DINT,4,0,
+Weight_0.Arr_2, LOCAL, REAL[201],4,,
+Weight_0.Arr_2[0], LOCAL, REAL,4,22.299999,
+Weight_0.Arr_2[1], LOCAL, REAL,4,22.6,
+Weight_0.Arr_2[2], LOCAL, REAL,4,22.4,
+Weight_0.Arr_2[3], LOCAL, REAL,4,22.6,
+Weight_0.Arr_2[4], LOCAL, REAL,4,22.299999,
+Weight_0.Arr_2[5], LOCAL, REAL,4,22.299999,
+Weight_0.Arr_2[6], LOCAL, REAL,4,22.200001,
+Weight_0.Arr_2[7], LOCAL, REAL,4,21.799999,
+Weight_0.Arr_2[8], LOCAL, REAL,4,25.200001,
+Weight_0.Arr_2[9], LOCAL, REAL,4,23.200001,
+Weight_0.Arr_2[10], LOCAL, REAL,4,23.6,
+Weight_0.Arr_2[11], LOCAL, REAL,4,23.6,
+Weight_0.Arr_2[12], LOCAL, REAL,4,23.9,
+Weight_0.Arr_2[13], LOCAL, REAL,4,23.700001,
+Weight_0.Arr_2[14], LOCAL, REAL,4,23.9,
+Weight_0.Arr_2[15], LOCAL, REAL,4,23.799999,
+Weight_0.Arr_2[16], LOCAL, REAL,4,23.5,
+Weight_0.Arr_2[17], LOCAL, REAL,4,23.700001,
+Weight_0.Arr_2[18], LOCAL, REAL,4,23.4,
+Weight_0.Arr_2[19], LOCAL, REAL,4,27.4,
+Weight_0.Arr_2[20], LOCAL, REAL,4,22,
+Weight_0.Arr_2[21], LOCAL, REAL,4,27.200001,
+Weight_0.Arr_2[22], LOCAL, REAL,4,27.299999,
+Weight_0.Arr_2[23], LOCAL, REAL,4,27.1,
+Weight_0.Arr_2[24], LOCAL, REAL,4,27.1,
+Weight_0.Arr_2[25], LOCAL, REAL,4,26.9,
+Weight_0.Arr_2[26], LOCAL, REAL,4,26.9,
+Weight_0.Arr_2[27], LOCAL, REAL,4,27,
+Weight_0.Arr_2[28], LOCAL, REAL,4,22.200001,
+Weight_0.Arr_2[29], LOCAL, REAL,4,27.5,
+Weight_0.Arr_2[30], LOCAL, REAL,4,26.700001,
+Weight_0.Arr_2[31], LOCAL, REAL,4,26.799999,
+Weight_0.Arr_2[32], LOCAL, REAL,4,26.799999,
+Weight_0.Arr_2[33], LOCAL, REAL,4,26.799999,
+Weight_0.Arr_2[34], LOCAL, REAL,4,26.299999,
+Weight_0.Arr_2[35], LOCAL, REAL,4,26.200001,
+Weight_0.Arr_2[36], LOCAL, REAL,4,25.4,
+Weight_0.Arr_2[37], LOCAL, REAL,4,25.6,
+Weight_0.Arr_2[38], LOCAL, REAL,4,21.6,
+Weight_0.Arr_2[39], LOCAL, REAL,4,26.5,
+Weight_0.Arr_2[40], LOCAL, REAL,4,22.299999,
+Weight_0.Arr_2[41], LOCAL, REAL,4,22.700001,
+Weight_0.Arr_2[42], LOCAL, REAL,4,23.1,
+Weight_0.Arr_2[43], LOCAL, REAL,4,22.799999,
+Weight_0.Arr_2[44], LOCAL, REAL,4,22.9,
+Weight_0.Arr_2[45], LOCAL, REAL,4,22.6,
+Weight_0.Arr_2[46], LOCAL, REAL,4,22.299999,
+Weight_0.Arr_2[47], LOCAL, REAL,4,22.1,
+Weight_0.Arr_2[48], LOCAL, REAL,4,21.299999,
+Weight_0.Arr_2[49], LOCAL, REAL,4,26.4,
+Weight_0.Arr_2[50], LOCAL, REAL,4,22.9,
+Weight_0.Arr_2[51], LOCAL, REAL,4,23.1,
+Weight_0.Arr_2[52], LOCAL, REAL,4,23.5,
+Weight_0.Arr_2[53], LOCAL, REAL,4,23.700001,
+Weight_0.Arr_2[54], LOCAL, REAL,4,24,
+Weight_0.Arr_2[55], LOCAL, REAL,4,23.700001,
+Weight_0.Arr_2[56], LOCAL, REAL,4,23.6,
+Weight_0.Arr_2[57], LOCAL, REAL,4,23.4,
+Weight_0.Arr_2[58], LOCAL, REAL,4,22.9,
+Weight_0.Arr_2[59], LOCAL, REAL,4,26.299999,
+Weight_0.Arr_2[60], LOCAL, REAL,4,21.799999,
+Weight_0.Arr_2[61], LOCAL, REAL,4,26.6,
+Weight_0.Arr_2[62], LOCAL, REAL,4,26.5,
+Weight_0.Arr_2[63], LOCAL, REAL,4,27,
+Weight_0.Arr_2[64], LOCAL, REAL,4,27.1,
+Weight_0.Arr_2[65], LOCAL, REAL,4,27.6,
+Weight_0.Arr_2[66], LOCAL, REAL,4,27.5,
+Weight_0.Arr_2[67], LOCAL, REAL,4,27.6,
+Weight_0.Arr_2[68], LOCAL, REAL,4,27.4,
+Weight_0.Arr_2[69], LOCAL, REAL,4,26.9,
+Weight_0.Arr_2[70], LOCAL, REAL,4,26.9,
+Weight_0.Arr_2[71], LOCAL, REAL,4,21.6,
+Weight_0.Arr_2[72], LOCAL, REAL,4,27.200001,
+Weight_0.Arr_2[73], LOCAL, REAL,4,26.1,
+Weight_0.Arr_2[74], LOCAL, REAL,4,26.6,
+Weight_0.Arr_2[75], LOCAL, REAL,4,26.9,
+Weight_0.Arr_2[76], LOCAL, REAL,4,27.1,
+Weight_0.Arr_2[77], LOCAL, REAL,4,27.1,
+Weight_0.Arr_2[78], LOCAL, REAL,4,27.200001,
+Weight_0.Arr_2[79], LOCAL, REAL,4,26.9,
+Weight_0.Arr_2[80], LOCAL, REAL,4,26.799999,
+Weight_0.Arr_2[81], LOCAL, REAL,4,22.299999,
+Weight_0.Arr_2[82], LOCAL, REAL,4,26.5,
+Weight_0.Arr_2[83], LOCAL, REAL,4,22.5,
+Weight_0.Arr_2[84], LOCAL, REAL,4,22.4,
+Weight_0.Arr_2[85], LOCAL, REAL,4,22.6,
+Weight_0.Arr_2[86], LOCAL, REAL,4,22.6,
+Weight_0.Arr_2[87], LOCAL, REAL,4,23,
+Weight_0.Arr_2[88], LOCAL, REAL,4,22.799999,
+Weight_0.Arr_2[89], LOCAL, REAL,4,23.1,
+Weight_0.Arr_2[90], LOCAL, REAL,4,22.9,
+Weight_0.Arr_2[91], LOCAL, REAL,4,23,
+Weight_0.Arr_2[92], LOCAL, REAL,4,26.1,
+Weight_0.Arr_2[93], LOCAL, REAL,4,22.9,
+Weight_0.Arr_2[94], LOCAL, REAL,4,22.799999,
+Weight_0.Arr_2[95], LOCAL, REAL,4,22.799999,
+Weight_0.Arr_2[96], LOCAL, REAL,4,22.799999,
+Weight_0.Arr_2[97], LOCAL, REAL,4,22.799999,
+Weight_0.Arr_2[98], LOCAL, REAL,4,22.9,
+Weight_0.Arr_2[99], LOCAL, REAL,4,22.700001,
+Weight_0.Arr_2[100], LOCAL, REAL,4,0,
+Weight_0.Arr_2[101], LOCAL, REAL,4,0,
+Weight_0.Arr_2[102], LOCAL, REAL,4,0,
+Weight_0.Arr_2[103], LOCAL, REAL,4,0,
+Weight_0.Arr_2[104], LOCAL, REAL,4,0,
+Weight_0.Arr_2[105], LOCAL, REAL,4,0,
+Weight_0.Arr_2[106], LOCAL, REAL,4,0,
+Weight_0.Arr_2[107], LOCAL, REAL,4,0,
+Weight_0.Arr_2[108], LOCAL, REAL,4,0,
+Weight_0.Arr_2[109], LOCAL, REAL,4,0,
+Weight_0.Arr_2[110], LOCAL, REAL,4,0,
+Weight_0.Arr_2[111], LOCAL, REAL,4,0,
+Weight_0.Arr_2[112], LOCAL, REAL,4,0,
+Weight_0.Arr_2[113], LOCAL, REAL,4,0,
+Weight_0.Arr_2[114], LOCAL, REAL,4,0,
+Weight_0.Arr_2[115], LOCAL, REAL,4,0,
+Weight_0.Arr_2[116], LOCAL, REAL,4,0,
+Weight_0.Arr_2[117], LOCAL, REAL,4,0,
+Weight_0.Arr_2[118], LOCAL, REAL,4,0,
+Weight_0.Arr_2[119], LOCAL, REAL,4,0,
+Weight_0.Arr_2[120], LOCAL, REAL,4,0,
+Weight_0.Arr_2[121], LOCAL, REAL,4,0,
+Weight_0.Arr_2[122], LOCAL, REAL,4,0,
+Weight_0.Arr_2[123], LOCAL, REAL,4,0,
+Weight_0.Arr_2[124], LOCAL, REAL,4,0,
+Weight_0.Arr_2[125], LOCAL, REAL,4,0,
+Weight_0.Arr_2[126], LOCAL, REAL,4,0,
+Weight_0.Arr_2[127], LOCAL, REAL,4,0,
+Weight_0.Arr_2[128], LOCAL, REAL,4,0,
+Weight_0.Arr_2[129], LOCAL, REAL,4,0,
+Weight_0.Arr_2[130], LOCAL, REAL,4,0,
+Weight_0.Arr_2[131], LOCAL, REAL,4,0,
+Weight_0.Arr_2[132], LOCAL, REAL,4,0,
+Weight_0.Arr_2[133], LOCAL, REAL,4,0,
+Weight_0.Arr_2[134], LOCAL, REAL,4,0,
+Weight_0.Arr_2[135], LOCAL, REAL,4,0,
+Weight_0.Arr_2[136], LOCAL, REAL,4,0,
+Weight_0.Arr_2[137], LOCAL, REAL,4,0,
+Weight_0.Arr_2[138], LOCAL, REAL,4,0,
+Weight_0.Arr_2[139], LOCAL, REAL,4,0,
+Weight_0.Arr_2[140], LOCAL, REAL,4,0,
+Weight_0.Arr_2[141], LOCAL, REAL,4,0,
+Weight_0.Arr_2[142], LOCAL, REAL,4,0,
+Weight_0.Arr_2[143], LOCAL, REAL,4,0,
+Weight_0.Arr_2[144], LOCAL, REAL,4,0,
+Weight_0.Arr_2[145], LOCAL, REAL,4,0,
+Weight_0.Arr_2[146], LOCAL, REAL,4,0,
+Weight_0.Arr_2[147], LOCAL, REAL,4,0,
+Weight_0.Arr_2[148], LOCAL, REAL,4,0,
+Weight_0.Arr_2[149], LOCAL, REAL,4,0,
+Weight_0.Arr_2[150], LOCAL, REAL,4,0,
+Weight_0.Arr_2[151], LOCAL, REAL,4,0,
+Weight_0.Arr_2[152], LOCAL, REAL,4,0,
+Weight_0.Arr_2[153], LOCAL, REAL,4,0,
+Weight_0.Arr_2[154], LOCAL, REAL,4,0,
+Weight_0.Arr_2[155], LOCAL, REAL,4,0,
+Weight_0.Arr_2[156], LOCAL, REAL,4,0,
+Weight_0.Arr_2[157], LOCAL, REAL,4,0,
+Weight_0.Arr_2[158], LOCAL, REAL,4,0,
+Weight_0.Arr_2[159], LOCAL, REAL,4,0,
+Weight_0.Arr_2[160], LOCAL, REAL,4,0,
+Weight_0.Arr_2[161], LOCAL, REAL,4,0,
+Weight_0.Arr_2[162], LOCAL, REAL,4,0,
+Weight_0.Arr_2[163], LOCAL, REAL,4,0,
+Weight_0.Arr_2[164], LOCAL, REAL,4,0,
+Weight_0.Arr_2[165], LOCAL, REAL,4,0,
+Weight_0.Arr_2[166], LOCAL, REAL,4,0,
+Weight_0.Arr_2[167], LOCAL, REAL,4,0,
+Weight_0.Arr_2[168], LOCAL, REAL,4,0,
+Weight_0.Arr_2[169], LOCAL, REAL,4,0,
+Weight_0.Arr_2[170], LOCAL, REAL,4,0,
+Weight_0.Arr_2[171], LOCAL, REAL,4,0,
+Weight_0.Arr_2[172], LOCAL, REAL,4,0,
+Weight_0.Arr_2[173], LOCAL, REAL,4,0,
+Weight_0.Arr_2[174], LOCAL, REAL,4,0,
+Weight_0.Arr_2[175], LOCAL, REAL,4,0,
+Weight_0.Arr_2[176], LOCAL, REAL,4,0,
+Weight_0.Arr_2[177], LOCAL, REAL,4,0,
+Weight_0.Arr_2[178], LOCAL, REAL,4,0,
+Weight_0.Arr_2[179], LOCAL, REAL,4,0,
+Weight_0.Arr_2[180], LOCAL, REAL,4,0,
+Weight_0.Arr_2[181], LOCAL, REAL,4,0,
+Weight_0.Arr_2[182], LOCAL, REAL,4,0,
+Weight_0.Arr_2[183], LOCAL, REAL,4,0,
+Weight_0.Arr_2[184], LOCAL, REAL,4,0,
+Weight_0.Arr_2[185], LOCAL, REAL,4,0,
+Weight_0.Arr_2[186], LOCAL, REAL,4,0,
+Weight_0.Arr_2[187], LOCAL, REAL,4,0,
+Weight_0.Arr_2[188], LOCAL, REAL,4,0,
+Weight_0.Arr_2[189], LOCAL, REAL,4,0,
+Weight_0.Arr_2[190], LOCAL, REAL,4,0,
+Weight_0.Arr_2[191], LOCAL, REAL,4,0,
+Weight_0.Arr_2[192], LOCAL, REAL,4,0,
+Weight_0.Arr_2[193], LOCAL, REAL,4,0,
+Weight_0.Arr_2[194], LOCAL, REAL,4,0,
+Weight_0.Arr_2[195], LOCAL, REAL,4,0,
+Weight_0.Arr_2[196], LOCAL, REAL,4,0,
+Weight_0.Arr_2[197], LOCAL, REAL,4,0,
+Weight_0.Arr_2[198], LOCAL, REAL,4,0,
+Weight_0.Arr_2[199], LOCAL, REAL,4,0,
+Weight_0.Arr_2[200], LOCAL, REAL,4,0,
+Weight_0.Filter_1, LOCAL, REAL,4,24.5,
+Weight_0.Filter_2, LOCAL, REAL,4,25.447956,
+Weight_0.Filter_3, LOCAL, REAL,4,26.278879,
+Weight_0.Filter_MIN_1, LOCAL, DINT,4,-5032,
+Weight_0.Filter_MAX_1, LOCAL, DINT,4,5650,
+Weight_0.Filter_SUM_1, LOCAL, DINT,4,23352,
+Weight_0.Filter_MIN_2, LOCAL, REAL,4,22.9,
+Weight_0.Filter_MAX_2, LOCAL, REAL,4,27.5,
+Weight_0.Filter_SUM_2, LOCAL, REAL,4,2371.200439,
+Weight_0.Filter_MIN_3, LOCAL, REAL,4,23.786745,
+Weight_0.Filter_MAX_3, LOCAL, REAL,4,27.36635,
+Weight_0.Filter_SUM_3, LOCAL, REAL,4,250.402069,
+Weight_0.i, LOCAL, INT,2,-1,
+Weight_0.NoiseThreshold, LOCAL, BOOL,1,0,
+Weight_0.NoiseThreshold_MEM, LOCAL, BOOL,1,0,
+Weight_0.NoiseThreshold_Lock, LOCAL, INT,2,0,
+Weight_0.WGHscale_0_std_value_MEM, LOCAL, DINT,4,0,
+Weight_0.Weight_diff, LOCAL, REAL,4,3.624285,
+Weight_0.Tara_Count_T, LOCAL, STRUCT: TON,20,,
+Weight_0.Tara_Count_T.IN, LOCAL, BOOL,1,0,
+Weight_0.Tara_Count_T.PT, LOCAL, TIME,4, T#10s,
+Weight_0.Tara_Count_T.Q, LOCAL, BOOL,1,0,
+Weight_0.Tara_Count_T.ET, LOCAL, TIME,4, T#0ms,
+Weight_0.Tara_Count_T.StartTime, LOCAL, TIME,4, T#0ms,
+Weight_0.Tara_Count_T.M, LOCAL, BOOL,1,0,
+Weight_0.Tara_Count_T.Restart, LOCAL, UDINT,4,0,
+Weight_State, LOCAL, INT,2,9,
+Zero_PB, LOCAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0, GLOBAL, STRUCT: XSM_Ctrl,364,,
+gCell_01_XSM_Ctrl_0.Power, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Cmd, GLOBAL, STRUCT: XSM_Ctrl_CmdType,40,,
+gCell_01_XSM_Ctrl_0.Cmd.Move_Absolute, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Position, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Cmd.Move_Additive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Distance, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Cmd.Move_Velocity, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Velocity, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Cmd.Stop, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Home, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Reset, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Advanced, GLOBAL, STRUCT: XSM_Ctrl_AdvancedType,12,,
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Target_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Target_Position, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Two_Position_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Move_FixedPos_a, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Cmd.Advanced.Move_FixedPos_b, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping, GLOBAL, STRUCT: XSM_Ctrl_IOMappingType,104,,
+gCell_01_XSM_Ctrl_0.IO_Mapping.DeviceName, GLOBAL, STRING,81," ""IF6.ST16""",
+gCell_01_XSM_Ctrl_0.IO_Mapping.Channel, GLOBAL, INT,2,1,
+gCell_01_XSM_Ctrl_0.IO_Mapping.ModuleOK, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.IO_Mapping.ModuleID, GLOBAL, UINT,2,9858,
+gCell_01_XSM_Ctrl_0.IO_Mapping.AbsPos, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenControl, GLOBAL, UINT,2,15,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenMode, GLOBAL, SINT,1,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.AbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.IO_Mapping.MpGenStatus, GLOBAL, UINT,2,567,
+gCell_01_XSM_Ctrl_0.IO_Mapping.InputStatus, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.Parameters, GLOBAL, STRUCT: XSM_Ctrl_ParametersType,24,,
+gCell_01_XSM_Ctrl_0.Parameters.Units_rev, GLOBAL, UINT,2,3600,
+gCell_01_XSM_Ctrl_0.Parameters.PosSWLimit, GLOBAL, DINT,4,10000,
+gCell_01_XSM_Ctrl_0.Parameters.NegSWLimit, GLOBAL, DINT,4,-3600,
+gCell_01_XSM_Ctrl_0.Parameters.HomePosition, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Parameters.HomeMode, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.Ignore_SWLimits, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Parameters.Ignore_HWLimits, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Parameters.HWLimits_Active_Low, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.StallDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Parameters.UnderCurrentDetectionEnable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.PowerOn, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Error, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.Monitor, GLOBAL, STRUCT: XSM_Ctrl_MonitorType,16,,
+gCell_01_XSM_Ctrl_0.Monitor.Actual_Position, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Monitor.Actual_Velocity, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.Monitor.StandStill, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Monitor.Target_Reached, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Home_OK, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.Monitor.Input_1, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_2, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_3, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.Monitor.Input_4, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern, GLOBAL, STRUCT: XSM_Ctrl_internType,80,,
+gCell_01_XSM_Ctrl_0.intern.StateMan, GLOBAL, UINT,2,100,
+gCell_01_XSM_Ctrl_0.intern.TaskCyclicTime, GLOBAL, REAL,4,0.002,
+gCell_01_XSM_Ctrl_0.intern.CyclicCounter, GLOBAL, REAL,4,0.006,
+gCell_01_XSM_Ctrl_0.intern.OldAbsPosActVal, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.intern.Target, GLOBAL, DINT,4,0,
+gCell_01_XSM_Ctrl_0.intern.AbsPos, GLOBAL, REAL,4,0,
+gCell_01_XSM_Ctrl_0.intern.CmdHome, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdReset, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Absolute, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Additive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Velocity, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_Two_Position_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_FixedPos_a, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_FixedPos_b, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.CmdMove_Adv_Target_Mode, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.OverflowWarning, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.intern.ErrorCode, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.intern.ChannelName, GLOBAL, STRING,31," """"",
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine, GLOBAL, STRUCT: XSM_Ctrl_StateMachineType,8,,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.NotReadyToSwitchOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.SwitchOnDisabled, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.ReadyToSwitchOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.SwitchedOn, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.OperationEnabled, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.QuickStopActive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.FaultReactionActive, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.intern.XSM_StateMachine.Fault, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.RTInfo_0, GLOBAL, STRUCT: RTInfo,12,,
+gCell_01_XSM_Ctrl_0.RTInfo_0.enable, GLOBAL, BOOL,1,1,
+gCell_01_XSM_Ctrl_0.RTInfo_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.RTInfo_0.cycle_time, GLOBAL, UDINT,4,2000,
+gCell_01_XSM_Ctrl_0.RTInfo_0.init_reason, GLOBAL, SINT,1,1,
+gCell_01_XSM_Ctrl_0.RTInfo_0.task_class, GLOBAL, SINT,1,2,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0, GLOBAL, STRUCT: AsIOAccRead,56,,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.pDeviceName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.pChannelName, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern, GLOBAL, STRUCT: IOAC_I_TYPE,36,,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.StateMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.ErrMan, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Init, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Taskhandle, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Semaphore, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Requestsize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Answersize, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.pAccessObj, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.Offset, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccRead_0.intern.flags, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0, GLOBAL, STRUCT: AsIOAccReadReg,24,,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.enable, GLOBAL, BOOL,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.nodeNr, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.registerNr, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.size, GLOBAL, USINT,1,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.status, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.value, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_state, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_result, GLOBAL, UINT,2,0,
+gCell_01_XSM_Ctrl_0.AsIOAccReadReg_0.i_tmp, GLOBAL, UDINT,4,0,
+gCell_01_XSM_Ctrl_0.zzEdge00000, GLOBAL, BOOL,1,0,
+gDataRecord, LOCAL, STRUCT: MpComIdentType,8,,
+gDataRecord.Internal, LOCAL, UDINT[2],4,,
+gDataRecord.Internal[0], LOCAL, UDINT,4,50610776,
+gDataRecord.Internal[1], LOCAL, UDINT,4,2896708621,
+gNoActiveAxis, GLOBAL, INT[9],2,,
+gNoActiveAxis[0], GLOBAL, INT,2,0,
+gNoActiveAxis[1], GLOBAL, INT,2,0,
+gNoActiveAxis[2], GLOBAL, INT,2,0,
+gNoActiveAxis[3], GLOBAL, INT,2,0,
+gNoActiveAxis[4], GLOBAL, INT,2,0,
+gNoActiveAxis[5], GLOBAL, INT,2,0,
+gNoActiveAxis[6], GLOBAL, INT,2,0,
+gNoActiveAxis[7], GLOBAL, INT,2,0,
+gNoActiveAxis[8], GLOBAL, INT,2,0,
+gNoActiveAxis_MAX, GLOBAL, INT,2,3,
+i, LOCAL, INT,2,0,
+state_new_log, LOCAL, INT,2,0,
+[GENERAL_PR],,,,,
+BYPASS_ZERO_COUNT_SET, GLOBAL, INT,2,20,
+CLR_DATA, GLOBAL, BOOL,1,0,
+LoackPassword, LOCAL, DINT,4,0,
+LockLevel, LOCAL, INT,2,0,
+LockLevel_T, LOCAL, STRUCT: TON,20,,
+LockLevel_T.IN, LOCAL, BOOL,1,0,
+LockLevel_T.PT, LOCAL, TIME,4, T#6m,
+LockLevel_T.Q, LOCAL, BOOL,1,0,
+LockLevel_T.ET, LOCAL, TIME,4, T#0ms,
+LockLevel_T.StartTime, LOCAL, TIME,4, T#0ms,
+LockLevel_T.M, LOCAL, BOOL,1,0,
+LockLevel_T.Restart, LOCAL, UDINT,4,0,
+R_POSITION_TOLR, GLOBAL, REAL,4,360,
+SIZE_FOR_LANE, GLOBAL, USINT[7],1,,
+SIZE_FOR_LANE[0], GLOBAL, USINT,1,0,
+SIZE_FOR_LANE[1], GLOBAL, USINT,1,1,
+SIZE_FOR_LANE[2], GLOBAL, USINT,1,2,
+SIZE_FOR_LANE[3], GLOBAL, USINT,1,3,
+SIZE_FOR_LANE[4], GLOBAL, USINT,1,4,
+SIZE_FOR_LANE[5], GLOBAL, USINT,1,5,
+SIZE_FOR_LANE[6], GLOBAL, USINT,1,6,
+TOTAL_WEIGHT, GLOBAL, REAL,4,0,
+Total_Size_1, GLOBAL, REAL,4,0.4259,
+Total_Size_2, GLOBAL, REAL,4,0,
+Total_Size_3, GLOBAL, REAL,4,0.081,
+Total_Size_4, GLOBAL, REAL,4,0.2748,
+Total_Size_5, GLOBAL, REAL,4,72.775436,
+Total_Size_6, GLOBAL, REAL,4,0,
+WEIGHT_SIZE, GLOBAL, REAL[7],4,,
+WEIGHT_SIZE[0], GLOBAL, REAL,4,0,
+WEIGHT_SIZE[1], GLOBAL, REAL,4,0,
+WEIGHT_SIZE[2], GLOBAL, REAL,4,39,
+WEIGHT_SIZE[3], GLOBAL, REAL,4,40,
+WEIGHT_SIZE[4], GLOBAL, REAL,4,41,
+WEIGHT_SIZE[5], GLOBAL, REAL,4,56,
+WEIGHT_SIZE[6], GLOBAL, REAL,4,500,
+WEIGHT_VAL_MIN, GLOBAL, REAL,4,4,
+W_IN_FILTER_HMI_Threshold, GLOBAL, REAL,4,1,
+W_IN_Filter_DIFF_RANGE, GLOBAL, REAL,4,0.5,
+W_IN_Filter_Diff_Tara_min, GLOBAL, REAL,4,3,
+W_IN_Filter_Diff_max, GLOBAL, REAL,4,5,
+W_IN_Filter_Diff_min, GLOBAL, REAL,4,0.5,
+W_IN_Filter_NoiseThreshold_LockN, GLOBAL, INT,2,6,
+W_IN_Filter_READING_IN_RANGE, GLOBAL, INT,2,10,
+W_IN_Filter_Stage1_FilterSize, GLOBAL, INT,2,100,
+W_IN_Filter_Stage1_NoiseThreshol, GLOBAL, DINT,4,1000000,
+W_IN_Filter_Stage2_FilterSize, GLOBAL, INT,2,100,
+W_IN_Filter_Tara_Count_T_PT, GLOBAL, DINT,4,10000,
+W_IN_Filter_Weighting_T_PT, GLOBAL, DINT,4,20,
