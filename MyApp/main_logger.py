@@ -2,7 +2,8 @@ import interface
 from time import sleep
 import cv2
 
-import datetime 
+import user_input
+import datetime
 
 def display_img(img):
     while True: 
@@ -46,7 +47,7 @@ def main():
         
     
     # -- input -- 
-    import user_input
+    input('Software startup complete, START the Machine now. Once it is fully on and conveyors are running, Press ENTER key to continue')
     harvestDay, barCode = user_input.get()    
     measureDay = datetime.datetime.today()
 
