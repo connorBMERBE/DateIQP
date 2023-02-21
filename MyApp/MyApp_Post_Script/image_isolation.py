@@ -13,7 +13,6 @@
 
 import cv2 
 import numpy as np 
-import helper_functions
 
 def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, size_of_ellipse = 50):
     # lowHSV = (180-45, 60, 50)
@@ -84,48 +83,61 @@ def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, 
     return final 
 
 
-def save_files_main(stops_huh = False):
-    shape = (3840,2160)
-    blank_img = cv2.imread("DateIQP\\ImageAssets\\Empty\\Empty1.jpg")
-    blank_img = cv2.resize(blank_img, shape)
-    image_paths = helper_functions.myimages("DateIQP\\ImageAssets\\YaaraTest\\")
-    
-    for i in range(len(image_paths)): 
-        print(i)
-        img = cv2.imread(image_paths[i]) 
-        img = cv2.resize(img, shape) 
-        final = get_me_a_date(img, blank_img, stops_huh)
-        cv2.imwrite("Test_isolated_image_"+str(i)+".jpg", final)
-
-
-def gui_main(stops_huh = True): 
-    
-    shape = (3840,2160)
-
-    cv2.namedWindow("Results",cv2.WINDOW_NORMAL)
-    cv2.namedWindow("Controls",cv2.WINDOW_NORMAL)
-    cv2.resizeWindow("Controls",640,240) 
-
-    blank_img = cv2.resize(cv2.imread(".\\..\\ImageAssets\\Empty\\Empty1.jpg"), shape)
-    image_paths = helper_functions.myimages('.\\..\\ImageAssets\\Juicy\\')
-    # image_paths = helper_functions.myimages('.\\..\\ImageAssets\\YaaraSorted\\')
-    # image_paths = helper_functions.myimages('.\\..\\ImageAssets\\Moist\\')
-    cv2.createTrackbar("Image","Controls",0,len(image_paths)-1,lambda _:_)
-    
-    while True: 
-        img = cv2.imread(image_paths[cv2.getTrackbarPos("Image","Controls")])
-        img = cv2.resize(img, shape) 
-
-        final = get_me_a_date(img, blank_img, stops_huh)
-        cv2.imshow("Results", final); cv2.waitKey(0)
-
-        key = cv2.waitKey(500) # milliseconds, enough for it 
-        if key == ord('q') or key == 27:
-            break
-    cv2.destroyAllWindows()
-
-
 if __name__ == "__main__":
+    def myimages(imdir):
+    import os
+    # imdir = '.\\..\\ImageAssets\\Juicy\\'
+    files = os.listdir(imdir)
+    image_paths = list(
+        map(lambda filename: imdir+filename, 
+            filter(
+                lambda filename: filename.endswith(('.jpg','.JPG')), files)
+            )
+        )
+    
+    return image_paths
+
+    def save_files_main(stops_huh = False):
+        shape = (3840,2160)
+        blank_img = cv2.imread("DateIQP\\ImageAssets\\Empty\\Empty1.jpg")
+        blank_img = cv2.resize(blank_img, shape)
+        image_paths = myimages("DateIQP\\ImageAssets\\YaaraTest\\")
+        
+        for i in range(len(image_paths)): 
+            print(i)
+            img = cv2.imread(image_paths[i]) 
+            img = cv2.resize(img, shape) 
+            final = get_me_a_date(img, blank_img, stops_huh)
+            cv2.imwrite("Test_isolated_image_"+str(i)+".jpg", final)
+
+
+    def gui_main(stops_huh = True): 
+        
+        shape = (3840,2160)
+
+        cv2.namedWindow("Results",cv2.WINDOW_NORMAL)
+        cv2.namedWindow("Controls",cv2.WINDOW_NORMAL)
+        cv2.resizeWindow("Controls",640,240) 
+
+        blank_img = cv2.resize(cv2.imread(".\\..\\ImageAssets\\Empty\\Empty1.jpg"), shape)
+        image_paths = myimages('.\\..\\ImageAssets\\Juicy\\')
+        # image_paths = myimages('.\\..\\ImageAssets\\YaaraSorted\\')
+        # image_paths = myimages('.\\..\\ImageAssets\\Moist\\')
+        cv2.createTrackbar("Image","Controls",0,len(image_paths)-1,lambda _:_)
+        
+        while True: 
+            img = cv2.imread(image_paths[cv2.getTrackbarPos("Image","Controls")])
+            img = cv2.resize(img, shape) 
+
+            final = get_me_a_date(img, blank_img, stops_huh)
+            cv2.imshow("Results", final); cv2.waitKey(0)
+
+            key = cv2.waitKey(500) # milliseconds, enough for it 
+            if key == ord('q') or key == 27:
+                break
+        cv2.destroyAllWindows()
+
+
     try: 
         # gui_main() 
         save_files_main()
