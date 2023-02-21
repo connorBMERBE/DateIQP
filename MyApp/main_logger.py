@@ -1,4 +1,4 @@
-import interface 
+import plc_interface
 from time import sleep
 import cv2
 
@@ -20,8 +20,6 @@ def takepic(cam, show=False):
     
     return frame 
 
-
-
 def main(): 
     
     # -- setup camera and interfaces 
@@ -33,7 +31,7 @@ def main():
         raise e 
     
     try:
-        plcInterface = interface.plcInterface()
+        plcInterface = plc_interface.plcInterface()
     except Exception as e: 
         print('Interface with the machine cannot be established. Ensure the machine is plugged in, IP is configured, and PVI is activated. See manual for more details.')
         # raise e # DISABLED FOR TESTING  
