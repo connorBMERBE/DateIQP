@@ -20,8 +20,7 @@ def get():
         if x == barCode:
             break
 
-    return harvestDay, barCode 
-
+    return harvestDay.strftime('%Y-%m-%d'), barCode 
 
 
 # folder_name = harvestDay+"_"+barCode
