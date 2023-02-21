@@ -1,0 +1,101 @@
+Structured Query Language (SQL)
+	scripting language for databases
+
+Username and Password for the MySQL Database:
+	root
+	D@t3MACHINE
+	Master
+	D@t3MACHINE
+
+Instruction for "MySQL Workbench":
+
+creating/checking for a schema:
+	open the "MySQL Workbench" application
+	left-click "Schemas" in left bar under "Navigator", next to "Administration", and above "Information"
+	if there is not an object named "datesdb", right-click the empty space under the other objects and left-click "Create Schema..."
+		in the middle of the screen, there should be a box labeled "Name:"
+		replace the text in the box with "datesdb" and left-click the box that says "Apply"
+		there should now be a pop-up that says "Apply SQL Script to Database"
+		left-click the box that says "Apply", then left-click the boz that says "Finish"
+	double-click the object in the left bar under "SCHEMAS" named "datesdb"
+	right-click "datesdb" and left-click "Set as Default Schema"
+	you now have a schema, which can be thought of as a list of tables 
+
+creating the necessary tables:
+	create a table in which to store your information on dates if you do not already have one
+	left-click "File" in the top of the window and left-click "New Query Tab" or press "Ctrl" and "t" on the keyboard at the same time
+	this will create a new tab for creating scripts
+	run the following script by copying and pasting it in the new tab to create a table named "Dates":
+		CREATE TABLE Dates (
+    		imageAddress VARCHAR(255) NOT NULL, #image location
+			harvestDay DATE NOT NULL, #day of tree harvest, format YYYY-MM-DD
+    		measureDay DATE NOT NULL, #day of date classification, format YYYY-MM-DD
+    		barCode INT(6) UNSIGNED NOT NULL, #tree identifier
+    		weight DOUBLE(3,1) NOT NULL,
+    		readyOrJuicy BOOLEAN,
+    		moist BOOLEAN,
+    		yellow BOOLEAN,
+    		halfFirm BOOLEAN,
+    		firm BOOLEAN, #(AKA smooth)
+    		/*
+			blisterPercent DOUBLE,
+    		*/
+    		/*
+    		blisterAmount VARCHAR(4),
+    		*/
+    		blistered BOOLEAN,
+			skippedAStage BOOLEAN,
+			dry BOOLEAN,
+    		/*
+    		CONSTRAINT blisterPercent_CHECK CHECK (blisterPercent>=0 AND blisterPercent<=100),
+    		*/
+    		/*
+    		CONSTRAINT blisterAmount_CHECK CHECK (blisterAmount='none' OR blisterAmount='low' OR blisterAmount='mid' OR blisterAmount='high'),
+    		*/
+			CONSTRAINT Dates_PK PRIMARY KEY (imageAddress)
+		);
+	to run this script and creat the table, click the yellow button near the top-left of the tab
+
+	the purpose of the next table is to store information for the KNN algorithm for classifying images
+	repeat the steps for the previous table, but paste the following script into the tab instead to create a table named "TrainingData":
+		CREATE TABLE TrainingData ( #for KNN algorithm
+			imageAddress VARCHAR(255) NOT NULL, #image location
+            averageHue FLOAT(11,8) NOT NULL, #between 0-180
+            averageSaturation FLOAT(11,8) NOT NULL, #between 0-255
+            averageValue FLOAT(11,8) NOT NULL, #between 0-255
+			#	classifications are as follows:
+            #		0 = dry
+            #       1 = readyOrJuicy
+            #       2 = moist                                                                                                                                                                                                                                                                                                                                                                          
+            #       3 = firm (AKA smooth)
+            #		4 = yellow
+            #		5 = halfFirm
+            #		6 = skippedAStage
+    		classification INT NOT NULL,
+            CONSTRAINT classification_CHECK CHECK (classification>=0 AND classification <=7),
+    		CONSTRAINT averageHue_CHECK CHECK (averageHue>=0 AND averageHue<=180),
+            CONSTRAINT averageSaturation_CHECK CHECK (averageSaturation>=0 AND averageSaturation<=255),
+            CONSTRAINT averageValue_CHECK CHECK (averageValue>=0 AND averageValue<=255),
+			CONSTRAINT Dates_PK PRIMARY KEY (imageAddress)
+		);
+	to run this script and create the table, click the yellow button near the top-left of the tab
+
+Table Interaction:	
+	if needed, tables or the data in them may need to be changed
+	right-click a table's name in the column on the left labeled "SCHEMAS" to interact with it:
+
+	table viewing:
+
+
+	table editing:
+	left-click "Alter Table..." to open up a tab with a menu for changing table information
+	in the bottom left of the tab, click "Columns" to view and edit column information in the table
+	click "Indexes" next to "Columns" to view and edit information on table entries
+	when done with changes, click "Apply" to confirm changes or click "Revert" to cancel changes
+
+	table deletion:
+	left-click "Drop Table" to delete a table and all the information stored in that table
+	to confirm deletion, click "Drop Now"
+
+Data from MySQL is stored at:
+"C:\ProgramData\MySQL\MySQL Server 8.0\Data"
