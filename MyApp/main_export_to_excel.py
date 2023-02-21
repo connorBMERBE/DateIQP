@@ -1,27 +1,40 @@
 import pandas as pd
-import sql.connector as sql 
+import user_input
+# import db_interface
 
-def dbViewFiltered(): 
+def main():
+    print("You are running a script that will download a filtered section of the MySQL database running on this computer.")
+    
+    # harvestDaySTRING, barCode = user_input.get()
+    harvestDaySTRING = "2022-02-20"
+    barcode = "123456789"
+    # rows_info = dbInterface.getFilteredDatesData(harvestDaySTRING, barCode) # array of rows 
+    rows_info = [[1,2,3,4, 5,6,7,8,9,10,11,12],[11,12,13,14, 15,16,17,18,19,20,21,22]]
 
-    cursor.execute(f'')    
+    headers = ['imageAddress', 
+               'measureDay',
+               'barCode',
+               'weight',
+               
+               'readyOrJuicy',
+               'moist',
+               'yellow',
+               'halfFirm',
+               'form',
+               'blistered',
+               'skippedAStage',
+               'dry']
+    
+    DF = pd.DataFrame(data = rows_info, columns = headers)
+    location = 'output.xlsx'
+    DF.to_excel(location)
+
+    print('Selected part of the database has been saved in: '+location)
 
 
-# harvestDaySTRING = "2022-02-20"
-# barcode = "123456789"
+if __name__ == "__main__":
+    main() 
 
-print("You are running a script that will download a filtered section of the MySQL database running on this computer.")
-
-import user_input.py
-
-harvestDaySTRING, barCode = user_input.get()
-
-cursor.execite(f"SELECT * FROM dates WHERE harvestDay = {harvestDaySTRING} AND barCode = {barCode}")
-
-location = {'imageAddress':-1, 
-            'harvestDay':harvestDay.strftime('%Y-%m-%d'), 
-            'measureDay':measureDay.strftime('%Y-%m-%d'), 
-            'barCode':barCode, 
-            'weight':weight }
 
 
 
