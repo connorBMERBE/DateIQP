@@ -1,6 +1,6 @@
 import mysql.connector as sql
 import numpy as np
-import dbInterface as dbi
+import db_Interface as dbi
 
 # Connect to server
 mydb = sql.connect(
