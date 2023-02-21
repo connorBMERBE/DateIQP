@@ -46,26 +46,10 @@ def main():
         
     
     # -- input -- 
-    input('Software startup complete, START the Machine now. Once it is fully on and conveyors are running, Press ENTER key to continue')
-
-    while True: 
-        entry = input('For this batch, enter the Day Harvested in (YYYY-MM-DD) format: ')
-        year, month, day = map(int, entry.split('-'))
-        harvestDay = datetime.date(year, month, day)
-
-        print('Is this correct? '+harvestDay.strftime('%Y-%m-%d'))
-        x = input('You will not be able to change this while the script is running. Confirm by Re-entering Day Harvested (YYYY-MM-DD): ')
-        if x == harvestDay:
-            break
-
-    while True: 
-        barCode = int(input("For this batch, enter the Tree Barcode Number: "))
-        print('Is this correct? '+str(barCode))
-        x = input('You will not be able to change this while the script is running. Confirm by Re-entering Tree Barcode Number: ')
-        if x == barCode:
-            break
-
+    import user_input
+    harvestDay, barCode = user_input.get()    
     measureDay = datetime.datetime.today()
+
 
     print()    
     input('Information about batch collected, Press ENTER key to continue')
@@ -73,7 +57,8 @@ def main():
     print()
 
     
-    # -- start watching for dates -- 
+    # -- start watching for dates --
+    index = 1
     while True: 
 #        print('looped')
 
@@ -88,13 +73,13 @@ def main():
             # - measure weight 
             status = plcInterface.wait_until_changed(plcInterface.Status) 
             if status!=10 and status!=9: # numbers other than 9 or 10 mean that it has opened the door to clear 
-                print('Date released.')
+                print(f'Date {index} released.')
                 sleep(0.1) # LAST_WEIGHT updates very soon after the doors open 
                 weight = plcInterface.get_var(plcInterface.Weight)
 
                 # store image 
+                folder_name = harvestDay+"_"+barCode
                 
-                # each batch in a batch folder, index 
 
                 print('Weight and image recorded and stored.')              
 
@@ -104,11 +89,12 @@ def main():
                             'measureDay':measureDay.strftime('%Y-%m-%d'), 
                             'barCode':barCode, 
                             'weight':weight }
-
+                
                 # send row to db 
 
                 print('Entry to Database successful.')
 
+                index = index + 1 
                 # display_img(img) 
 
 
