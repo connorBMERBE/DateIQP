@@ -1,7 +1,6 @@
 import numpy as np
 import cv2
 import os
-import random as rand
 import math
 from scipy import stats as st
 

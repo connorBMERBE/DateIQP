@@ -13,6 +13,7 @@
 
 import cv2 
 import numpy as np 
+import os
 
 def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, size_of_ellipse = 50):
     # lowHSV = (180-45, 60, 50)
@@ -85,23 +86,22 @@ def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, 
 
 if __name__ == "__main__":
     def myimages(imdir):
-    import os
-    # imdir = '.\\..\\ImageAssets\\Juicy\\'
-    files = os.listdir(imdir)
-    image_paths = list(
-        map(lambda filename: imdir+filename, 
-            filter(
-                lambda filename: filename.endswith(('.jpg','.JPG')), files)
+        # imdir = '.\\..\\ImageAssets\\Juicy\\'
+        files = os.listdir(imdir)
+        image_paths = list(
+            map(lambda filename: imdir+filename, 
+                filter(
+                    lambda filename: filename.endswith(('.jpg','.JPG')), files)
+                )
             )
-        )
     
-    return image_paths
+        return image_paths
 
     def save_files_main(stops_huh = False):
         shape = (3840,2160)
         blank_img = cv2.imread("DateIQP\\ImageAssets\\Empty\\Empty1.jpg")
         blank_img = cv2.resize(blank_img, shape)
-        image_paths = myimages("DateIQP\\ImageAssets\\YaaraTest\\")
+        image_paths = myimages("\\DateIQP\\ImageAssets\\YaaraTest\\")
         
         for i in range(len(image_paths)): 
             print(i)

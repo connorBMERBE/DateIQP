@@ -1,15 +1,15 @@
 import pandas as pd
 import user_input
-# import db_interface
+import db_Interface as dbi
 
 def main():
     print("You are running a script that will download a filtered section of the MySQL database running on this computer.")
     
-    # harvestDaySTRING, barCode = user_input.get()
-    harvestDaySTRING = "2022-02-20"
-    barcode = "123456789"
-    # rows_info = dbInterface.getFilteredDatesData(harvestDaySTRING, barCode) # array of rows 
-    rows_info = [[1,2,3,4, 5,6,7,8,9,10,11,12],[11,12,13,14, 15,16,17,18,19,20,21,22]]
+    harvestDaySTRING, barCode = user_input.get()
+    # harvestDaySTRING = "2022-02-20"
+    # barcode = "123456789"
+    rows_info = dbi.getFilteredDatesData(harvestDaySTRING, barCode) # array of rows 
+    # rows_info = [[1,2,3,4, 5,6,7,8,9,10,11,12],[11,12,13,14, 15,16,17,18,19,20,21,22]]
 
     headers = ['imageAddress', 
                'measureDay',

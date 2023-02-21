@@ -1,6 +1,5 @@
 import mysql.connector as sql
 import numpy as np
-import datetime as dt
 
    # Connect to server
 mydb = sql.connect(
@@ -10,9 +9,7 @@ mydb = sql.connect(
     database = "datesdb"
     )
 
-# Creating an instance of 'cursor' class
-# which is used to execute the 'SQL'
-# statements in 'Python'
+# Creating an instance of 'cursor' class which is used to execute the 'SQL' statements in 'Python'
 cursor = mydb.cursor()
 
 #add row to dates table
@@ -45,6 +42,7 @@ def dbDateEdit( imageAddress, classification):
     cursor.execute(f'update dates set {columnName} = 1 where imageAddress = {imageAddress};')
     mydb.commit()
 
+#returns selectedc table information as a 2d array
 def getData(statement):
     tableArray = np.array([])
     cursor.execute(statement)
@@ -57,9 +55,10 @@ def getData(statement):
         counter = counter + 1
     return tableArray
 
-
+#returns trainingData as a 2d array
 def getTrainingData():
     return getData("select * from trainingData;")
 
+#returns dates table as a list harvested on a specific day from a specific tree
 def getFilteredDatesData(harvestDay, barCode):
     return getData(f"select * from dates where harvestDay = {harvestDay} AND barCode = {barCode};")
