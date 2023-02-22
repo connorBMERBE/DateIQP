@@ -31,7 +31,7 @@ creating the necessary tables:
 			harvestDay DATE NOT NULL, #day of tree harvest, format YYYY-MM-DD
     		measureDay DATE NOT NULL, #day of date classification, format YYYY-MM-DD
     		barCode INT(6) UNSIGNED NOT NULL, #tree identifier
-    		weight DOUBLE(3,1) NOT NULL,
+    		weight DOUBLE(6,3) NOT NULL,
     		readyOrJuicy BOOLEAN,
     		moist BOOLEAN,
     		yellow BOOLEAN,

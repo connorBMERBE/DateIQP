@@ -1,7 +1,8 @@
 import mysql.connector as sql
 import numpy as np
 
-   # Connect to server
+
+# Connect to server
 mydb = sql.connect(
     host = "localhost",
     user = "root",
@@ -14,12 +15,17 @@ cursor = mydb.cursor()
 
 #add row to dates table
 def dbDateAdd( imageAddress, harvestDay, measureDay, barCode, weight):
-    cursor.execute(f'insert into dates values({imageAddress}, {harvestDay}, {measureDay}, {barCode}, {weight});')
+    cursor.execute(rf'insert into dates values("{imageAddress}", "{harvestDay}", "{measureDay}", {barCode}, {weight}, null, null, null, null, null, null, null, null);')
+    mydb.commit()
+
+#delete rows of images in a specific directory from dates table
+def dbDateDelete( imageAddress):
+    cursor.execute(rf'delete from dates where imageAddress = "{imageAddress}";')
     mydb.commit()
 
 #add row to trainingData table
 def dbTrainingAdd( imageAddress, averageHue, averageSaturation, averageValue, classification ):
-    cursor.execute(f'insert into trainingData values({imageAddress}, {averageHue}, {averageSaturation}, {averageValue}, {classification});')
+    cursor.execute(rf"insert into trainingData values('{imageAddress}', {averageHue}, {averageSaturation}, {averageValue}, {classification});")
     mydb.commit()
 
 #update classification of dates in dates table
@@ -39,7 +45,7 @@ def dbDateEdit( imageAddress, classification):
         columName = 'halfFirm'
     elif classification == 6:
         columName = 'skippedAStage'
-    cursor.execute(f'update dates set {columnName} = 1 where imageAddress = {imageAddress};')
+    cursor.execute(rf'update dates set {columnName} = 1 where imageAddress = "{imageAddress}";')
     mydb.commit()
 
 #returns selectedc table information as a 2d array
@@ -61,4 +67,4 @@ def getTrainingData():
 
 #returns dates table as a list harvested on a specific day from a specific tree
 def getFilteredDatesData(harvestDay, barCode):
-    return getData(f"select * from dates where harvestDay = {harvestDay} AND barCode = {barCode};")
+    return getData(rf'select * from dates where harvestDay = "{harvestDay}" AND barCode = {barCode};')

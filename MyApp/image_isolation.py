@@ -19,6 +19,7 @@ def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, 
     # lowHSV = (180-45, 60, 50)
     lowHSV = (1, 1, 1)
     highHSV = (180, 255, 255) # use app_morphology or app_HSV_Thresholds_on_Image
+    # color mask is virtually nonexistant, add in by changing values above
     
 
     if stops_huh:
@@ -70,7 +71,7 @@ def get_me_a_date(img, blank_img ,stops_huh=False, subtraction_parameter = 100, 
     
     if stops_huh:
         cv2.imshow("Results", mask); cv2.waitKey(0)
-            
+    
     # # convert this RGB mask to a binary mask, don't really want to di inRange here... see how to fix    
     sub = cv2.cvtColor(mask,cv2.COLOR_BGR2GRAY) #makes subtraction grayscale to create a mask
     black = np.array([15]) #lower bound
@@ -94,11 +95,10 @@ if __name__ == "__main__":
                     lambda filename: filename.endswith(('.jpg','.JPG')), files)
                 )
             )
-    
         return image_paths
 
     def save_files_main(stops_huh = False):
-        shape = (3840,2160)
+        shape = (1920,1080)
         blank_img = cv2.imread("DateIQP\\ImageAssets\\Empty\\Empty1.jpg")
         blank_img = cv2.resize(blank_img, shape)
         image_paths = myimages("\\DateIQP\\ImageAssets\\YaaraTest\\")
@@ -113,16 +113,14 @@ if __name__ == "__main__":
 
     def gui_main(stops_huh = True): 
         
-        shape = (3840,2160)
+        shape = (1920,1080)
 
         cv2.namedWindow("Results",cv2.WINDOW_NORMAL)
         cv2.namedWindow("Controls",cv2.WINDOW_NORMAL)
         cv2.resizeWindow("Controls",640,240) 
 
-        blank_img = cv2.resize(cv2.imread(".\\..\\ImageAssets\\Empty\\Empty1.jpg"), shape)
-        image_paths = myimages('.\\..\\ImageAssets\\Juicy\\')
-        # image_paths = myimages('.\\..\\ImageAssets\\YaaraSorted\\')
-        # image_paths = myimages('.\\..\\ImageAssets\\Moist\\')
+        blank_img = cv2.resize(cv2.imread("C:\DatesWorkspace\DateIQP\MyApp\DateImages\empty.jpg"), shape)
+        image_paths = myimages('C:\DatesWorkspace\DateIQP\MyApp\DateImages\TrainingData\\') 
         cv2.createTrackbar("Image","Controls",0,len(image_paths)-1,lambda _:_)
         
         while True: 
@@ -138,9 +136,11 @@ if __name__ == "__main__":
         cv2.destroyAllWindows()
 
 
-    try: 
-        # gui_main() 
-        save_files_main()
-        print("ran function")
-    except Exception as e:
-        print(e)
+    # try: 
+
+    gui_main() 
+    # save_files_main()
+    print("ran function")
+
+    # except Exception as e:
+    #     print(e)

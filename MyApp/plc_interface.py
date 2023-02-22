@@ -20,10 +20,15 @@ class plcInterface():
     def get_var(self, myvar): 
         # just get the var, with doEvents to update the value. impliment into wait_until_changed
         while True: 
-            self.pviConnection.doEvents() # must be cyclically
-            if myvar.readable: 
-                return myvar.value
-
+            
+            try: 
+                self.pviConnection.doEvents() # must be cyclically
+                if myvar.readable: 
+                    return myvar.value 
+            except pvi.Error.PviError as e: 
+                print('retrying pvi connection issue')
+            
+            
     def wait_until_changed(self, myvar):
 
         prev_weight = self.get_var(myvar)
@@ -42,3 +47,4 @@ if __name__ == "__main__":
         new_value = myInterface.wait_until_changed(myInterface.Status)     
         print(new_value)
     
+
