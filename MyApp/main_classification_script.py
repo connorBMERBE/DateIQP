@@ -29,9 +29,8 @@ def Classify(filepath, k):
     z_hat = KNN.knnclassify_bme(labels, HSVArr, ClassifyData, k)
     return z_hat
 
-if __name__ == "__main__":
+def main(day, barcode):
 
-    day, barcode = ui.get()
     filepath = rf"C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\{day}_{barcode}\\"
     k = 25
     #do not make k < 2
@@ -45,3 +44,7 @@ if __name__ == "__main__":
     mete.main(day,barcode)
     print("excell sheet finished with classifications:")
     print(z_hat)
+
+if __name__ == "__main__":
+    day, barcode = ui.get()
+    main(day, barcode)

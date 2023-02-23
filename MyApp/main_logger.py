@@ -2,14 +2,15 @@ import plc_interface
 import plc_interface
 from time import sleep
 import cv2
-import image_isolation as ii
+
+import main_classification_script
 
 import user_input
 import datetime
 import os
 import sys
 
-cam = cv2.VideoCapture(0)
+cam = cv2.VideoCapture(0) 
 
 def myimages(imdir): # get all images in a directory 
     files = os.listdir(imdir)
@@ -153,7 +154,11 @@ if __name__ == "__main__":
     try: 
         main()
     except KeyboardInterrupt as e:
+                
+        # main_classification_script.main(harvestDaySTR, barCode) # this will classify everything and 
+
         print('exiting program correctly...') 
+        
         import sys
         sys.exit()
 
