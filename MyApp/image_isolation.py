@@ -119,8 +119,8 @@ if __name__ == "__main__":
         cv2.namedWindow("Controls",cv2.WINDOW_NORMAL)
         cv2.resizeWindow("Controls",640,240) 
 
-        blank_img = cv2.resize(cv2.imread("C:\DatesWorkspace\DateIQP\MyApp\DateImages\empty.jpg"), shape)
-        image_paths = myimages('C:\DatesWorkspace\DateIQP\MyApp\DateImages\TrainingData\\') 
+        blank_img = cv2.resize(cv2.imread("C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\empty.jpg"), shape)
+        image_paths = myimages('C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\TrainingData\\') 
         cv2.createTrackbar("Image","Controls",0,len(image_paths)-1,lambda _:_)
         
         while True: 

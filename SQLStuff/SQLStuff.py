@@ -1,6 +1,5 @@
 import mysql.connector as sql
 import numpy as np
-import db_Interface as dbi
 
 # Connect to server
 mydb = sql.connect(
@@ -32,10 +31,10 @@ cursor = mydb.cursor()
 # cursor.execute(r'insert into trainingdata values("file\\path09", 1, 1, 1, 2);') 
 # cursor.execute(r'insert into trainingdata values("file\\path10", 1, 1, 3.45252, 0);') 
 # cursor.execute(r'insert into trainingdata values("file\\path11", 10.45754, 20.24436, 30, 1);') 
-# cursor.execute(r'insert into trainingdata values("file\\path12", 100, 200, 45.557864, 0);') 
+cursor.execute(r'insert into trainingdata values("file\\path12", 100, 200, 45.557864, 0);') 
 # Show database
 # print(cursor)
 # mydb.commit()
 # array = np.array([])
-array = dbi.getTrainingData()
-print(array)
+#array = dbi.getTrainingData()
+print(cursor)

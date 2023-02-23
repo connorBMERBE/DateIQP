@@ -30,22 +30,21 @@ def dbTrainingAdd( imageAddress, averageHue, averageSaturation, averageValue, cl
 
 #update classification of dates in dates table
 def dbDateEdit( imageAddress, classification):
-    columnName = ''
     if classification == 0:
-        columName = 'dry'
+        columnName = 'dry'
     elif classification == 1:
-        columName = 'readyOrJuicy'
+        columnName = 'readyOrJuicy'
     elif classification == 2:
-        columName = 'moist'
+        columnName = 'moist'
     elif classification == 3:
-        columName = 'firm'
+        columnName = 'firm'
     elif classification == 4:
-        columName = 'yellow'
+        columnName = 'yellow'
     elif classification == 5:
-        columName = 'halfFirm'
+        columnName = 'halfFirm'
     elif classification == 6:
-        columName = 'skippedAStage'
-    cursor.execute(rf'update dates set {columnName} = 1 where imageAddress = "{imageAddress}";')
+        columnName = 'skippedAStage'
+    cursor.execute(rf"update dates set {columnName} = 1 where imageAddress = '{imageAddress}';")
     mydb.commit()
 
 #returns selectedc table information as a 2d array

@@ -1,4 +1,5 @@
 import plc_interface
+import plc_interface
 from time import sleep
 import cv2
 import image_isolation as ii
@@ -6,6 +7,9 @@ import image_isolation as ii
 import user_input
 import datetime
 import os
+import sys
+
+cam = cv2.VideoCapture(0)
 
 def myimages(imdir): # get all images in a directory 
     files = os.listdir(imdir)
@@ -36,8 +40,8 @@ def main():
     
     # -- setup camera and interfaces 
     
-
     cam = cv2.VideoCapture(0)
+
     if cam is None or not cam.isOpened():
         print('Ensure the camera is connected and pointed at the sensor area. See manual for more details.')
         raise Exception('issue connecting camera')
@@ -58,8 +62,7 @@ def main():
     
     # -- input -- 
     input('Software startup complete, START the Machine now. Once it is fully on and conveyors are running, Press ENTER key to continue')
-    # harvestDaySTR, barCode = user_input.get()  
-    harvestDaySTR, barCode = '1111-11-11', 0
+    harvestDaySTR, barCode = user_input.get()
     measureDay = datetime.datetime.today().strftime('%Y-%m-%d')
 
 
@@ -70,7 +73,7 @@ def main():
 
     # -- check if this file location already exists, give option to delete it, or to close the program 
     folder_name = harvestDaySTR+"_"+str(barCode)
-    batch_folder_path = rf"C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\{(folder_name)}"
+    batch_folder_path = rf"C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\{(folder_name)}\\"
     if os.path.exists(batch_folder_path):
         # so it does exist 
         input_var = input(f'This batch file seems to already exist ({folder_name}). Press (ENTER) if you would like to delete it and overwrite. Otherwise, press (ANY KEY) for this program will terminate. (ENTER): ')
@@ -78,7 +81,7 @@ def main():
             image_paths_to_delete = myimages(batch_folder_path)
             # delete entries in db
             for path in image_paths_to_delete:
-                dbi.dbDateDelete(path)
+                dbi.dbDateDelete(rf'{path}')
             # delete folder and images from file system
             import shutil
             shutil.rmtree(batch_folder_path)
@@ -92,9 +95,13 @@ def main():
 
     print()
     print('Place date batch on the starting conveyor and let the machine run. This script is currently watching for dates and will enter them into the SQL database. Once all the dates have gone through, press Ctrl+C to exit correctly.')
-    print()
+    print() 
+    
+    # take empty pic 
+    empty_img = takepic(cam)
+    cv2.imwrite("C:\DatesWorkspace\DateIQP\MyApp\DateImages\EmptyImage.jpg", empty_img)
 
-    print('Logs:')    
+    print('Logs:') 
     # -- start watching for dates --
     index = 1
     while True: 
@@ -115,25 +122,16 @@ def main():
                 print(f'Date {index} released.')
                 sleep(0.1) # LAST_WEIGHT updates very soon after the doors open 
                 weight = plcInterface.get_var(plcInterface.Weight)
-
-                # take empty pic 
-                empty_img = takepic(cam)
                 
-                #isolate img
-                try: 
-                    img = ii.get_me_a_date(img, empty_img)
-                except IndexError as e: 
-                    print('sensor tripped, but no date detected by the camera')
-                    continue # end this iteration of the while loop 
 
                 # store image               
-                filepath = batch_folder_path + rf'\date_{str(index)}.jpg'
+                filepath = batch_folder_path + rf'date_{str(index)}.jpg'
                 cv2.imwrite(filepath, img)
 
                 print('Weight recorded.')
-                print('Image stored at: '+filepath)       
+                print('Image stored at: ' + rf"{filepath}")       
 
-                row_info = {'imageAddress':filepath, 
+                row_info = {'imageAddress':rf"{filepath}", 
                             'harvestDay':harvestDaySTR, 
                             'measureDay':measureDay, 
                             'barCode':barCode, 

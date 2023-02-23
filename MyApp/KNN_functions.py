@@ -3,6 +3,7 @@ import cv2
 import os
 import math
 from scipy import stats as st
+import image_isolation as ii
 
 def knnclassify_bme(labels, reference, NewData, k):
     # % Inputs:
@@ -38,7 +39,6 @@ def knnclassify_bme(labels, reference, NewData, k):
     #counter variable for the number of loops in the new data loop
     for data in NewData:
         #iterate over all data points in the new data set
-            
 
         countref = 0
         #counter variable for the number of loops in the reference loop
@@ -156,7 +156,12 @@ def file_AverageHSV(filepath):
     files = os.listdir(filepath)
     for file in files:
         if file.endswith(('.jpg')):
-            theImg = cv2.imread(filepath + file)
+            fullImg = cv2.imread(filepath + file)
+            fullImg = fullImg[25:385, 200:600]
+            emptyImg = cv2.imread("C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\EmptyImage.jpg")
+            emptyImg = emptyImg[25:385, 200:600]
+            theImg = ii.get_me_a_date(fullImg, emptyImg)
+            #theImg = theImg[25:385, 200:600]
             theImg = cv2.cvtColor(theImg, cv2.COLOR_BGR2HSV)
             curr_avg = averageHSV(theImg)
             if count == 0:

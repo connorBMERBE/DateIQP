@@ -3,6 +3,7 @@ import db_Interface as dbi
 import KNN_functions as KNN
 import numpy as np
 import os
+import main_export_to_excel as mete
 
 def MakeArrays():
     BigArr = dbi.getTrainingData()
@@ -20,17 +21,27 @@ def MakeArrays():
 
 def Classify(filepath, k):
     HSVArr, labels = MakeArrays()
+    if k > len(HSVArr):
+        raise Exception("k is less than the length of the training database. You need more training data. Please fix the training database")
+
     ClassifyData = KNN.file_AverageHSV(filepath)
+    #print(ClassifyData)
     z_hat = KNN.knnclassify_bme(labels, HSVArr, ClassifyData, k)
     return z_hat
 
 if __name__ == "__main__":
+
     day, barcode = ui.get()
-    filepath = rf"C:\DatesWorkspace\DateIQP\MyApp\DateImages\{day}_{barcode}" + "\\"
-    k = 5
+    filepath = rf"C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\{day}_{barcode}\\"
+    k = 25
+    #do not make k < 2
     z_hat = Classify(filepath, k)
-    print(filepath)
-    i = 1
+    i = 0
     for date in os.listdir(filepath):
-        dbi.dbDateEdit(f"{filepath}image_{i}.jgp", z_hat[i])
+        dbi.dbDateEdit(rf"{filepath}date_{i+1}.jpg", int(z_hat[i]))
+        print(int(z_hat[i]))
         i += 1
+    print( rf"{filepath}date_{i+1}.jpg")
+    mete.main(day,barcode)
+    print("excell sheet finished with classifications:")
+    print(z_hat)
