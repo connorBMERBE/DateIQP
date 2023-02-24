@@ -1,17 +1,49 @@
-import plc_interface
-import plc_interface
 from time import sleep
 import cv2
 
 import main_classification_script
+import main_export_to_excel as mete
 
 import user_input
 import datetime
 import os
 import sys
 
-cam = cv2.VideoCapture(0) 
+debug = False
 
+
+# -- make sure equipment is set up correctly 
+try:
+    import plc_interface
+    plcInterface = plc_interface.plcInterface()
+except Exception as e:     
+    if debug: 
+        raise e # DISABLED FOR TESTING  
+    else: 
+        print('Interface with the machine cannot be established. Ensure the machine is plugged in, IP is configured, and PVI is activated. See manual for more details.')
+        print()
+        sys.exit()
+
+try: 
+    import db_Interface as dbi
+except Exception as e: 
+    if debug: 
+        raise e # DISABLED FOR TESTING  
+    else: 
+        print('Interface with the Database cannot be established. Ensure the database is running and configured correctly. See manual for more details.')
+        print()
+        sys.exit()
+    
+cam = cv2.VideoCapture(0)
+if cam is None or not cam.isOpened():
+    print('Ensure the camera is connected and pointed at the sensor area. See manual for more details.')
+    raise Exception('issue connecting camera')
+
+# cam, plcInterface, dbi = ensure_equipment_setup()
+
+
+
+# -- helper functions 
 def myimages(imdir): # get all images in a directory 
     files = os.listdir(imdir)
     image_paths = list(
@@ -37,47 +69,19 @@ def takepic(cam, show=False):
     
     return frame 
 
-def main(): 
-    
-    # -- setup camera and interfaces 
-    
-    cam = cv2.VideoCapture(0)
-
-    if cam is None or not cam.isOpened():
-        print('Ensure the camera is connected and pointed at the sensor area. See manual for more details.')
-        raise Exception('issue connecting camera')
-    
-    try:
-        plcInterface = plc_interface.plcInterface()
-    except Exception as e: 
-        print('Interface with the machine cannot be established. Ensure the machine is plugged in, IP is configured, and PVI is activated. See manual for more details.')
-        raise e # DISABLED FOR TESTING  
-    
-    try: 
-        import db_Interface as dbi
-    except Exception as e: 
-        print('Interface with the Database cannot be established. Ensure the database is running and configured correctly. See manual for more details.')
-        raise e 
-        
-        
-    
-    # -- input -- 
-    input('Software startup complete, START the Machine now. Once it is fully on and conveyors are running, Press ENTER key to continue')
-    harvestDaySTR, barCode = user_input.get()
-    measureDay = datetime.datetime.today().strftime('%Y-%m-%d')
 
 
-
-    print()    
-    input('Information about batch collected, Press ENTER key to continue')
-    print() 
-
+# -- main functions 
+def the_main_logger(harvestDaySTR, barCode, measureDay): 
+    
     # -- check if this file location already exists, give option to delete it, or to close the program 
     folder_name = harvestDaySTR+"_"+str(barCode)
     batch_folder_path = rf"C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\{(folder_name)}\\"
     if os.path.exists(batch_folder_path):
         # so it does exist 
-        input_var = input(f'This batch file seems to already exist ({folder_name}). Press (ENTER) if you would like to delete it and overwrite. Otherwise, press (ANY KEY) for this program will terminate. (ENTER): ')
+        print(f'This harvestday_barcode file seems to already exist ({folder_name}). You must press (ENTER) if you would like to delete previous entries and continue. Otherwise, enter (ANY KEY) for this program will terminate.')
+        input_var = input('(ENTER): ')
+        print()
         if input_var == "": 
             image_paths_to_delete = myimages(batch_folder_path)
             # delete entries in db
@@ -88,14 +92,16 @@ def main():
             shutil.rmtree(batch_folder_path)
 
         else: 
-            print('shutting down because file path is duplicated and was told not to delete it. Please change batch number when re-running.')
+            print('Shutting down because file path is duplicated and was instructed not to delete it. Please change (Barcode Number) or (Harvest Day) when re-running.')
+            print('Goodbye!')
             sys.exit() 
 
     # now that the path definitely does not exist, remake the empty one
     os.mkdir(batch_folder_path) 
 
+    # startup! 
     print()
-    print('Place date batch on the starting conveyor and let the machine run. This script is currently watching for dates and will enter them into the SQL database. Once all the dates have gone through, press Ctrl+C to exit correctly.')
+    print('Place date batch on the starting conveyor and let the machine run. This script is currently watching for dates and will enter them into the SQL database. Once all the dates have gone through, press Ctrl+C (ONLY ONCE!) to continue to classification.')
     print() 
     
     # take empty pic 
@@ -148,24 +154,46 @@ def main():
                     
                 index = index + 1 
                 # display_img(img) 
+        print()
+
+def main():
+    try: 
+        # -- input -- 
+        print('Software startup complete, START the machine as explained in the manual.')
+        input('Once it is fully on and conveyors are running, Press ENTER key to continue')
+        
+        harvestDaySTR, barCode = user_input.get()
+        measureDay = datetime.datetime.today().strftime('%Y-%m-%d')
+
+        print()    
+        input('Information about batch collected, Press ENTER key to continue')
+        print() 
+        # -- call logger 
+        the_main_logger(harvestDaySTR, barCode, measureDay) # this has stored the images and the database entries 
+    except KeyboardInterrupt:
+        
+        while True: 
+            try: 
+                print('You are now moving to the classification section of the program.')
+                input('Press (ENTER) to start: ')
+                print()
+            except KeyboardInterrupt: # this is here in case user hits CTRL+C more than once 
+                print('Do not press CTRL+C after this point! This will exit the program!')
+                print()
+    
+                continue # restart for loop 
+
+        # -- they have hit enter and are moving on to the classification script
+        main_classification_script.main(harvestDaySTR, barCode, dbi, mete) 
+
+        print('exiting program correctly...') 
+
+
+
+
 
 
 if __name__ == "__main__":
-    try: 
-        main()
-    except KeyboardInterrupt as e:
-                
-        # main_classification_script.main(harvestDaySTR, barCode) # this will classify everything and 
-
-        print('exiting program correctly...') 
-        
-        import sys
-        sys.exit()
-
-    # - # testcases 
-    # cam = cv2.VideoCapture(0)
-    # while True: 
-    #     takepic(cam, False)
-    #     print('takepic')
-
+    main()
     
+   
