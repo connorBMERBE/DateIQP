@@ -1,9 +1,9 @@
 import numpy as np
 import cv2
 import os
-import random as rand
 import math
 from scipy import stats as st
+import image_isolation as ii
 
 def knnclassify_bme(labels, reference, NewData, k):
     # % Inputs:
@@ -39,11 +39,11 @@ def knnclassify_bme(labels, reference, NewData, k):
     #counter variable for the number of loops in the new data loop
     for data in NewData:
         #iterate over all data points in the new data set
-            
 
         countref = 0
         #counter variable for the number of loops in the reference loop
         for point in reference:
+            point = [float(point[0]), float(point[1]), float(point[2])]
             # % Iterate over all data points in X. For each data point, calculate the 
             # % distance between it and the current reference point in T. Store the 
             # % distances in the vector 'distance'.
@@ -63,9 +63,9 @@ def knnclassify_bme(labels, reference, NewData, k):
         #counter variable for the lCount loop
         for lCount in range(k):
             if lCountCount == 0:
-                l = labels[distI[lCount]]
+                l = int(labels[distI[lCount]])
             else:
-                l = np.append(l, labels[distI[lCount]])
+                l = np.append(l, int(labels[distI[lCount]]))
             
         # % Determine the class label - i.e., find the most common class label
         # % from among the nearest neighbors
@@ -156,7 +156,12 @@ def file_AverageHSV(filepath):
     files = os.listdir(filepath)
     for file in files:
         if file.endswith(('.jpg')):
-            theImg = cv2.imread(filepath + file)
+            fullImg = cv2.imread(filepath + file)
+            fullImg = fullImg[25:385, 200:600]
+            emptyImg = cv2.imread("C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\EmptyImage.jpg")
+            emptyImg = emptyImg[25:385, 200:600]
+            theImg = ii.get_me_a_date(fullImg, emptyImg)
+            #theImg = theImg[25:385, 200:600]
             theImg = cv2.cvtColor(theImg, cv2.COLOR_BGR2HSV)
             curr_avg = averageHSV(theImg)
             if count == 0:
@@ -164,8 +169,7 @@ def file_AverageHSV(filepath):
             else:
                  labeled_avgs = np.vstack((labeled_avgs,curr_avg))
             count += 1
-            print(count)
-    print(labeled_avgs)
+    #print(labeled_avgs)
     return labeled_avgs
 
 # TestClasses = np.array([0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3])
