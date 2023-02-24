@@ -1,3 +1,2 @@
 # DateIQP
-code repo for the date machine IQP
-readme! - connor will write the rest of this 
+Project Repository for "Advancing Medjool Date Research using the Date Sorting Machine" IQP at WPI. 
