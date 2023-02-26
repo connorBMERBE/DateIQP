@@ -14,14 +14,15 @@ def main(harvestDaySTRING, barCode, dbi):
                'barCode',
                'weight',
                
-               'readyOrJuicy',
-               'moist',
+               'readyOrJuicy', # 
+               'moist', # 
+               'firm', # smooth 
+               'dry', # 
+
                'yellow',
                'halfFirm',
-               'form',
                'blistered',
-               'skippedAStage',
-               'dry']
+               'skippedAStage'] 
     
     DF = pd.DataFrame(data = rows_info, columns = headers)
     location = f'C:\DatesWorkspace\DateIQP\MyApp\excel_sheets\output_{harvestDaySTRING}_{barCode}.xlsx'

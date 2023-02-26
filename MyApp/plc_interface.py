@@ -20,7 +20,7 @@ class plcInterface():
     
     def get_var(self, myvar): 
         # just get the var, with doEvents to update the value. impliment into wait_until_changed
-        e = Exception('this is a null exception that will be overwritten')
+        
         for i in range(3): 
             
             try: 
@@ -29,11 +29,12 @@ class plcInterface():
                     return myvar.value 
             except pvi.Error.PviError as er: 
                 print('retrying pvi connection issue')
-                e = er
-                
-        raise e # raise the error if it doesnt work after 2 
+                # e = er
+
+        # e = Exception('exception in pvi connection, see manual for details')        
+        # raise e # raise the error if it doesnt work after 2 
         
-            
+          
     def wait_until_changed(self, myvar):
 
         prev_weight = self.get_var(myvar)

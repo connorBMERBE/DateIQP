@@ -175,10 +175,11 @@ def main():
                 print('You are now moving to the classification section of the program.')
                 input('Press (ENTER) to start: ')
                 print()
+                break 
+
             except KeyboardInterrupt: # this is here in case user hits CTRL+C more than once 
                 print('Do not press CTRL+C after this point! This will exit the program!')
                 print()
-    
                 continue # restart for loop 
 
         # -- they have hit enter and are moving on to the classification script
