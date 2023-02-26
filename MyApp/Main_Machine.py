@@ -21,8 +21,7 @@ except Exception as e:
         raise e # DISABLED FOR TESTING  
     else: 
         print('Interface with the machine cannot be established. Ensure the machine is plugged in, IP is configured, and PVI is activated. See manual for more details.')
-        print()
-        sys.exit()
+        raise e
 
 try: 
     import db_Interface as dbi
@@ -31,8 +30,7 @@ except Exception as e:
         raise e # DISABLED FOR TESTING  
     else: 
         print('Interface with the Database cannot be established. Ensure the database is running and configured correctly. See manual for more details.')
-        print()
-        sys.exit()
+        raise e 
     
 cam = cv2.VideoCapture(0)
 if cam is None or not cam.isOpened():
@@ -92,9 +90,9 @@ def the_main_logger(harvestDaySTR, barCode, measureDay):
             shutil.rmtree(batch_folder_path)
 
         else: 
-            print('Shutting down because file path is duplicated and was instructed not to delete it. Please change (Barcode Number) or (Harvest Day) when re-running.')
-            print('Goodbye!')
-            sys.exit() 
+            raise Exception('Shutting down because file path is duplicated and was instructed not to delete it. Please change (Barcode Number) or (Harvest Day) when re-running.')
+            
+            
 
     # now that the path definitely does not exist, remake the empty one
     os.mkdir(batch_folder_path) 
@@ -194,6 +192,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
-    
+    try: 
+        main()
+    except Exception as e: 
+        print(e)
+        input("ran into error, Press Enter to close correctly: ")
    

@@ -16,7 +16,7 @@ class plcInterface():
         self.Status = pvi.Variable( self.CELL_01, 'Weight_State' ) 
         
         # test connection, will raise error if it cannot get a status  
-        self.get_var(self.Status) 
+        # self.get_var(self.Status) 
     
     def get_var(self, myvar): 
         # just get the var, with doEvents to update the value. impliment into wait_until_changed
@@ -27,8 +27,9 @@ class plcInterface():
                 self.pviConnection.doEvents() # must be cyclically
                 if myvar.readable: 
                     return myvar.value 
-            except pvi.Error.PviError as e: 
+            except pvi.Error.PviError as er: 
                 print('retrying pvi connection issue')
+                e = er
                 
         raise e # raise the error if it doesnt work after 2 
         
