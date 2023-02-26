@@ -16,13 +16,12 @@ def main(harvestDaySTRING, barCode, dbi):
                
                'readyOrJuicy', # 
                'moist', # 
-               'firm', # smooth 
-               'dry', # 
-
                'yellow',
                'halfFirm',
+               'firm', # smooth 
                'blistered',
-               'skippedAStage'] 
+               'skippedAStage',
+               'dry'] # 
     
     DF = pd.DataFrame(data = rows_info, columns = headers)
     location = f'C:\DatesWorkspace\DateIQP\MyApp\excel_sheets\output_{harvestDaySTRING}_{barCode}.xlsx'
@@ -30,6 +29,7 @@ def main(harvestDaySTRING, barCode, dbi):
 
     print('Excel Sheet has been saved in: '+location)
     print('Thank you for using the Date Sorting Machine! Goodbye!')
+    input('press enter to exit (ENTER):')
 
 
 if __name__ == "__main__":

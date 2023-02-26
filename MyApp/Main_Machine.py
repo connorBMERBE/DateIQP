@@ -91,8 +91,8 @@ def the_main_logger(harvestDaySTR, barCode, measureDay):
 
         else: 
             raise Exception('Shutting down because file path is duplicated and was instructed not to delete it. Please change (Barcode Number) or (Harvest Day) when re-running.')
-            
-            
+
+    input("Removed folder, press enter to continue (ENTER): ")
 
     # now that the path definitely does not exist, remake the empty one
     os.mkdir(batch_folder_path) 
@@ -172,7 +172,7 @@ def main():
         
         while True: 
             try: 
-                print('You are now moving to the classification section of the program.')
+                print('You are now moving to the classification section of the program. It will take a moment, and then exit this window correctly. Thank you for using The Date Sorting Machine.')
                 input('Press (ENTER) to start: ')
                 print()
                 break 
