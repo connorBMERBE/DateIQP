@@ -1,7 +1,5 @@
 # https://github.com/hilch/Pvi.py
-
 import pvi 
-# import cv2
 
 class plcInterface():
     
@@ -16,19 +14,27 @@ class plcInterface():
         self.Sensor = pvi.Variable( self.CELL_01, 'IN_Cell_Sensor' )
         self.Weight = pvi.Variable( self.CELL_01, 'LAST_WEIGHT' )
         self.Status = pvi.Variable( self.CELL_01, 'Weight_State' ) 
+        
+        # test connection, will raise error if it cannot get a status  
+        # self.get_var(self.Status) 
     
     def get_var(self, myvar): 
         # just get the var, with doEvents to update the value. impliment into wait_until_changed
-        while True: 
+        
+        for i in range(3): 
             
             try: 
                 self.pviConnection.doEvents() # must be cyclically
                 if myvar.readable: 
                     return myvar.value 
-            except pvi.Error.PviError as e: 
+            except pvi.Error.PviError as er: 
                 print('retrying pvi connection issue')
-            
-            
+                # e = er
+
+        # e = Exception('exception in pvi connection, see manual for details')        
+        # raise e # raise the error if it doesnt work after 2 
+        
+          
     def wait_until_changed(self, myvar):
 
         prev_weight = self.get_var(myvar)

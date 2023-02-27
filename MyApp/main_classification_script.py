@@ -1,11 +1,8 @@
-import user_input as ui
-import db_Interface as dbi
 import KNN_functions as KNN
 import numpy as np
 import os
-import main_export_to_excel as mete
 
-def MakeArrays():
+def MakeArrays(dbi):
     BigArr = dbi.getTrainingData()
     HSVArr = np.array([])
     labels = np.array([])
@@ -19,8 +16,8 @@ def MakeArrays():
     
     return HSVArr, labels
 
-def Classify(filepath, k):
-    HSVArr, labels = MakeArrays()
+def Classify(filepath, k, dbi):
+    HSVArr, labels = MakeArrays(dbi)
     if k > len(HSVArr):
         raise Exception("k is less than the length of the training database. You need more training data. Please fix the training database")
 
@@ -29,22 +26,28 @@ def Classify(filepath, k):
     z_hat = KNN.knnclassify_bme(labels, HSVArr, ClassifyData, k)
     return z_hat
 
-def main(day, barcode):
+def main(day, barcode, dbi, mete):
+    
 
     filepath = rf"C:\\DatesWorkspace\\DateIQP\\MyApp\\DateImages\\{day}_{barcode}\\"
     k = 25
     #do not make k < 2
-    z_hat = Classify(filepath, k)
+    z_hat = Classify(filepath, k, dbi)
     i = 0
     for date in os.listdir(filepath):
         dbi.dbDateEdit(rf"{filepath}date_{i+1}.jpg", int(z_hat[i]))
-        print(int(z_hat[i]))
+        # print(int(z_hat[i]))
         i += 1
-    print( rf"{filepath}date_{i+1}.jpg")
-    mete.main(day,barcode)
-    print("excell sheet finished with classifications:")
-    print(z_hat)
+    # print( rf"{filepath}date_{i+1}.jpg")
+    mete.main(day,barcode, dbi)
+    # print("excel sheet finished with classifications:")
+    # print(z_hat)
 
 if __name__ == "__main__":
+    import main_export_to_excel as mete
+    import db_Interface as dbi
+    import user_input as ui
+    
     day, barcode = ui.get()
-    main(day, barcode)
+    main(day, barcode, dbi, mete)
+    

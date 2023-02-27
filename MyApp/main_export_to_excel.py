@@ -1,8 +1,6 @@
 import pandas as pd
-import user_input
-import db_Interface as dbi
 
-def main(harvestDaySTRING, barCode):
+def main(harvestDaySTRING, barCode, dbi):
     print("You are now running a script that will download a filtered section of the MySQL database running on this computer.")
     
     # harvestDaySTRING = "2022-02-20"
@@ -16,25 +14,29 @@ def main(harvestDaySTRING, barCode):
                'barCode',
                'weight',
                
-               'readyOrJuicy',
-               'moist',
+               'readyOrJuicy', # 
+               'moist', # 
                'yellow',
                'halfFirm',
-               'form',
+               'firm', # smooth 
                'blistered',
                'skippedAStage',
-               'dry']
+               'dry'] # 
     
     DF = pd.DataFrame(data = rows_info, columns = headers)
-    location = f'C:\DatesWorkspace\DateIQP\MyApp\output{harvestDaySTRING}_{barCode}.xlsx'
+    location = f'C:\DatesWorkspace\DateIQP\MyApp\excel_sheets\output_{harvestDaySTRING}_{barCode}.xlsx'
     DF.to_excel(location)
 
-    print('Selected part of the database has been saved in: '+location)
+    print('Excel Sheet has been saved in: '+location)
+    print('Thank you for using the Date Sorting Machine! Goodbye!')
+    input('press enter to exit (ENTER):')
 
 
 if __name__ == "__main__":
+    import user_input
+    import db_Interface as dbi
     harvestDaySTRING, barCode = user_input.get()
-    main(harvestDaySTRING, barCode) 
+    main(harvestDaySTRING, barCode, dbi) 
 
 
 
